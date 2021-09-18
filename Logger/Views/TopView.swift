@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TopBarView: View {
+struct TopView: View {
     var body: some View {
         VStack {
             HStack {
@@ -21,6 +21,7 @@ struct TopBarView: View {
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
+                SearchBar()
             }.frame(
                 maxWidth: .infinity,
                 maxHeight: 55)
@@ -42,6 +43,6 @@ struct TopBarView: View {
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopBarView()
+        TopView()
     }
 }

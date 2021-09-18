@@ -22,7 +22,7 @@ struct MainLoggerView: View {
                 .frame(maxWidth: 1, maxHeight: .infinity)
 
             VStack {
-                TopBarView()
+                TopView()
                 Spacer()
             }.frame(maxWidth: .infinity)
         }.frame(minWidth: 0,
