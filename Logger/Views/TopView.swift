@@ -16,25 +16,38 @@ struct TopView: View {
                     Spacer(minLength: 1)
                     Text("100 Messages").font(.subheadline).foregroundColor(Color.fontLightGrayColor())
 
-                }.padding(EdgeInsets(top: 0,
+                }.padding(EdgeInsets(top: 10,
                                      leading: 10,
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
-                SearchBar()
+                TopButtonsBar().padding(EdgeInsets(top: 10,
+                                                   leading: 0,
+                                                   bottom: 0,
+                                                   trailing: 0))
+                SearchBar().padding(EdgeInsets(top: 10,
+                                               leading: 0,
+                                               bottom: 0,
+                                               trailing: 0))
             }.frame(
                 maxWidth: .infinity,
-                maxHeight: 55)
+                minHeight: 45,
+                maxHeight: 45)
                 .background(Color.backgroundColorBar())
             RoundedRectangle(cornerRadius: 25.0).frame(
                 maxWidth: .infinity,
                 maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine()).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             VStack {
-                            }.frame(
+            
+            }.frame(
                 maxWidth: .infinity,
-                maxHeight: 25)
+                minHeight: 25, maxHeight: 25)
                 .background(Color.backgroundColorBar())
+            Rectangle()
+                .foregroundColor(.black)
+                .frame(maxWidth: .infinity, maxHeight: 1)
+   
         }.frame(
             maxWidth: .infinity)
             .background(Color.backgroundColorBar())

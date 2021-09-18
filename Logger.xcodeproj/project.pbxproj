@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C329F26F68AB00009E533 /* TopButtonsBar.swift */; };
 		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
 		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
 		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
@@ -15,7 +16,9 @@
 		40A5BBFA26F61A9B00649521 /* LoggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBF926F61A9B00649521 /* LoggerUITests.swift */; };
 		40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */; };
 		40A5BC0A26F6361600649521 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0926F6361600649521 /* Styles.swift */; };
-		40A5BC0E26F639D800649521 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopBarView.swift */; };
+		40A5BC0E26F639D800649521 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopView.swift */; };
+		40A5BC1526F6465600649521 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC1426F6465600649521 /* SearchBar.swift */; };
+		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		407C329F26F68AB00009E533 /* TopButtonsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsBar.swift; sourceTree = "<group>"; };
 		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
 		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
@@ -51,7 +55,9 @@
 		40A5BBFB26F61A9B00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewModel.swift; sourceTree = "<group>"; };
 		40A5BC0926F6361600649521 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
-		40A5BC0D26F639D800649521 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		40A5BC0D26F639D800649521 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
+		40A5BC1426F6465600649521 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,10 +149,21 @@
 		40A5BC0B26F639A700649521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40A5BC1626F64C6900649521 /* SearchBar */,
 				40A5BBDD26F61A9800649521 /* MainLoggerView.swift */,
-				40A5BC0D26F639D800649521 /* TopBarView.swift */,
+				40A5BC0D26F639D800649521 /* TopView.swift */,
+				40D5E17B26F65A1D00CB5A17 /* TopButton.swift */,
+				407C329F26F68AB00009E533 /* TopButtonsBar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		40A5BC1626F64C6900649521 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BC1426F6465600649521 /* SearchBar.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,9 +297,12 @@
 			files = (
 				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
-				40A5BC0E26F639D800649521 /* TopBarView.swift in Sources */,
+				40A5BC0E26F639D800649521 /* TopView.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
+				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
+				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
+				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

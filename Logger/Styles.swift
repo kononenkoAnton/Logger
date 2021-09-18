@@ -31,4 +31,8 @@ extension Color {
     static var searchBarBackground: Color {
         Color(red: 57 / 255, green: 54 / 255, blue: 57 / 255)
     }
+    
+    static var topButtonBackgroundHower: Color {
+        Color(red: 71 / 255, green: 67 / 255, blue: 70 / 255)
+    }
 }
