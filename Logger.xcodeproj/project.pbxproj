@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
+		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
+		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
+		40A5BBE326F61A9A00649521 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBE226F61A9A00649521 /* Preview Assets.xcassets */; };
+		40A5BBEF26F61A9B00649521 /* LoggerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBEE26F61A9B00649521 /* LoggerTests.swift */; };
+		40A5BBFA26F61A9B00649521 /* LoggerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBF926F61A9B00649521 /* LoggerUITests.swift */; };
+		40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */; };
+		40A5BC0A26F6361600649521 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0926F6361600649521 /* Styles.swift */; };
+		40A5BC0E26F639D800649521 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopBarView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		40A5BBEB26F61A9A00649521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A5BBD026F61A9700649521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40A5BBD726F61A9800649521;
+			remoteInfo = Logger;
+		};
+		40A5BBF626F61A9B00649521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40A5BBD026F61A9700649521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40A5BBD726F61A9800649521;
+			remoteInfo = Logger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
+		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
+		40A5BBDF26F61A9A00649521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		40A5BBE226F61A9A00649521 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		40A5BBE426F61A9A00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40A5BBE526F61A9A00649521 /* Logger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Logger.entitlements; sourceTree = "<group>"; };
+		40A5BBEA26F61A9A00649521 /* LoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A5BBEE26F61A9B00649521 /* LoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTests.swift; sourceTree = "<group>"; };
+		40A5BBF026F61A9B00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40A5BBF526F61A9B00649521 /* LoggerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		40A5BBF926F61A9B00649521 /* LoggerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerUITests.swift; sourceTree = "<group>"; };
+		40A5BBFB26F61A9B00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewModel.swift; sourceTree = "<group>"; };
+		40A5BC0926F6361600649521 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		40A5BC0D26F639D800649521 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		40A5BBD526F61A9800649521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBE726F61A9A00649521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBF226F61A9B00649521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		40A5BBCF26F61A9700649521 = {
+			isa = PBXGroup;
+			children = (
+				40A5BBDA26F61A9800649521 /* Logger */,
+				40A5BBED26F61A9B00649521 /* LoggerTests */,
+				40A5BBF826F61A9B00649521 /* LoggerUITests */,
+				40A5BBD926F61A9800649521 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		40A5BBD926F61A9800649521 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BBD826F61A9800649521 /* Logger.app */,
+				40A5BBEA26F61A9A00649521 /* LoggerTests.xctest */,
+				40A5BBF526F61A9B00649521 /* LoggerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40A5BBDA26F61A9800649521 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BC0B26F639A700649521 /* Views */,
+				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
+				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
+				40A5BC0926F6361600649521 /* Styles.swift */,
+				40A5BBDF26F61A9A00649521 /* Assets.xcassets */,
+				40A5BBE426F61A9A00649521 /* Info.plist */,
+				40A5BBE526F61A9A00649521 /* Logger.entitlements */,
+				40A5BBE126F61A9A00649521 /* Preview Content */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		40A5BBE126F61A9A00649521 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BBE226F61A9A00649521 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		40A5BBED26F61A9B00649521 /* LoggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BBEE26F61A9B00649521 /* LoggerTests.swift */,
+				40A5BBF026F61A9B00649521 /* Info.plist */,
+			);
+			path = LoggerTests;
+			sourceTree = "<group>";
+		};
+		40A5BBF826F61A9B00649521 /* LoggerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BBF926F61A9B00649521 /* LoggerUITests.swift */,
+				40A5BBFB26F61A9B00649521 /* Info.plist */,
+			);
+			path = LoggerUITests;
+			sourceTree = "<group>";
+		};
+		40A5BC0B26F639A700649521 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BBDD26F61A9800649521 /* MainLoggerView.swift */,
+				40A5BC0D26F639D800649521 /* TopBarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		40A5BBD726F61A9800649521 /* Logger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A5BBFE26F61A9B00649521 /* Build configuration list for PBXNativeTarget "Logger" */;
+			buildPhases = (
+				40A5BBD426F61A9800649521 /* Sources */,
+				40A5BBD526F61A9800649521 /* Frameworks */,
+				40A5BBD626F61A9800649521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Logger;
+			productName = Logger;
+			productReference = 40A5BBD826F61A9800649521 /* Logger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		40A5BBE926F61A9A00649521 /* LoggerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A5BC0126F61A9B00649521 /* Build configuration list for PBXNativeTarget "LoggerTests" */;
+			buildPhases = (
+				40A5BBE626F61A9A00649521 /* Sources */,
+				40A5BBE726F61A9A00649521 /* Frameworks */,
+				40A5BBE826F61A9A00649521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40A5BBEC26F61A9A00649521 /* PBXTargetDependency */,
+			);
+			name = LoggerTests;
+			productName = LoggerTests;
+			productReference = 40A5BBEA26F61A9A00649521 /* LoggerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		40A5BBF426F61A9B00649521 /* LoggerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40A5BC0426F61A9B00649521 /* Build configuration list for PBXNativeTarget "LoggerUITests" */;
+			buildPhases = (
+				40A5BBF126F61A9B00649521 /* Sources */,
+				40A5BBF226F61A9B00649521 /* Frameworks */,
+				40A5BBF326F61A9B00649521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40A5BBF726F61A9B00649521 /* PBXTargetDependency */,
+			);
+			name = LoggerUITests;
+			productName = LoggerUITests;
+			productReference = 40A5BBF526F61A9B00649521 /* LoggerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		40A5BBD026F61A9700649521 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					40A5BBD726F61A9800649521 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					40A5BBE926F61A9A00649521 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 40A5BBD726F61A9800649521;
+					};
+					40A5BBF426F61A9B00649521 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 40A5BBD726F61A9800649521;
+					};
+				};
+			};
+			buildConfigurationList = 40A5BBD326F61A9700649521 /* Build configuration list for PBXProject "Logger" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 40A5BBCF26F61A9700649521;
+			productRefGroup = 40A5BBD926F61A9800649521 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40A5BBD726F61A9800649521 /* Logger */,
+				40A5BBE926F61A9A00649521 /* LoggerTests */,
+				40A5BBF426F61A9B00649521 /* LoggerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		40A5BBD626F61A9800649521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5BBE326F61A9A00649521 /* Preview Assets.xcassets in Resources */,
+				40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBE826F61A9A00649521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBF326F61A9B00649521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		40A5BBD426F61A9800649521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
+				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
+				40A5BC0E26F639D800649521 /* TopBarView.swift in Sources */,
+				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
+				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBE626F61A9A00649521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5BBEF26F61A9B00649521 /* LoggerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		40A5BBF126F61A9B00649521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40A5BBFA26F61A9B00649521 /* LoggerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		40A5BBEC26F61A9A00649521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40A5BBD726F61A9800649521 /* Logger */;
+			targetProxy = 40A5BBEB26F61A9A00649521 /* PBXContainerItemProxy */;
+		};
+		40A5BBF726F61A9B00649521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 40A5BBD726F61A9800649521 /* Logger */;
+			targetProxy = 40A5BBF626F61A9B00649521 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		40A5BBFC26F61A9B00649521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		40A5BBFD26F61A9B00649521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		40A5BBFF26F61A9B00649521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Logger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.Logger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		40A5BC0026F61A9B00649521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Logger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.Logger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		40A5BC0226F61A9B00649521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.LoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logger.app/Contents/MacOS/Logger";
+			};
+			name = Debug;
+		};
+		40A5BC0326F61A9B00649521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.LoggerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logger.app/Contents/MacOS/Logger";
+			};
+			name = Release;
+		};
+		40A5BC0526F61A9B00649521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LoggerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.LoggerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Logger;
+			};
+			name = Debug;
+		};
+		40A5BC0626F61A9B00649521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = LoggerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FrameworksApp.applicaster.com.LoggerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = Logger;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		40A5BBD326F61A9700649521 /* Build configuration list for PBXProject "Logger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A5BBFC26F61A9B00649521 /* Debug */,
+				40A5BBFD26F61A9B00649521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40A5BBFE26F61A9B00649521 /* Build configuration list for PBXNativeTarget "Logger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A5BBFF26F61A9B00649521 /* Debug */,
+				40A5BC0026F61A9B00649521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40A5BC0126F61A9B00649521 /* Build configuration list for PBXNativeTarget "LoggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A5BC0226F61A9B00649521 /* Debug */,
+				40A5BC0326F61A9B00649521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40A5BC0426F61A9B00649521 /* Build configuration list for PBXNativeTarget "LoggerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				40A5BC0526F61A9B00649521 /* Debug */,
+				40A5BC0626F61A9B00649521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 40A5BBD026F61A9700649521 /* Project object */;
+}
