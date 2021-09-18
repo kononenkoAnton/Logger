@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainLoggerView: View {
-    var loggerView: LoggerViewModel
+    @ObservedObject var loggerViewModel: LoggerViewModel
 
     var body: some View {
         HStack {
@@ -16,13 +16,14 @@ struct MainLoggerView: View {
              
             }.frame(minWidth: 50,
                     maxHeight: .infinity)
-            .background(Color.backgroundColorBar())
+            .background(Color.backgroundColorBar)
             Rectangle()
                 .foregroundColor(.black)
                 .frame(maxWidth: 1, maxHeight: .infinity)
 
             VStack {
-                TopView()
+                TopView(clearAction: loggerViewModel.clearLoggerData,
+                        copyIpAdressAction: loggerViewModel.copyIpAdress)
                 Spacer()
             }.frame(maxWidth: .infinity)
         }.frame(minWidth: 0,
@@ -31,12 +32,12 @@ struct MainLoggerView: View {
                 minHeight: 0,
                 idealHeight: 100,
                 maxHeight: .infinity)
-            .background(Color.backgroundColor())
+            .background(Color.backgroundColor)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainLoggerView(loggerView: LoggerViewModel())
+        MainLoggerView(loggerViewModel: LoggerViewModel())
     }
 }

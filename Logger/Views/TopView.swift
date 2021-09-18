@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct TopView: View {
+    var clearAction: () -> Void
+    var copyIpAdressAction: () -> Void
+    
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Logger").font(.headline).foregroundColor(Color.fontColor())
+                    Text("Logger").font(.headline).foregroundColor(Color.fontColor)
                     Spacer(minLength: 1)
-                    Text("100 Messages").font(.subheadline).foregroundColor(Color.fontLightGrayColor())
+                    Text("100 Messages").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
 
                 }.padding(EdgeInsets(top: 10,
                                      leading: 10,
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
-                TopButtonsBar().padding(EdgeInsets(top: 10,
+                TopButtonsBar(clearAction: clearAction,
+                              copyIpAdressAction: copyIpAdressAction).padding(EdgeInsets(top: 10,
                                                    leading: 0,
                                                    bottom: 0,
                                                    trailing: 0))
@@ -33,29 +37,29 @@ struct TopView: View {
                 maxWidth: .infinity,
                 minHeight: 45,
                 maxHeight: 45)
-                .background(Color.backgroundColorBar())
+                .background(Color.backgroundColorBar)
             RoundedRectangle(cornerRadius: 25.0).frame(
                 maxWidth: .infinity,
-                maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine()).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             VStack {
             
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 25, maxHeight: 25)
-                .background(Color.backgroundColorBar())
+                .background(Color.backgroundColorBar)
             Rectangle()
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, maxHeight: 1)
    
         }.frame(
             maxWidth: .infinity)
-            .background(Color.backgroundColorBar())
+            .background(Color.backgroundColorBar)
     }
 }
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopView()
+        TopView(clearAction: {}, copyIpAdressAction: {})
     }
 }

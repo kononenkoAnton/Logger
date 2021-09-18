@@ -12,7 +12,7 @@ struct LoggerApp: App {
     var body: some Scene {
         WindowGroup {
             let logger = LoggerViewModel()
-            MainLoggerView(loggerView: logger)
+            MainLoggerView(loggerViewModel: logger)
         }
     }
 }
