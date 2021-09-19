@@ -8,24 +8,37 @@
 import SwiftUI
 
 struct LogTypeButton: View {
+    @State private var isHover = false
+
     var text: String
-    var action: () -> Void
-    var isSelected: Bool
+    var action: (LogTypeButton) -> Void
+    var isSelected: (LogTypeButton) -> Bool
+    var buttonType: LogButtonTypes
 
     var body: some View {
-        Button(action: action) {
-            VStack {
-                Text(text).font(.subheadline).padding().foregroundColor(isSelected ? Color.fontColor : Color.fontLightGrayColor)
-            }.background(isSelected ? Color.gray : Color.clear).cornerRadius(5.0)
+        let selected = isSelected(self)
+        Button(action: {
+            action(self)
         }
-        .buttonStyle(PlainButtonStyle())
-        .foregroundColor(.gray)
+        ) {
+            VStack {
+                Text(text)
+                    .font(.subheadline)
+                    .padding(5)
+                    .foregroundColor(selected ?
+                        Color.fontColor : Color.fontLightGrayColor)
+            }
+            .background(selected ? Color.gray : isHover ? Color.topButtonBackgroundHower : Color.clear).cornerRadius(5.0)
+        }.onHover(perform: { hovering in
+            isHover = hovering
+        })
+            .buttonStyle(PlainButtonStyle())
+            .foregroundColor(.gray)
     }
 }
 
 struct LogTypeButton_Previews: PreviewProvider {
     static var previews: some View {
-        LogTypeButton(text: "All keys", action: {}, isSelected: true)
-        LogTypeButton(text: "All keys", action: {}, isSelected: false)
-    }
+        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in true}, buttonType: .allLogs)
+        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in false}, buttonType: .allLogs)    }
 }

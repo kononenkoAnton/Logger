@@ -37,24 +37,24 @@ struct TopView: View {
                 maxWidth: .infinity,
                 minHeight: 45,
                 maxHeight: 45)
-                .background(Color.backgroundColorBar)
+                .background(Color.backgroundColorTopBar)
             RoundedRectangle(cornerRadius: 25.0).frame(
                 maxWidth: .infinity,
                 maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
-            VStack {
-            
+            HStack {
+                LogTypeBar()
             }.frame(
                 maxWidth: .infinity,
-                minHeight: 25, maxHeight: 25)
-                .background(Color.backgroundColorBar)
+                minHeight: 20, maxHeight: 20, alignment: .leading   )
+            .background(Color.backgroundColorTopBar)
             Rectangle()
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, maxHeight: 1)
    
         }.frame(
             maxWidth: .infinity)
-            .background(Color.backgroundColorBar)
+            .background(Color.backgroundColorTopBar)
     }
 }
 

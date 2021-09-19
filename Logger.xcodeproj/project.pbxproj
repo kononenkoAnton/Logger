@@ -11,6 +11,7 @@
 		407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A126F6920B0009E533 /* LoggerModel.swift */; };
 		407C32A426F693550009E533 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A326F693550009E533 /* Helpers.swift */; };
 		407C32A726F694340009E533 /* LogTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A626F694340009E533 /* LogTypeButton.swift */; };
+		407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A926F696830009E533 /* LogTypeBar.swift */; };
 		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
 		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
 		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
@@ -46,6 +47,7 @@
 		407C32A126F6920B0009E533 /* LoggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerModel.swift; sourceTree = "<group>"; };
 		407C32A326F693550009E533 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		407C32A626F694340009E533 /* LogTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypeButton.swift; sourceTree = "<group>"; };
+		407C32A926F696830009E533 /* LogTypeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypeBar.swift; sourceTree = "<group>"; };
 		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
 		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				407C32A626F694340009E533 /* LogTypeButton.swift */,
+				407C32A926F696830009E533 /* LogTypeBar.swift */,
 			);
 			path = LogTypeView;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
+				407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */,
 				407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */,
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,

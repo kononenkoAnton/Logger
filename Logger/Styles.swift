@@ -7,17 +7,30 @@
 
 import SwiftUI
 
+enum LogButtonTypes: Int {
+    case allLogs
+    case error
+    case warning
+    case debug
+    case info
+    case verbose
+}
+
 extension Color {
     static var backgroundColor: Color {
         Color(red: 36 / 255, green: 32 / 255, blue: 37 / 255)
     }
 
-    static var backgroundColorBar: Color {
+    static var backgroundColorLeftBar: Color {
         Color(red: 45 / 255, green: 41 / 255, blue: 46 / 255)
     }
 
+    static var backgroundColorTopBar: Color {
+        Color(red: 61 / 255, green: 57 / 255, blue: 60 / 255)
+    }
+
     static var backgroundColorSeparatorLine: Color {
-        Color(red: 58 / 255, green: 54 / 255, blue: 58 / 255)
+        Color(red: 74 / 255, green: 70 / 255, blue: 73 / 255)
     }
 
     static var fontLightGrayColor: Color {

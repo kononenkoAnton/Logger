@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TopButton: View {
-    @State var isHover = false
+    @State private var isHover = false
     var imageName: String
     var text: String
     var action: () -> Void

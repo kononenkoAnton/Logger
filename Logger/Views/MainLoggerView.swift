@@ -13,15 +13,6 @@ struct MainLoggerView: View {
     var body: some View {
         HStack {
             VStack {
-             
-            }.frame(minWidth: 50,
-                    maxHeight: .infinity)
-            .background(Color.backgroundColorBar)
-            Rectangle()
-                .foregroundColor(.black)
-                .frame(maxWidth: 1, maxHeight: .infinity)
-
-            VStack {
                 TopView(clearAction: loggerViewModel.clearLoggerData,
                         copyIpAdressAction: loggerViewModel.copyIpAdress)
                 Spacer()
