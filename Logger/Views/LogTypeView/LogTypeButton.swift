@@ -28,7 +28,7 @@ struct LogTypeButton: View {
                     .foregroundColor(selected ?
                         Color.fontColor : Color.fontLightGrayColor)
             }
-            .background(selected ? Color.gray : isHover ? Color.topButtonBackgroundHower : Color.clear).cornerRadius(5.0)
+            .background(selected ? buttonType.toColor() : isHover ? buttonType.toColor().opacity(0.3) : Color.clear).cornerRadius(5.0)
         }.onHover(perform: { hovering in
             isHover = hovering
         })
