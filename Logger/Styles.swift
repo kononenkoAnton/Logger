@@ -96,11 +96,11 @@ extension Color {
         Color(red: 71 / 255, green: 67 / 255, blue: 70 / 255)
     }
     
-    static var rowBacgroundColor1: Color {
+    static var rowBackgroundColor1: Color {
         Color(red: 48 / 255, green: 42 / 255, blue: 47 / 255)
     }
 
-    static var rowBacgroundColor2: Color {
+    static var rowBackgroundColor2: Color {
         Color(red: 38 / 255, green: 32 / 255, blue: 37 / 255)
     }
     

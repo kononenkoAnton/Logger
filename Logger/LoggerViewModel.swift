@@ -10,8 +10,8 @@ import Foundation
 
 class LoggerViewModel: ObservableObject {
     @Published var loggerModel = LoggerModel()
+
     init() {
-//        printAddresses()
         let strIPAddress: String = getIPAddress()
         print("IPAddress : \(strIPAddress)")
     }
@@ -19,7 +19,13 @@ class LoggerViewModel: ObservableObject {
     // MARK: - Intents(s)
 
     func clearLoggerData() {
-        // TODO: Should clear model data
+        loggerModel.clearLoggerData()
+        loggerModel.setSelectedModel(model: nil)
+
+    }
+
+    func events() -> [EventModel] {
+        loggerModel.events
     }
 
     func copyIpAdress() {
@@ -29,9 +35,18 @@ class LoggerViewModel: ObservableObject {
         pasteboard.setString(result, forType: NSPasteboard.PasteboardType.string)
     }
 
-    func dataModels(from model: EventModel) -> [[DataModel]] {
-        return DataModelHelper.prepareDataSource(from:model)
+    func dataModels(from model: EventModel) -> [DataModel] {
+        print("model", model)
+
+        return DataModelHelper.prepareDataSource(from: model)
     }
 
-    
+    func setModelSelected(model: EventModel) {
+        loggerModel.setSelectedModel(model: model)
+        self.objectWillChange.send()
+    }
+
+    func getModelSelected() -> EventModel? {
+        loggerModel.selectedModel
+    }
 }

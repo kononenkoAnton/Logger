@@ -8,19 +8,25 @@
 import Foundation
 
 struct DataModelHelper {
-    static func prepareDataSource(from model: EventModel) -> [[DataModel]] {
+    static func prepareDataSource(from model: EventModel) -> [DataModel] {
         let data = model.data
         let context = model.data
-        var retVal: [[DataModel]] = []
+        var retVal: [DataModel] = []
 
         if let data = data {
-            let dataObject = prepareDataSourceDictionary(dataDicionary: data)
-            retVal.append(dataObject)
+            let dataObjectArray = prepareDataSourceDictionary(dataDicionary: data)
+            let dataObject = DataModel(key: "Data", items: dataObjectArray)
+            if dataObjectArray.count > 0 {
+                retVal.append(dataObject)
+            }
         }
 
         if let context = context {
-            let contextObject = prepareDataSourceDictionary(dataDicionary: context)
-            retVal.append(contextObject)
+            let contextObjectArray = prepareDataSourceDictionary(dataDicionary: context)
+            let contextObject = DataModel(key: "Context", items: contextObjectArray)
+            if contextObjectArray.count > 0 {
+                retVal.append(contextObject)
+            }
         }
 
         return retVal

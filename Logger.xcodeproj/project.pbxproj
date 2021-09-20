@@ -21,6 +21,9 @@
 		407C32C026F8EE4B0009E533 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32BF26F8EE4B0009E533 /* InfoView.swift */; };
 		407C32C226F8F38A0009E533 /* LogTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32C126F8F38A0009E533 /* LogTypeView.swift */; };
 		407C32C426F8F7A30009E533 /* InfoViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32C326F8F7A30009E533 /* InfoViewLabel.swift */; };
+		407C32C626F904B20009E533 /* DetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32C526F904B20009E533 /* DetailsList.swift */; };
+		407C32CA26F908290009E533 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32C926F908290009E533 /* DataModel.swift */; };
+		407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32CC26F921CE0009E533 /* DataModelHelper.swift */; };
 		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
 		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
 		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
@@ -66,6 +69,9 @@
 		407C32BF26F8EE4B0009E533 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		407C32C126F8F38A0009E533 /* LogTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogTypeView.swift; sourceTree = "<group>"; };
 		407C32C326F8F7A30009E533 /* InfoViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewLabel.swift; sourceTree = "<group>"; };
+		407C32C526F904B20009E533 /* DetailsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsList.swift; sourceTree = "<group>"; };
+		407C32C926F908290009E533 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		407C32CC26F921CE0009E533 /* DataModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelHelper.swift; sourceTree = "<group>"; };
 		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
 		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
@@ -143,7 +149,9 @@
 		407C32AE26F7BFF70009E533 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				407C32A126F6920B0009E533 /* LoggerModel.swift */,
 				407C32AF26F7C0120009E533 /* EventModel.swift */,
+				407C32C926F908290009E533 /* DataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -163,8 +171,18 @@
 				407C32BF26F8EE4B0009E533 /* InfoView.swift */,
 				407C32C326F8F7A30009E533 /* InfoViewLabel.swift */,
 				407C32C126F8F38A0009E533 /* LogTypeView.swift */,
+				407C32C526F904B20009E533 /* DetailsList.swift */,
 			);
 			path = BottomDetailView;
+			sourceTree = "<group>";
+		};
+		407C32CB26F921A60009E533 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				407C32A326F693550009E533 /* Helpers.swift */,
+				407C32CC26F921CE0009E533 /* DataModelHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		40A5BBCF26F61A9700649521 = {
@@ -195,13 +213,12 @@
 				40A5BC0B26F639A700649521 /* Views */,
 				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
 				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
-				407C32A126F6920B0009E533 /* LoggerModel.swift */,
 				40A5BC0926F6361600649521 /* Styles.swift */,
 				40A5BBDF26F61A9A00649521 /* Assets.xcassets */,
 				40A5BBE426F61A9A00649521 /* Info.plist */,
 				40A5BBE526F61A9A00649521 /* Logger.entitlements */,
 				40A5BBE126F61A9A00649521 /* Preview Content */,
-				407C32A326F693550009E533 /* Helpers.swift */,
+				407C32CB26F921A60009E533 /* Helpers */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -384,6 +401,7 @@
 			files = (
 				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
+				407C32C626F904B20009E533 /* DetailsList.swift in Sources */,
 				40A5BC0E26F639D800649521 /* TopView.swift in Sources */,
 				407C32A426F693550009E533 /* Helpers.swift in Sources */,
 				407C32B026F7C0120009E533 /* EventModel.swift in Sources */,
@@ -400,9 +418,11 @@
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				407C32B726F80B640009E533 /* AnyCodable.swift in Sources */,
 				407C32BE26F8EC420009E533 /* BottomDetailView.swift in Sources */,
+				407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */,
 				407C32BB26F8CBBF0009E533 /* LogEventRow.swift in Sources */,
 				407C32B426F7C1620009E533 /* EventsHeader.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
+				407C32CA26F908290009E533 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

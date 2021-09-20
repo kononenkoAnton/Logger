@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TopView: View {
+    var eventModels: [EventModel] = []
     var clearAction: () -> Void
     var copyIpAdressAction: () -> Void
 
@@ -17,7 +18,7 @@ struct TopView: View {
                 VStack(alignment: .leading) {
                     Text("Logger").font(.headline).foregroundColor(Color.fontColor)
                     Spacer(minLength: 1)
-                    Text("100 Events").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
+                    Text("\(eventModels.count) Events").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
 
                 }.padding(EdgeInsets(top: 10,
                                      leading: 10,
