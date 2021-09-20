@@ -104,6 +104,13 @@ extension Color {
         Color(red: 38 / 255, green: 32 / 255, blue: 37 / 255)
     }
     
+    static var bottomDetailViewColor: Color {
+        Color(red: 38 / 255, green: 32 / 255, blue: 37 / 255)
+    }
+    
+    static var bottomDetailViewDetailsColor: Color {
+        Color(red: 30 / 255, green: 30 / 255, blue: 30 / 255)
+    }
     static var rowBacgroundColorSelected: Color {
         Color(red: 0 / 255, green: 89 / 255, blue: 211 / 255)
     }
