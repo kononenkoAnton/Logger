@@ -13,7 +13,7 @@ struct BottomDetailView: View {
         VStack {
             InfoView(model: model).frame(maxWidth: .infinity)
             Divider().padding(.horizontal, 20)
-            Spacer()
+            DetailsList(items: [])
         }.frame(maxWidth: .infinity,
                 minHeight: 100,
                 maxHeight: .infinity)

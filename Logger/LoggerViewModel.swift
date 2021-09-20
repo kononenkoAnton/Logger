@@ -28,5 +28,10 @@ class LoggerViewModel: ObservableObject {
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
         pasteboard.setString(result, forType: NSPasteboard.PasteboardType.string)
     }
-}
 
+    func dataModels(from model: EventModel) -> [[DataModel]] {
+        return DataModelHelper.prepareDataSource(from:model)
+    }
+
+    
+}
