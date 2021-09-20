@@ -20,7 +20,7 @@ struct LogsView: View {
     var body: some View {
         VStack {
 //            EventsHeader()
-//            VSplitView {
+            VSplitView {
                 List() {
                     Section(header: EventsHeader()) {
                             LazyVStack {
@@ -38,16 +38,16 @@ struct LogsView: View {
                             LogEventRow(model: TestModels.model5, backgroundColor: Color.rowBacgroundColor1)
                         }.background(Color.green)
                         }.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)).background(Color.blue)
-                }.listStyle(SidebarListStyle()).listRowInsets(EdgeInsets(top: 100, leading: 100, bottom: 100, trailing: 100)).frame(maxWidth: .infinity,
+                }.frame(maxWidth: .infinity,
                         minHeight: 200,
+                        maxHeight: .infinity).border(Color.backgroundColorEventsHeader, width: 2)
+                   
+                VStack {
+                }.frame(maxWidth: .infinity,
+                        minHeight: 100,
                         maxHeight: .infinity)
-                    .background(Color.yellow)
-//                VStack {
-////                }.frame(maxWidth: .infinity,
-////                        minHeight: 100,
-////                        maxHeight: .infinity)
-////                    .background(Color.blue)
-//            }.background(Color.yellow)
+                    .background(Color.blue)
+            }.background(Color.yellow)
         }.frame(maxWidth: .infinity,
                 maxHeight: .infinity,
                 alignment: .top).background(Color.orange)

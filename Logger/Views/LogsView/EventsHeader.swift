@@ -17,10 +17,10 @@ struct EventsHeader: View {
     }
 
     var test = {
-        
     }
+
     var body: some View {
-        let devider = Divider().frame(width:1,height:20).foregroundColor(Color.backgroundColorSeparatorLine2)
+        let devider = Divider().frame(width: 1, height: 20).foregroundColor(Color.backgroundColorSeparatorLine2)
 
         HStack {
             Text(ColumnNames.Level).frame(width: 50, alignment: .leading).padding(.horizontal, 10)
@@ -33,8 +33,7 @@ struct EventsHeader: View {
             devider
             Text(ColumnNames.Message).frame(alignment: .leading).padding(.horizontal, 10)
 
-        }.frame(maxWidth:.infinity ,minHeight: 35, alignment: .leading).font(.headline).foregroundColor(.white).background(Color.backgroundColorEventsHeader)
-        
+        }.frame(maxWidth: .infinity, minHeight: 35, alignment: .leading).font(.headline).foregroundColor(.white).background(Color.backgroundColorEventsHeader)
     }
 }
 
