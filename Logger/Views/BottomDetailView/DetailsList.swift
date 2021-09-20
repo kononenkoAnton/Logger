@@ -20,7 +20,7 @@ struct DetailsList: View {
     func createTitle(row:DataModel) -> String{
         var message = "\(row.key)"
         if let value = row.value {
-            message = "\(message) - \(value)"
+            message = "\(message) - '\(value)'"
         }
         return message
     }
