@@ -11,17 +11,14 @@ struct MainLoggerView: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
 
     var body: some View {
-        HStack {
-            VStack {
-                TopView(clearAction: loggerViewModel.clearLoggerData,
-                        copyIpAdressAction: loggerViewModel.copyIpAdress)
-                Spacer()
-            }.frame(maxWidth: .infinity)
-        }.frame(minWidth: 0,
-                idealWidth: 100,
+        VStack {
+            TopView(clearAction: loggerViewModel.clearLoggerData,
+                    copyIpAdressAction: loggerViewModel.copyIpAdress)
+
+            LogsView().frame(maxWidth: .infinity,
+                             maxHeight: .infinity)
+        }.frame(idealWidth: 100,
                 maxWidth: .infinity,
-                minHeight: 0,
-                idealHeight: 100,
                 maxHeight: .infinity)
             .background(Color.backgroundColor)
     }
