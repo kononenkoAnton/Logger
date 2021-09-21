@@ -10,9 +10,11 @@ import Foundation
 
 class LoggerViewModel: ObservableObject {
     @Published var loggerModel = LoggerModel()
-
+    @Published var filteredEvents: [EventModel] = []
     init() {
         let strIPAddress: String = getIPAddress()
+        prepareFilteredData()
+
         print("IPAddress : \(strIPAddress)")
     }
 
@@ -21,12 +23,15 @@ class LoggerViewModel: ObservableObject {
     var logLevel = UserDefaultManager.getLogLevel() {
         didSet {
             UserDefaultManager.saveLog(level: logLevel)
+            prepareFilteredData()
         }
     }
 
     var searchBarFilterData = UserDefaultManager.getSearchBarData() {
         didSet {
             UserDefaultManager.saveSearchBar(data: searchBarFilterData)
+            prepareFilteredData()
+
         }
     }
 
@@ -35,8 +40,18 @@ class LoggerViewModel: ObservableObject {
         loggerModel.setSelectedModel(model: nil)
     }
 
+    private func prepareFilteredData(){
+        let manager = FilterManager()
+        let result = manager.filterData(data: loggerModel.events,
+                                  logLevel: logLevel,
+                                  searchBarData: searchBarFilterData)
+        filteredEvents = result
+        
+    }
+    
     func events() -> [EventModel] {
-        loggerModel.events
+//        prepareFilteredData()
+        return filteredEvents
     }
 
     func copyIpAdress() {
@@ -54,7 +69,6 @@ class LoggerViewModel: ObservableObject {
 
     func setModelSelected(model: EventModel) {
         loggerModel.setSelectedModel(model: model)
-        objectWillChange.send()
     }
 
     func getModelSelected() -> EventModel? {

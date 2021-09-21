@@ -26,6 +26,7 @@
 		407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32CC26F921CE0009E533 /* DataModelHelper.swift */; };
 		407C32D026F955D90009E533 /* FiterTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32CF26F955D90009E533 /* FiterTask.swift */; };
 		407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32D126F969940009E533 /* UserDefaultManager.swift */; };
+		407C32D426F974160009E533 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32D326F974160009E533 /* FilterManager.swift */; };
 		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
 		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
 		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
@@ -76,6 +77,7 @@
 		407C32CC26F921CE0009E533 /* DataModelHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelHelper.swift; sourceTree = "<group>"; };
 		407C32CF26F955D90009E533 /* FiterTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiterTask.swift; sourceTree = "<group>"; };
 		407C32D126F969940009E533 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
+		407C32D326F974160009E533 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
 		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		407C32CE26F955A10009E533 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
+				407C32D326F974160009E533 /* FilterManager.swift */,
 				407C32CF26F955D90009E533 /* FiterTask.swift */,
 			);
 			path = Filter;
@@ -427,6 +430,7 @@
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
+				407C32D426F974160009E533 /* FilterManager.swift in Sources */,
 				407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */,
 				407C32C426F8F7A30009E533 /* InfoViewLabel.swift in Sources */,
 				407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */,

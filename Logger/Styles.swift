@@ -7,36 +7,10 @@
 
 import SwiftUI
 
-enum LogButtonTypes: Int {
-    case allLogs
-    case error
-    case warning
-    case debug
-    case info
-    case verbose
-    
-    public func toColor() -> Color {
-        switch self {
-        case .allLogs:
-            return Color.gray
-        case .verbose:
-            return Color(red: 255 / 255, green: 199 / 255, blue: 6 / 255)
-        case .debug:
-            return Color(red: 50 / 255, green: 172 / 255, blue: 65 / 255)
-        case .info:
-            return Color(red: 56 / 255, green: 128 / 255, blue: 248 / 255)
-        case .warning:
-            return Color(red: 232 / 255, green: 129 / 255, blue: 26 / 255)
-        case .error:
-            return Color(red: 228 / 255, green: 35 / 255, blue: 40 / 255)
-        }
-    }
-}
-
 public enum LogLevel: Int, CodingKey {
     case verbose
-    case debug
     case info
+    case debug
     case warning
     case error
 

@@ -13,7 +13,7 @@ struct LogTypeButton: View {
     var text: String
     var action: (LogTypeButton) -> Void
     var isSelected: (LogTypeButton) -> Bool
-    var buttonType: LogButtonTypes
+    var buttonType: LogLevel
 
     var body: some View {
         let selected = isSelected(self)
@@ -39,6 +39,6 @@ struct LogTypeButton: View {
 
 struct LogTypeButton_Previews: PreviewProvider {
     static var previews: some View {
-        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in true}, buttonType: .allLogs)
-        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in false}, buttonType: .allLogs)    }
+        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in true}, buttonType: .verbose)
+        LogTypeButton(text: "All keys", action: {_ in }, isSelected: { _ in false}, buttonType: .verbose)    }
 }

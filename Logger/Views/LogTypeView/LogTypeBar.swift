@@ -19,10 +19,6 @@ struct LogTypeBar: View {
     
     var body: some View {
         HStack {
-            LogTypeButton(text: "All logs",
-                          action: onSelect,
-                          isSelected: isSelected,
-                          buttonType: .allLogs)
             LogTypeButton(text: "Error",
                           action: onSelect,
                           isSelected: isSelected,

@@ -13,15 +13,15 @@ struct UserDefaultManager {
         static let SearchBar = "SearchBar"
     }
 
-    static func saveLog(level: LogButtonTypes) {
+    static func saveLog(level: LogLevel) {
         UserDefaults.standard.set(level.rawValue,
                                   forKey: Keys.LogLevelType)
     }
 
-    static func getLogLevel() -> LogButtonTypes {
+    static func getLogLevel() -> LogLevel {
         let logLevelInt = UserDefaults.standard.integer(forKey: Keys.LogLevelType)
-        guard let level = LogButtonTypes(rawValue: logLevelInt) else {
-            return .allLogs
+        guard let level = LogLevel(rawValue: logLevelInt) else {
+            return .verbose
         }
         return level
     }
