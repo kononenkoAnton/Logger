@@ -45,7 +45,11 @@ public enum LogLevel: Int, CodingKey {
     }
 }
 
-
+extension NSColor {
+    static var backgroundDetailListColor: NSColor {
+        NSColor(red: 30 / 255, green: 30 / 255, blue: 30 / 255, alpha: 1)
+    }
+}
 extension Color {
     static var backgroundColor: Color {
         Color(red: 36 / 255, green: 32 / 255, blue: 37 / 255)

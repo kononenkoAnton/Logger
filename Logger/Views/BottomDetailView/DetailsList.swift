@@ -9,10 +9,17 @@ import SwiftUI
 
 struct DetailsList: View {
     let items: [DataModel]
+
+    init(items: [DataModel]) {
+        self.items = items
+    }
+
     var body: some View {
-        List(items, children: \.items) { row in
-            Text(createTitle(row: row)).font(.headline)
-        }
+        VStack {
+            List(items, children: \.items) { row in
+                Text(createTitle(row: row)).listRowBackground(Color.green).foregroundColor(Color.white).font(.headline)
+            }.setBackgroundColor(color: NSColor.backgroundDetailListColor).padding()
+        }.frame(maxWidth: .infinity)
     }
 
     func createTitle(row: DataModel) -> String {
