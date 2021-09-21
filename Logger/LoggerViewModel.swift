@@ -18,10 +18,21 @@ class LoggerViewModel: ObservableObject {
 
     // MARK: - Intents(s)
 
+    var logLevel = UserDefaultManager.getLogLevel() {
+        didSet {
+            UserDefaultManager.saveLog(level: logLevel)
+        }
+    }
+
+    var searchBarFilterData = UserDefaultManager.getSearchBarData() {
+        didSet {
+            UserDefaultManager.saveSearchBar(data: searchBarFilterData)
+        }
+    }
+
     func clearLoggerData() {
         loggerModel.clearLoggerData()
         loggerModel.setSelectedModel(model: nil)
-
     }
 
     func events() -> [EventModel] {
@@ -43,7 +54,7 @@ class LoggerViewModel: ObservableObject {
 
     func setModelSelected(model: EventModel) {
         loggerModel.setSelectedModel(model: model)
-        self.objectWillChange.send()
+        objectWillChange.send()
     }
 
     func getModelSelected() -> EventModel? {

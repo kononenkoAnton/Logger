@@ -12,9 +12,7 @@ struct MainLoggerView: View {
 
     var body: some View {
         VStack {
-            TopView(eventModels: loggerViewModel.events(),
-                clearAction: loggerViewModel.clearLoggerData,
-                copyIpAdressAction: loggerViewModel.copyIpAdress)
+            TopView(loggerViewModel: loggerViewModel)
 
             LogsView(loggerViewModel: loggerViewModel,
                      selectedModel: loggerViewModel.getModelSelected())

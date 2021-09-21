@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TopView: View {
-    var eventModels: [EventModel] = []
-    var clearAction: () -> Void
-    var copyIpAdressAction: () -> Void
+    @ObservedObject var loggerViewModel: LoggerViewModel
 
     var body: some View {
         VStack {
@@ -18,19 +16,18 @@ struct TopView: View {
                 VStack(alignment: .leading) {
                     Text("Logger").font(.headline).foregroundColor(Color.fontColor)
                     Spacer(minLength: 1)
-                    Text("\(eventModels.count) Events").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
+                    Text("\(loggerViewModel.events().count) Events").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
 
                 }.padding(EdgeInsets(top: 10,
                                      leading: 10,
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
-                TopButtonsBar(clearAction: clearAction,
-                              copyIpAdressAction: copyIpAdressAction).padding(EdgeInsets(top: 10,
-                                                                                         leading: 0,
-                                                                                         bottom: 0,
-                                                                                         trailing: 0))
-                SearchBar()
+                TopButtonsBar(loggerViewModel: loggerViewModel).padding(EdgeInsets(top: 10,
+                                                                                   leading: 0,
+                                                                                   bottom: 0,
+                                                                                   trailing: 0))
+                SearchBar(loggerViewModel: loggerViewModel)
                     .padding(EdgeInsets(top: 10,
                                         leading: 0,
                                         bottom: 0,
@@ -46,7 +43,7 @@ struct TopView: View {
                     maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             HStack {
-                LogTypeBar()
+                LogTypeBar(loggerViewModel: loggerViewModel)
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 20,
@@ -66,6 +63,6 @@ struct TopView: View {
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopView(clearAction: {}, copyIpAdressAction: {})
+        TopView(loggerViewModel: LoggerViewModel())
     }
 }

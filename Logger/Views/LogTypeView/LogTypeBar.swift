@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct LogTypeBar: View {
-    @State var selectedButton: Int = 0
+    @ObservedObject var loggerViewModel: LoggerViewModel
+
+    @State var selectedButton: Int
+    
+    init (loggerViewModel:LoggerViewModel) {
+        self.loggerViewModel = loggerViewModel
+        _selectedButton = State(initialValue: loggerViewModel.logLevel.rawValue)
+    }
+    
     var body: some View {
         HStack {
             LogTypeButton(text: "All logs",
@@ -40,6 +48,7 @@ struct LogTypeBar: View {
 
     func onSelect(button: LogTypeButton) {
         selectedButton = button.buttonType.rawValue
+        loggerViewModel.logLevel = button.buttonType
     }
 
     func isSelected(button: LogTypeButton) -> Bool {
@@ -49,6 +58,6 @@ struct LogTypeBar: View {
 
 struct LogTypeBar_Previews: PreviewProvider {
     static var previews: some View {
-        LogTypeBar()
+        LogTypeBar(loggerViewModel: LoggerViewModel())
     }
 }

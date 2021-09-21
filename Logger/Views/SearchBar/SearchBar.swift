@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct SearchBar: View {
+    @ObservedObject var loggerViewModel: LoggerViewModel
     @State var text: String = ""
     // the inputted search text
     @State private var isEditing = false
-
+    
+    init(loggerViewModel: LoggerViewModel) {
+        self.loggerViewModel = loggerViewModel
+        if let newFilterText = loggerViewModel.searchBarFilterData {
+            _text = State(initialValue: newFilterText)
+        }
+    }
     var body: some View {
         ZStack {
-            TextField("Search", text: $text) { isEditing in
-                print("On tap 2")
-
+            TextField("Search", text: $text, onEditingChanged: { isEditing in
                 self.isEditing = isEditing
-            }
+
+            }, onCommit: {
+                loggerViewModel.searchBarFilterData = text
+            })
             .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 20))
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .overlay(
@@ -34,6 +42,7 @@ struct SearchBar: View {
                     if isEditing {
                         Button(action: {
                             self.text = ""
+                            loggerViewModel.searchBarFilterData = nil
                         }) {
                             Image(systemName: "multiply.circle.fill")
                                 .foregroundColor(.gray)
@@ -52,6 +61,6 @@ struct SearchBar: View {
 
 struct SearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        SearchBar()
+        SearchBar(loggerViewModel: LoggerViewModel())
     }
 }
