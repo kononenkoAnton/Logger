@@ -9,10 +9,14 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject {
-    @Published var loggerModel = LoggerModel()
+    @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
+    var wasFiltered = false
+
     init() {
         let strIPAddress: String = getIPAddress()
+        loggerModel = LoggerModel()
+        loggerModel.eventsDidUpdate = eventsDidUpdate
         prepareFilteredData()
 
         print("IPAddress : \(strIPAddress)")
@@ -31,7 +35,6 @@ class LoggerViewModel: ObservableObject {
         didSet {
             UserDefaultManager.saveSearchBar(data: searchBarFilterData)
             prepareFilteredData()
-
         }
     }
 
@@ -40,24 +43,31 @@ class LoggerViewModel: ObservableObject {
         loggerModel.setSelectedModel(model: nil)
     }
 
-    private func prepareFilteredData(){
+    func eventsDidUpdate() {
+        wasFiltered = false
+    }
+
+    private func prepareFilteredData() {
         let manager = FilterManager()
         let result = manager.filterData(data: loggerModel.events,
-                                  logLevel: logLevel,
-                                  searchBarData: searchBarFilterData)
+                                        logLevel: logLevel,
+                                        searchBarData: searchBarFilterData)
+        wasFiltered = true
         filteredEvents = result
-        
     }
-    
+
     func events() -> [EventModel] {
-//        prepareFilteredData()
+        if wasFiltered == false {
+            prepareFilteredData()
+        }
         return filteredEvents
     }
 
     func copyIpAdress() {
         let result = "http://\(getIPAddress()):9080"
         let pasteboard = NSPasteboard.general
-        pasteboard.declareTypes([NSPasteboard.PasteboardType.string], owner: nil)
+        pasteboard.declareTypes([NSPasteboard.PasteboardType.string],
+                                owner: nil)
         pasteboard.setString(result, forType: NSPasteboard.PasteboardType.string)
     }
 
