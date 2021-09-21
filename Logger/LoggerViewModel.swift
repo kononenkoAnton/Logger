@@ -33,7 +33,13 @@ class LoggerViewModel: ObservableObject {
 
     var searchBarFilterData = UserDefaultManager.getSearchBarData() {
         didSet {
-            UserDefaultManager.saveSearchBar(data: searchBarFilterData)
+            if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
+               trimmedString.count > 0 {
+                UserDefaultManager.saveSearchBar(data: trimmedString)
+            } else {
+                UserDefaultManager.saveSearchBar(data: nil)
+                searchBarFilterData = nil
+            }
             prepareFilteredData()
         }
     }

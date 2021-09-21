@@ -26,6 +26,8 @@ struct SearchBar: View {
 
             }, onCommit: {
                 loggerViewModel.searchBarFilterData = text
+                self.isEditing = false
+
             })
             .padding(EdgeInsets(top: 0, leading: 25, bottom: 0, trailing: 20))
             .textFieldStyle(RoundedBorderTextFieldStyle())

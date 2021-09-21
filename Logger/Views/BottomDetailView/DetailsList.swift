@@ -9,15 +9,13 @@ import SwiftUI
 
 struct DetailsList: View {
     let items: [DataModel]
-
     var body: some View {
         List(items, children: \.items) { row in
-            
             Text(createTitle(row: row)).font(.headline)
         }
     }
-    
-    func createTitle(row:DataModel) -> String{
+
+    func createTitle(row: DataModel) -> String {
         var message = "\(row.key)"
         if let value = row.value {
             message = "\(message) - '\(value)'"
