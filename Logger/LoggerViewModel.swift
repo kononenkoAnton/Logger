@@ -12,14 +12,32 @@ class LoggerViewModel: ObservableObject {
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     var wasFiltered = false
-
+    var localServer = LocalSever()
+    
     init() {
         let strIPAddress: String = getIPAddress()
         loggerModel = LoggerModel()
         loggerModel.eventsDidUpdate = eventsDidUpdate
         prepareFilteredData()
-
+        localServer.startLocalServer()
         print("IPAddress : \(strIPAddress)")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)), name: NSNotification.Name("PostEvent"), object: nil)
+    }
+    
+    @objc func receiveTest(_ notification: NSNotification) {
+        guard let data = notification.object as? [String: Any] else {
+            return
+        }
+        DispatchQueue.main.async {
+            //TODO: Add sync
+            let newEvent = EventModel.create(from: data)
+            self.loggerModel.addNewItem(model: newEvent)
+        }
+    }
+    
+    deinit {
+        localServer.stopLocalServer()
     }
 
     // MARK: - Intents(s)
@@ -70,7 +88,7 @@ class LoggerViewModel: ObservableObject {
     }
 
     func copyIpAdress() {
-        let result = "http://\(getIPAddress()):9080"
+        let result = "http://\(getIPAddress()):9080/postEvent`"
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string],
                                 owner: nil)

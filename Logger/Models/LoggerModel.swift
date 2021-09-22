@@ -10,14 +10,14 @@ import Foundation
 struct LoggerModel {
     var eventsDidUpdate: (() -> Void)?
     var selectedModel: EventModel?
-    var events: [EventModel] = [TestModels.model1,
-                                TestModels.model2,
-                                TestModels.model3,
-                                TestModels.model4,
-                                TestModels.model5] {
+    var events: [EventModel] = [] {
         didSet {
             eventsDidUpdate?()
         }
+    }
+
+    mutating func addNewItem(model: EventModel) {
+        events.append(model)
     }
 
     mutating func clearLoggerData() {

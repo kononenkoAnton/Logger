@@ -7,6 +7,9 @@
 
 import Foundation
 struct EventModel {
+    let dateFormatter = DateFormatter()
+    public var format = "yyyy-MM-dd HH:mm:ssZ"
+    
     init(id: String,
          category: String,
          subsystem: String,
@@ -25,6 +28,25 @@ struct EventModel {
         self.context = context
     }
 
+    static func create(from object: [String: Any]) -> EventModel {
+        let category = object["category"] as! String
+        let subsystem = object["subsystem"] as! String
+        let timestamp = object["timestamp"] as! UInt
+        let level = LogLevel(rawValue: object["level"] as! Int)!
+        let message = object["message"] as! String
+        let data = object["data"] as? [String:Any]
+        let context = object["context"] as? [String:Any]
+        let id = "\(UUID())"
+        return EventModel(id: id,
+                          category: category,
+                          subsystem: subsystem,
+                          timeStamp: timestamp,
+                          level: level,
+                          message: message,
+                          data: data,
+                          context: context)
+    }
+    
     public let id: String
     public let category: String
     public let subsystem: String
@@ -34,7 +56,9 @@ struct EventModel {
     public let data: [String: Any]?
     public let context: [String: Any]?
     public var dateInString: String {
-        return "\(timestamp)"
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
     }
 
     static func == (lhs: EventModel,

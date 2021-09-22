@@ -39,6 +39,8 @@
 		40A5BC0A26F6361600649521 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0926F6361600649521 /* Styles.swift */; };
 		40A5BC0E26F639D800649521 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopView.swift */; };
 		40A5BC1526F6465600649521 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC1426F6465600649521 /* SearchBar.swift */; };
+		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
+		40B38F7C26FAB63E000B96DE /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7B26FAB63E000B96DE /* ServerData.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
 		62292CE9B94754B23CF1E76B /* Pods_LoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D59C3B65AA10F81B99E077 /* Pods_LoggerTests.framework */; };
 		DF990B2CF92D8C6CEFDBB89F /* Pods_Logger_LoggerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0537909BA982D709B7DB4528 /* Pods_Logger_LoggerUITests.framework */; };
@@ -103,6 +105,8 @@
 		40A5BC0926F6361600649521 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		40A5BC0D26F639D800649521 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		40A5BC1426F6465600649521 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
+		40B38F7B26FAB63E000B96DE /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		4CCE6CF47BD1C261884DB4F0 /* Pods-Logger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.release.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.release.xcconfig"; sourceTree = "<group>"; };
 		51A48ABCCF7D2683436C5851 /* Pods-Logger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.debug.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 		40A5BBDA26F61A9800649521 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				40B38F7826FAB4C7000B96DE /* LocalServer */,
 				407C32CE26F955A10009E533 /* Filter */,
 				407C32B526F80B490009E533 /* Extensions */,
 				407C32AE26F7BFF70009E533 /* Models */,
@@ -305,6 +310,15 @@
 				40A5BC1426F6465600649521 /* SearchBar.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		40B38F7826FAB4C7000B96DE /* LocalServer */ = {
+			isa = PBXGroup;
+			children = (
+				40B38F7926FAB51E000B96DE /* LocalSever.swift */,
+				40B38F7B26FAB63E000B96DE /* ServerData.swift */,
+			);
+			path = LocalServer;
 			sourceTree = "<group>";
 		};
 		60DFEC01EC633B35CC36EA03 /* Frameworks */ = {
@@ -567,6 +581,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B38F7C26FAB63E000B96DE /* ServerData.swift in Sources */,
 				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
 				407C32C626F904B20009E533 /* DetailsList.swift in Sources */,
@@ -577,6 +592,7 @@
 				407C32D626FA23990009E533 /* List+Extensions.swift in Sources */,
 				407C32AD26F7BC8D0009E533 /* LogsView.swift in Sources */,
 				407C32C026F8EE4B0009E533 /* InfoView.swift in Sources */,
+				40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */,
 				407C32C226F8F38A0009E533 /* LogTypeView.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
@@ -752,6 +768,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
@@ -775,6 +792,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";

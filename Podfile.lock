@@ -1,16 +1,20 @@
 PODS:
   - Introspect (0.1.3)
+  - Swifter (1.5.0)
 
 DEPENDENCIES:
   - Introspect
+  - Swifter
 
 SPEC REPOS:
   trunk:
     - Introspect
+    - Swifter
 
 SPEC CHECKSUMS:
   Introspect: 2be020f30f084ada52bb4387fff83fa52c5c400e
+  Swifter: e71dd674404923d7f03ebb03f3f222d1c570bc8e
 
-PODFILE CHECKSUM: 11a14bd024fbf5d1ad20d0e21862d317bcbd4185
+PODFILE CHECKSUM: 4fcde4ee5adbd453628f317f7d27d5b8c1a4af05
 
 COCOAPODS: 1.10.1
