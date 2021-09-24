@@ -17,8 +17,11 @@ struct DetailsList: View {
     var body: some View {
         VStack {
             List(items, children: \.items) { row in
-                Text(createTitle(row: row)).listRowBackground(Color.green).foregroundColor(Color.white).font(.headline)
-            }.setBackgroundColor(color: NSColor.backgroundDetailListColor).padding()
+                Text(createTitle(row: row))
+                    .foregroundColor(Color.white).font(.headline)
+            }
+            .setBackgroundColor(color: NSColor.backgroundDetailListColor)
+            .padding()
         }.frame(maxWidth: .infinity)
     }
 

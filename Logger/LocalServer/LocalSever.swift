@@ -7,7 +7,7 @@
 
 import Foundation
 import Swifter
-
+//Example iPV6 "http://[2600:1006:b00e:1966:45de:b8b5:5f57:94e3]:9080/postEvent"
 class LocalSever {
     var server: HttpServer!
 
@@ -20,7 +20,7 @@ class LocalSever {
             }
 
             try server.start(9080,
-                             forceIPv4: true)
+                             forceIPv4: false)
 
             print("Server has started ( port = \(try server.port()) ). Try to connect now...")
 

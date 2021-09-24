@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct DataModel: Identifiable {
+struct DataModel: Identifiable, Hashable {
     let id = UUID()
     let key: String
     var value: String?

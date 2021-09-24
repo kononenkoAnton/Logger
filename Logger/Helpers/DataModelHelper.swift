@@ -10,7 +10,7 @@ import Foundation
 struct DataModelHelper {
     static func prepareDataSource(from model: EventModel) -> [DataModel] {
         let data = model.data
-        let context = model.data
+        let context = model.context
         var retVal: [DataModel] = []
 
         if let data = data {
