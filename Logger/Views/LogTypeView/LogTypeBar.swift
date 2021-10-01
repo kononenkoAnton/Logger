@@ -11,12 +11,12 @@ struct LogTypeBar: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
 
     @State var selectedButton: Int
-    
-    init (loggerViewModel:LoggerViewModel) {
+
+    init(loggerViewModel: LoggerViewModel) {
         self.loggerViewModel = loggerViewModel
         _selectedButton = State(initialValue: loggerViewModel.logLevel.rawValue)
     }
-    
+
     var body: some View {
         HStack {
             LogTypeButton(text: "Error",
@@ -27,14 +27,14 @@ struct LogTypeBar: View {
                           action: onSelect,
                           isSelected: isSelected,
                           buttonType: .warning)
-            LogTypeButton(text: "Debug",
-                          action: onSelect,
-                          isSelected: isSelected,
-                          buttonType: .debug)
             LogTypeButton(text: "Info",
                           action: onSelect,
                           isSelected: isSelected,
                           buttonType: .info)
+            LogTypeButton(text: "Debug",
+                          action: onSelect,
+                          isSelected: isSelected,
+                          buttonType: .debug)
             LogTypeButton(text: "Verbose",
                           action: onSelect,
                           isSelected: isSelected,

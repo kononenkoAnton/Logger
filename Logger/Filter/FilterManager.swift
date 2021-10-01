@@ -31,10 +31,10 @@ struct FilterManager {
             return data.filter({$0.level.rawValue == LogLevel.error.rawValue})
         case .warning:
             return data.filter({$0.level.rawValue >= LogLevel.warning.rawValue})
-        case .debug:
-            return data.filter({$0.level.rawValue >= LogLevel.debug.rawValue})
         case .info:
             return data.filter({$0.level.rawValue >= LogLevel.info.rawValue})
+        case .debug:
+            return data.filter({$0.level.rawValue >= LogLevel.debug.rawValue})
         case .verbose:
             return data
         }
