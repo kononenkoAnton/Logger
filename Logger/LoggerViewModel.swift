@@ -9,11 +9,16 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject {
+    struct EndPoints {
+        static let PostEvent = "postEvent"
+        static let PostBatchEvents = "postBatchEvents"
+    }
+
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     var wasFiltered = false
     var localServer = LocalSever()
-    
+
     init() {
         let strIPAddress: String = getIPAddress()
         loggerModel = LoggerModel()
@@ -21,21 +26,21 @@ class LoggerViewModel: ObservableObject {
         prepareFilteredData()
         localServer.startLocalServer()
         print("IPAddress : \(strIPAddress)")
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)), name: NSNotification.Name("PostEvent"), object: nil)
     }
-    
+
     @objc func receiveTest(_ notification: NSNotification) {
-        guard let data = notification.object as? [String: Any] else {
+        guard let data = notification.object as? [[String: Any]] else {
             return
         }
-        DispatchQueue.main.async {
-            //TODO: Add sync
-            let newEvent = EventModel.create(from: data)
-            self.loggerModel.addNewItem(model: newEvent)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let newEvents = data.map { EventModel.create(from: $0) }
+            self.loggerModel.addNewItems(models: newEvents)
         }
     }
-    
+
     deinit {
         localServer.stopLocalServer()
     }
@@ -88,7 +93,7 @@ class LoggerViewModel: ObservableObject {
     }
 
     func copyIpAdress() {
-        let result = "http://\(getIPAddress()):9080/postEvent`"
+        let result = "http://\(getIPAddress()):9080/\(EndPoints.PostBatchEvents)"
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string],
                                 owner: nil)

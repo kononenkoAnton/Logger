@@ -17,6 +17,14 @@ public func serverData(_ publicDir: String) -> HttpServer {
 
     server["/files/:path"] = directoryBrowser("/")
 
+    server.POST["/postBatchEvents"] = { request in
+        let response = "OK"
+        let body = request.body
+        let stringJson = String(decoding: body, as: UTF8.self)
+        let result = convertStringToArray(text: stringJson)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PostEvent"), object: result)
+        return HttpResponse.ok(.htmlBody(response))
+    }
     server.POST["/postEvent"] = { request in
         let response = "OK"
         let body = request.body
@@ -30,6 +38,18 @@ public func serverData(_ publicDir: String) -> HttpServer {
         if let data = text.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]
+                return json
+            } catch {
+                print("Something went wrong")
+            }
+        }
+        return nil
+    }
+    
+    func convertStringToArray(text: String) -> [[String: AnyObject]]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: AnyObject]]
                 return json
             } catch {
                 print("Something went wrong")

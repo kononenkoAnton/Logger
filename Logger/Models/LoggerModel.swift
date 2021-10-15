@@ -20,6 +20,10 @@ struct LoggerModel {
         events.append(model)
     }
 
+    mutating func addNewItems(models: [EventModel]) {
+        events.append(contentsOf: models)
+    }
+    
     mutating func clearLoggerData() {
         events = []
     }
