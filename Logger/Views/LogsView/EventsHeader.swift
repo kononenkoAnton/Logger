@@ -25,13 +25,14 @@ struct EventsHeader: View {
         HStack {
             Text(ColumnNames.Level).frame(width: 50, alignment: .leading).padding(.horizontal, 10)
             devider
-            Text(ColumnNames.Time).frame(width: 200, alignment: .leading).padding(.horizontal, 10)
-            devider
-            Text(ColumnNames.Category).frame(width: 350, alignment: .leading).padding(.horizontal, 10)
-            devider
-            Text(ColumnNames.Subsystem).frame(width: 500, alignment: .leading).padding(.horizontal, 10)
-            devider
             Text(ColumnNames.Message).frame(alignment: .leading).padding(.horizontal, 10)
+            Spacer()
+            devider
+            Text(ColumnNames.Subsystem).frame(width: 550, alignment: .leading).padding(.horizontal, 10)
+            devider
+            Text(ColumnNames.Category).frame(width: 200, alignment: .leading).padding(.horizontal, 10)
+            devider
+            Text(ColumnNames.Time).frame(width: 200, alignment: .leading).padding(.horizontal, 10)
 
         }.frame(maxWidth: .infinity, minHeight: 35, alignment: .leading).font(.headline).foregroundColor(.white).background(Color.backgroundColorEventsHeader)
     }
