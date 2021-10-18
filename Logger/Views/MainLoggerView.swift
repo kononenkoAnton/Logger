@@ -11,18 +11,20 @@ struct MainLoggerView: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
 
     var body: some View {
-        VStack {
-            TopView(loggerViewModel: loggerViewModel)
+        GeometryReader { geometry in
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            VStack {
+                TopView(loggerViewModel: loggerViewModel)
 
-                .frame(maxWidth: .infinity,
-                       maxHeight: .infinity)
-        }.frame(idealWidth: 100,
-                maxWidth: .infinity,
-                maxHeight: .infinity)
-            .background(Color.backgroundColor)
+                LogsView(loggerViewModel: loggerViewModel,
+                         selectedModel: loggerViewModel.getModelSelected())
+                    .frame(maxWidth: .infinity,
+                           maxHeight: .infinity)
+            }.frame(idealWidth: 100,
+                    maxWidth: .infinity,
+                    maxHeight: .infinity)
+                .background(Color.backgroundColor)
+        }
     }
 }
 
