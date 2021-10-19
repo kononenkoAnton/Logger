@@ -23,8 +23,8 @@ struct LogsView: View {
                                     let currentModel = eventModels[index]
                                     LogEventRow(isSelected: currentModel.id == selectedModel?.id,
                                                 model: currentModel,
-                                                backgroundColor: index % 2 == 0 ? Color.rowBackgroundColor1 : Color.rowBackgroundColor2).onTapGesture {
-                                                    loggerViewModel.setModelSelected(model: eventModels[index])
+                                                backgroundColor: index % 2 == 0 ? Color(ColorKeys.RowBackgroundColor1) : Color(ColorKeys.RowBackgroundColor2)).onTapGesture {
+                                        loggerViewModel.setModelSelected(model: eventModels[index])
                                         selectedModel = eventModels[index]
                                     }
                                     Spacer(minLength: 0)
@@ -34,7 +34,7 @@ struct LogsView: View {
                         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }.frame(maxWidth: .infinity,
                             minHeight: 200,
-                            maxHeight: .infinity).border(Color.backgroundColorEventsHeader, width: 2)
+                            maxHeight: .infinity).border(Color(ColorKeys.BackgroundColorEventsHeader), width: 2)
 
                     BottomDetailView(loggerViewModel: loggerViewModel)
                 }

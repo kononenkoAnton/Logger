@@ -14,9 +14,10 @@ struct TopView: View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Logger").font(.headline).foregroundColor(Color.fontColor)
+                    Text("Logger").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(loggerViewModel.events().count) Events").font(.subheadline).foregroundColor(Color.fontLightGrayColor)
+                    Text("\(loggerViewModel.events().count) Events")
+                        .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,
                                      leading: 10,
@@ -36,11 +37,11 @@ struct TopView: View {
                 maxWidth: .infinity,
                 minHeight: 45,
                 maxHeight: 45)
-                .background(Color.backgroundColorTopBar)
+                .background(Color(ColorKeys.BackgroundColorTopBar))
             Divider()
                 .frame(
                     maxWidth: .infinity,
-                    maxHeight: 1).foregroundColor(Color.backgroundColorSeparatorLine).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+                    maxHeight: 1).foregroundColor(Color(ColorKeys.BackgroundColorSeparatorLine)).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             HStack {
                 LogTypeBar(loggerViewModel: loggerViewModel)
@@ -49,7 +50,7 @@ struct TopView: View {
                 minHeight: 20,
                 maxHeight: 20,
                 alignment: .leading)
-                .background(Color.backgroundColorTopBar)
+                .background(Color(ColorKeys.BackgroundColorTopBar))
             Divider()
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity,
@@ -57,12 +58,13 @@ struct TopView: View {
 
         }.frame(
             maxWidth: .infinity)
-            .background(Color.backgroundColorTopBar)
+            .background(Color(ColorKeys.BackgroundColorTopBar))
     }
 }
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
         TopView(loggerViewModel: LoggerViewModel())
+        TopView(loggerViewModel: LoggerViewModel()).preferredColorScheme(.light)
     }
 }

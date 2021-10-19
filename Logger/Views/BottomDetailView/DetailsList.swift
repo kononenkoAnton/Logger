@@ -18,9 +18,9 @@ struct DetailsList: View {
         VStack {
             List(items, children: \.items) { row in
                 Text(createTitle(row: row))
-                    .foregroundColor(Color.white).font(.headline)
+                    .foregroundColor(Color(ColorKeys.BottomDetailedViewFont)).font(.headline)
             }
-            .setBackgroundColor(color: NSColor.backgroundDetailListColor)
+            .setBackgroundColor(color: NSColor(named: ColorKeys.BackgroundDetailListColor)!)
             .padding()
         }.frame(maxWidth: .infinity)
     }

@@ -23,7 +23,7 @@ struct MainLoggerView: View {
             }.frame(idealWidth: 100,
                     maxWidth: .infinity,
                     maxHeight: .infinity)
-                .background(Color.backgroundColor)
+                .background(Color(ColorKeys.BackgroundColor))
         }
     }
 }

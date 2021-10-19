@@ -19,7 +19,7 @@ struct BottomDetailView: View {
         }.frame(maxWidth: .infinity,
                 minHeight: 100,
                 maxHeight: .infinity)
-            .background(Color.bottomDetailViewColor)
+            .background(Color(ColorKeys.BottomDetailViewColor))
     }
 }
 

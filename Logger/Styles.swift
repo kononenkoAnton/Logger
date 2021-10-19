@@ -45,70 +45,24 @@ public enum LogLevel: Int, CodingKey {
     }
 }
 
-extension NSColor {
-    static var backgroundDetailListColor: NSColor {
-        NSColor(red: 30 / 255, green: 30 / 255, blue: 30 / 255, alpha: 1)
-    }
-}
 
-extension Color {
-    static var backgroundColor: Color {
-        Color(red: 36 / 255, green: 32 / 255, blue: 37 / 255)
-    }
-
-    static var backgroundColorLeftBar: Color {
-        Color(red: 45 / 255, green: 41 / 255, blue: 46 / 255)
-    }
-
-    static var backgroundColorEventsHeader: Color {
-        Color(red: 48 / 255, green: 48 / 255, blue: 48 / 255)
-    }
-
-    static var backgroundColorTopBar: Color {
-        Color(red: 61 / 255, green: 57 / 255, blue: 60 / 255)
-    }
-
-    static var backgroundColorSeparatorLine: Color {
-        Color(red: 74 / 255, green: 70 / 255, blue: 73 / 255)
-    }
-
-    static var backgroundColorSeparatorLine2: Color {
-        Color(red: 76 / 255, green: 76 / 255, blue: 76 / 255)
-    }
-
-    static var fontLightGrayColor: Color {
-        Color(red: 182 / 255, green: 179 / 255, blue: 182 / 255)
-    }
-
-    static var fontColor: Color {
-        Color(red: 235 / 255, green: 235 / 255, blue: 235 / 255)
-    }
-
-    static var searchBarBackground: Color {
-        Color(red: 57 / 255, green: 54 / 255, blue: 57 / 255)
-    }
-
-    static var topButtonBackgroundHower: Color {
-        Color(red: 71 / 255, green: 67 / 255, blue: 70 / 255)
-    }
-
-    static var rowBackgroundColor1: Color {
-        Color(red: 48 / 255, green: 42 / 255, blue: 47 / 255)
-    }
-
-    static var rowBackgroundColor2: Color {
-        Color(red: 38 / 255, green: 32 / 255, blue: 37 / 255)
-    }
-
-    static var bottomDetailViewColor: Color {
-        Color(red: 38 / 255, green: 32 / 255, blue: 37 / 255)
-    }
-
-    static var bottomDetailViewDetailsColor: Color {
-        Color(red: 30 / 255, green: 30 / 255, blue: 30 / 255)
-    }
-
-    static var rowBacgroundColorSelected: Color {
-        Color(red: 0 / 255, green: 89 / 255, blue: 211 / 255)
-    }
+let CatalogName = "Assets"
+struct ColorKeys {
+    static let BackgroundColor = "BackgroundColor"
+    static let BackgroundColorTopBar = "BackgroundColorTopBar"
+    static let BottomDetailViewColor = "BottomDetailViewColor"
+    static let RowBacgroundColorSelected = "RowBacgroundColorSelected"
+    static let RowBackgroundColor1 = "RowBackgroundColor1"
+    static let RowBackgroundColor2 = "RowBackgroundColor2"
+    static let TopButtonBackgroundHower = "TopButtonBackgroundHower"
+    static let BackgroundColorEventsHeader = "BackgroundColorEventsHeader"
+    static let BackgroundFontColorEventsHeader = "BackgroundFontColorEventsHeader"
+    static let BackgroundColorSeparatorLine = "BackgroundColorSeparatorLine"
+    static let BackgroundColorSeparatorLine2 = "BackgroundColorSeparatorLine2"
+    static let FontColor = "FontColor"
+    static let FontColor2 = "FontColor2"
+    static let TopTitleFontColor = "TopTitleFontColor"
+    static let BackgroundDetailListColor = "BackgroundDetailListColor"
+    static let BottomDetailedViewFont = "BottomDetailedViewFont"
+    static let RowFontColorSelected = "RowFontColorSelected"
 }

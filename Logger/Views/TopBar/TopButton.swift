@@ -18,7 +18,7 @@ struct TopButton: View {
             VStack {
                 VStack {
                     Image(systemName: imageName).padding(4)
-                }.background(isHover ? Color.topButtonBackgroundHower : Color.clear).cornerRadius(5.0)
+                }.background(isHover ? Color(ColorKeys.TopButtonBackgroundHower) : Color.clear).cornerRadius(5.0)
                 Spacer(minLength: 0)
                 Text(text).font(.subheadline)
             }
