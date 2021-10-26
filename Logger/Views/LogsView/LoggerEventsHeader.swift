@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EventsHeader: View {
+struct LoggerEventsHeader: View {
     struct ColumnNames {
         static let Level = "Level"
         static let Time = "Time"
@@ -55,6 +55,6 @@ struct EventsHeader: View {
 
 struct EventsHeader_Previews: PreviewProvider {
     static var previews: some View {
-        EventsHeader()
+        LoggerEventsHeader()
     }
 }

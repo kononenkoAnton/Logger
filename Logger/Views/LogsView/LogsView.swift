@@ -16,7 +16,7 @@ struct LogsView: View {
             VStack {
                 VSplitView {
                     List {
-                        Section(header: EventsHeader()) {
+                        Section(header: LoggerEventsHeader()) {
                             let eventModels = loggerViewModel.events()
                             ForEach(eventModels.indices, id: \.self) { index in
                                 VStack {
