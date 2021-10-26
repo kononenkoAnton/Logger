@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct MainLoggerView: View {
-    @ObservedObject var loggerViewModel: LoggerViewModel
-    @ObservedObject var sideMenuViewModel: SideMenuViewModel
-
+    @ObservedObject var applicationViewModel: ApplicationViewModel
+//    @ObservedObject var loggerViewModel: LoggerViewModel
+//    @ObservedObject var sideMenuViewModel: SideMenuViewModel
+//
     @State var selectedData: SideMenuDataModel.Data = .init(screenType: .logger)
 
     var body: some View {
         GeometryReader { _ in
             HSplitView {
                 VStack {
-                    SideBar(sideMenuViewModel: sideMenuViewModel,
+                    SideBar(sideMenuViewModel: applicationViewModel.sideMenuViewModel,
                             selectedData: $selectedData)
                         .padding(.top, 10)
                     Spacer()
@@ -49,11 +50,11 @@ struct MainLoggerView: View {
 
     var settings: some View {
         VStack {
-            TopView(loggerViewModel: loggerViewModel,
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
                     title: SideMenuDataModel.ScreenTypes.settings.toString)
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
+                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -64,11 +65,11 @@ struct MainLoggerView: View {
 
     var applicationData: some View {
         VStack {
-            TopView(loggerViewModel: loggerViewModel,
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
                     title: SideMenuDataModel.ScreenTypes.applicationData.toString)
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
+                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -79,11 +80,11 @@ struct MainLoggerView: View {
 
     var networkLogger: some View {
         VStack {
-            TopView(loggerViewModel: loggerViewModel,
+            TopView(loggerViewModel: applicationViewModel.networkViewModel,
                     title: SideMenuDataModel.ScreenTypes.networkLogger.toString)
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            LogsView(loggerViewModel: applicationViewModel.networkViewModel,
+                     selectedModel: applicationViewModel.networkViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -94,11 +95,11 @@ struct MainLoggerView: View {
 
     var crashLogger: some View {
         VStack {
-            TopView(loggerViewModel: loggerViewModel,
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
                     title: SideMenuDataModel.ScreenTypes.crashLogger.toString)
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
+                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -109,11 +110,11 @@ struct MainLoggerView: View {
 
     var mainLogger: some View {
         VStack {
-            TopView(loggerViewModel: loggerViewModel,
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
                     title: SideMenuDataModel.ScreenTypes.logger.toString)
 
-            LogsView(loggerViewModel: loggerViewModel,
-                     selectedModel: loggerViewModel.getModelSelected())
+            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
+                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -123,10 +124,10 @@ struct MainLoggerView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainLoggerView(loggerViewModel: LoggerViewModel(),
-                       sideMenuViewModel: SideMenuViewModel(),
-                       selectedData: .init(screenType: .logger))
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainLoggerView(loggerViewModel: LoggerViewModel(),
+//                       sideMenuViewModel: SideMenuViewModel(),
+//                       selectedData: .init(screenType: .logger))
+//    }
+//}

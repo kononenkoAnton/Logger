@@ -11,10 +11,7 @@ import SwiftUI
 struct LoggerApp: App {
     var body: some Scene {
         WindowGroup {
-            let logger = LoggerViewModel()
-            let sideMenu = SideMenuViewModel()
-            MainLoggerView(loggerViewModel: logger,
-                           sideMenuViewModel: sideMenu)
+            MainLoggerView(applicationViewModel: ApplicationViewModel())
         }
     }
 }

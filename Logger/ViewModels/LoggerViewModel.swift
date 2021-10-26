@@ -82,7 +82,7 @@ class LoggerViewModel: ObservableObject {
                 if let error = error {
                     print(error)
                 }
-                
+
                 if let data = data,
                    let result = self.convertDataToArray(data: data) {
                     self.addNewEntries(data: result)

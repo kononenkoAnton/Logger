@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-public enum NetworkRequestStatusCode: Int {
+public enum NetworkRequestStatusCode: Int, Comparable {
     case x000 = 0
     case x200 = 200
     case x300 = 300
@@ -52,5 +52,9 @@ public enum NetworkRequestStatusCode: Int {
         default:
             return Color.white
         }
+    }
+
+    public static func < (lhs: NetworkRequestStatusCode, rhs: NetworkRequestStatusCode) -> Bool {
+        lhs.rawValue < rhs.rawValue
     }
 }

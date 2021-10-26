@@ -49,6 +49,8 @@
 		40B30C412728894D001F7CEE /* NetworkEventsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C402728894D001F7CEE /* NetworkEventsHeader.swift */; };
 		40B30C4327288A63001F7CEE /* NetworkEventRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C4227288A63001F7CEE /* NetworkEventRow.swift */; };
 		40B30C45272890AF001F7CEE /* NetworkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C44272890AF001F7CEE /* NetworkViewModel.swift */; };
+		40B30C4727289E01001F7CEE /* ApplicationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C4627289E01001F7CEE /* ApplicationViewModel.swift */; };
+		40B30C492728A95B001F7CEE /* EventModel+.Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C482728A95B001F7CEE /* EventModel+.Networking.swift */; };
 		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
 		40B38F7C26FAB63E000B96DE /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7B26FAB63E000B96DE /* ServerData.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
@@ -125,6 +127,8 @@
 		40B30C402728894D001F7CEE /* NetworkEventsHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEventsHeader.swift; sourceTree = "<group>"; };
 		40B30C4227288A63001F7CEE /* NetworkEventRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkEventRow.swift; sourceTree = "<group>"; };
 		40B30C44272890AF001F7CEE /* NetworkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkViewModel.swift; sourceTree = "<group>"; };
+		40B30C4627289E01001F7CEE /* ApplicationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationViewModel.swift; sourceTree = "<group>"; };
+		40B30C482728A95B001F7CEE /* EventModel+.Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventModel+.Networking.swift"; sourceTree = "<group>"; };
 		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
 		40B38F7B26FAB63E000B96DE /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 				40B30C332728424A001F7CEE /* SideMenu */,
 				407C32A126F6920B0009E533 /* LoggerModel.swift */,
 				407C32AF26F7C0120009E533 /* EventModel.swift */,
+				40B30C482728A95B001F7CEE /* EventModel+.Networking.swift */,
 				407C32C926F908290009E533 /* DataModel.swift */,
 			);
 			path = Models;
@@ -360,6 +365,7 @@
 				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
 				40B30C372728499F001F7CEE /* SideMenuViewModel.swift */,
 				40B30C44272890AF001F7CEE /* NetworkViewModel.swift */,
+				40B30C4627289E01001F7CEE /* ApplicationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -682,7 +688,9 @@
 				40B30C3127279DB7001F7CEE /* SideBarRow.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
 				40B30C3D272884A4001F7CEE /* HTTPStatusCodes.swift in Sources */,
+				40B30C492728A95B001F7CEE /* EventModel+.Networking.swift in Sources */,
 				407C32CA26F908290009E533 /* DataModel.swift in Sources */,
+				40B30C4727289E01001F7CEE /* ApplicationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
