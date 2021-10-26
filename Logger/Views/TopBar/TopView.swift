@@ -9,12 +9,13 @@ import SwiftUI
 
 struct TopView: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
-
+    let title:String
+    
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Logger").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
+                    Text(title).font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
                     Text("\(loggerViewModel.events().count) Events")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
@@ -64,7 +65,7 @@ struct TopView: View {
 
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
-        TopView(loggerViewModel: LoggerViewModel())
-        TopView(loggerViewModel: LoggerViewModel()).preferredColorScheme(.light)
+        TopView(loggerViewModel: LoggerViewModel(), title: "Logger")
+        TopView(loggerViewModel: LoggerViewModel(), title: "Logger").preferredColorScheme(.light)
     }
 }

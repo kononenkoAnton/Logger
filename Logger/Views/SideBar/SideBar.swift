@@ -9,15 +9,17 @@ import SwiftUI
 
 struct SideBar: View {
     @ObservedObject private(set) var sideMenuViewModel: SideMenuViewModel
-    @State var selectedIndex: Int = 0
+    @Binding var selectedData: SideMenuDataModel.Data
 
     var body: some View {
         Form {
             ForEach(sideMenuViewModel.data()) { model in
                 SideBarRow(model: model,
-                           isSelected: selectedIndex == model.index).onTapGesture {
+                           isSelected: selectedData.index == model.index).onTapGesture {
                     withAnimation {
-                        selectedIndex = model.index
+                        print("Seleted Index: \(model.index)")
+                        selectedData = model
+                        
                     }
                 }.id(model.id)
             }
@@ -27,7 +29,7 @@ struct SideBar: View {
 
 struct SideBar_Previews: PreviewProvider {
     static var previews: some View {
-        SideBar(sideMenuViewModel: SideMenuViewModel())
+        SideBar(sideMenuViewModel: SideMenuViewModel(), selectedData: .constant(.init(screenType: .logger)))
     }
 }
 

@@ -31,7 +31,7 @@ struct SideMenuDataModel {
 
     enum ScreenTypes: Int {
         case logger
-        case errorLogger
+        case crashLogger
         case networkLogger
         case applicationData
         case settings
@@ -44,7 +44,7 @@ struct SideMenuDataModel {
             switch self {
             case .logger:
                 return "note.text"
-            case .errorLogger:
+            case .crashLogger:
                 return "exclamationmark.3"
             case .networkLogger:
                 return "network"
@@ -59,8 +59,8 @@ struct SideMenuDataModel {
             switch self {
             case .logger:
                 return "Logger"
-            case .errorLogger:
-                return "Error Logger"
+            case .crashLogger:
+                return "Crash Logger"
             case .networkLogger:
                 return "Network Logger"
             case .applicationData:
@@ -73,7 +73,7 @@ struct SideMenuDataModel {
 
     init() {
         let logger: ScreenTypes = .logger
-        let errorlogger: ScreenTypes = .errorLogger
+        let errorlogger: ScreenTypes = .crashLogger
         let networkLogger: ScreenTypes = .networkLogger
         let applicationData: ScreenTypes = .applicationData
         let settings: ScreenTypes = .settings
