@@ -12,8 +12,9 @@ struct LoggerApp: App {
     var body: some Scene {
         WindowGroup {
             let logger = LoggerViewModel()
-            MainLoggerView(loggerViewModel: logger)
+            let sideMenu = SideMenuViewModel()
+            MainLoggerView(loggerViewModel: logger,
+                           sideMenuViewModel: sideMenu)
         }
     }
 }
-

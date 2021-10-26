@@ -39,6 +39,10 @@
 		40A5BC0A26F6361600649521 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0926F6361600649521 /* Styles.swift */; };
 		40A5BC0E26F639D800649521 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopView.swift */; };
 		40A5BC1526F6465600649521 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC1426F6465600649521 /* SearchBar.swift */; };
+		40B30C2F27279978001F7CEE /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C2E27279978001F7CEE /* SideBar.swift */; };
+		40B30C3127279DB7001F7CEE /* SideBarRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C3027279DB7001F7CEE /* SideBarRow.swift */; };
+		40B30C352728426E001F7CEE /* SideMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C342728426E001F7CEE /* SideMenuDataModel.swift */; };
+		40B30C382728499F001F7CEE /* SideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B30C372728499F001F7CEE /* SideMenuViewModel.swift */; };
 		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
 		40B38F7C26FAB63E000B96DE /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7B26FAB63E000B96DE /* ServerData.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
@@ -105,6 +109,10 @@
 		40A5BC0926F6361600649521 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		40A5BC0D26F639D800649521 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		40A5BC1426F6465600649521 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		40B30C2E27279978001F7CEE /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
+		40B30C3027279DB7001F7CEE /* SideBarRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarRow.swift; sourceTree = "<group>"; };
+		40B30C342728426E001F7CEE /* SideMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuDataModel.swift; sourceTree = "<group>"; };
+		40B30C372728499F001F7CEE /* SideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewModel.swift; sourceTree = "<group>"; };
 		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
 		40B38F7B26FAB63E000B96DE /* ServerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
@@ -176,6 +184,7 @@
 		407C32AE26F7BFF70009E533 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				40B30C332728424A001F7CEE /* SideMenu */,
 				407C32A126F6920B0009E533 /* LoggerModel.swift */,
 				407C32AF26F7C0120009E533 /* EventModel.swift */,
 				407C32C926F908290009E533 /* DataModel.swift */,
@@ -254,7 +263,7 @@
 				407C32AE26F7BFF70009E533 /* Models */,
 				40A5BC0B26F639A700649521 /* Views */,
 				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
-				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
+				40B30C362728497D001F7CEE /* ViewModels */,
 				40A5BC0926F6361600649521 /* Styles.swift */,
 				40A5BBDF26F61A9A00649521 /* Assets.xcassets */,
 				40A5BBE426F61A9A00649521 /* Info.plist */,
@@ -294,6 +303,7 @@
 		40A5BC0B26F639A700649521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				40B30C322728420E001F7CEE /* SideBar */,
 				407C32BC26F8EC290009E533 /* BottomDetailView */,
 				407C32AB26F7BC7A0009E533 /* LogsView */,
 				407C32A826F694410009E533 /* TopBar */,
@@ -310,6 +320,32 @@
 				40A5BC1426F6465600649521 /* SearchBar.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		40B30C322728420E001F7CEE /* SideBar */ = {
+			isa = PBXGroup;
+			children = (
+				40B30C2E27279978001F7CEE /* SideBar.swift */,
+				40B30C3027279DB7001F7CEE /* SideBarRow.swift */,
+			);
+			path = SideBar;
+			sourceTree = "<group>";
+		};
+		40B30C332728424A001F7CEE /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				40B30C342728426E001F7CEE /* SideMenuDataModel.swift */,
+			);
+			path = SideMenu;
+			sourceTree = "<group>";
+		};
+		40B30C362728497D001F7CEE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
+				40B30C372728499F001F7CEE /* SideMenuViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		40B38F7826FAB4C7000B96DE /* LocalServer */ = {
@@ -595,6 +631,7 @@
 				40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */,
 				407C32C226F8F38A0009E533 /* LogTypeView.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
+				40B30C382728499F001F7CEE /* SideMenuViewModel.swift in Sources */,
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
@@ -604,11 +641,14 @@
 				407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */,
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				407C32B726F80B640009E533 /* AnyCodable.swift in Sources */,
+				40B30C2F27279978001F7CEE /* SideBar.swift in Sources */,
 				407C32BE26F8EC420009E533 /* BottomDetailView.swift in Sources */,
 				407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */,
 				407C32BB26F8CBBF0009E533 /* LogEventRow.swift in Sources */,
 				407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */,
 				407C32B426F7C1620009E533 /* EventsHeader.swift in Sources */,
+				40B30C352728426E001F7CEE /* SideMenuDataModel.swift in Sources */,
+				40B30C3127279DB7001F7CEE /* SideBarRow.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
 				407C32CA26F908290009E533 /* DataModel.swift in Sources */,
 			);
