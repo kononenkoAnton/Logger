@@ -30,6 +30,7 @@ class LoggerViewModel: ObservableObject {
     func clearLoggerData() {
         loggerModel.clearLoggerData()
         loggerModel.setSelectedModel(model: nil)
+        prepareFilteredData()
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
