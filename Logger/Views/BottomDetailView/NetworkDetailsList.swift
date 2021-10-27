@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+struct DetailSectionHeader: View {
+    var body: some View {
+        VStack {
+            Text("FOO")
+        }.frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading).background(Color.gray)
+    }
+}
+
 struct NetworkDetailsList: View {
     let items: [DataModel]
 
