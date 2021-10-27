@@ -12,9 +12,9 @@ struct NetworkBottomDetailView: View {
     var body: some View {
         VStack {
             if let model = networkViewModel.getModelSelected() {
-                InfoView(model: model).frame(maxWidth: .infinity)
+                NetworkInfoView(model: model).frame(maxWidth: .infinity)
                 Divider().padding(.horizontal, 20)
-                DetailsList(items: networkViewModel.dataModels(from: model))
+                NetworkDetailsList(items: networkViewModel.dataModels(from: model))
             }
         }.frame(maxWidth: .infinity,
                 minHeight: 100,

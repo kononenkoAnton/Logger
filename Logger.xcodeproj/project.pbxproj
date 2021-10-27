@@ -29,6 +29,8 @@
 		407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32D126F969940009E533 /* UserDefaultManager.swift */; };
 		407C32D426F974160009E533 /* FilterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32D326F974160009E533 /* FilterManager.swift */; };
 		407C32D626FA23990009E533 /* List+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32D526FA23990009E533 /* List+Extensions.swift */; };
+		4082EFE32729BA32008242FC /* NetworkInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082EFE22729BA32008242FC /* NetworkInfoView.swift */; };
+		4082EFE52729BF1B008242FC /* NetworkDetailsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4082EFE42729BF1B008242FC /* NetworkDetailsList.swift */; };
 		40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDB26F61A9800649521 /* LoggerApp.swift */; };
 		40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BBDD26F61A9800649521 /* MainLoggerView.swift */; };
 		40A5BBE026F61A9A00649521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40A5BBDF26F61A9A00649521 /* Assets.xcassets */; };
@@ -104,6 +106,8 @@
 		407C32D126F969940009E533 /* UserDefaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultManager.swift; sourceTree = "<group>"; };
 		407C32D326F974160009E533 /* FilterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterManager.swift; sourceTree = "<group>"; };
 		407C32D526FA23990009E533 /* List+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "List+Extensions.swift"; sourceTree = "<group>"; };
+		4082EFE22729BA32008242FC /* NetworkInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkInfoView.swift; sourceTree = "<group>"; };
+		4082EFE42729BF1B008242FC /* NetworkDetailsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDetailsList.swift; sourceTree = "<group>"; };
 		40A5BBD826F61A9800649521 /* Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBDB26F61A9800649521 /* LoggerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerApp.swift; sourceTree = "<group>"; };
 		40A5BBDD26F61A9800649521 /* MainLoggerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLoggerView.swift; sourceTree = "<group>"; };
@@ -235,11 +239,13 @@
 			isa = PBXGroup;
 			children = (
 				40B30C4C2729013D001F7CEE /* NetworkBottomDetailView.swift */,
+				4082EFE22729BA32008242FC /* NetworkInfoView.swift */,
 				407C32BD26F8EC420009E533 /* BottomDetailView.swift */,
 				407C32BF26F8EE4B0009E533 /* InfoView.swift */,
 				407C32C326F8F7A30009E533 /* InfoViewLabel.swift */,
 				407C32C126F8F38A0009E533 /* LogTypeView.swift */,
 				407C32C526F904B20009E533 /* DetailsList.swift */,
+				4082EFE42729BF1B008242FC /* NetworkDetailsList.swift */,
 			);
 			path = BottomDetailView;
 			sourceTree = "<group>";
@@ -675,6 +681,8 @@
 				407C32C026F8EE4B0009E533 /* InfoView.swift in Sources */,
 				40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */,
 				407C32C226F8F38A0009E533 /* LogTypeView.swift in Sources */,
+				4082EFE32729BA32008242FC /* NetworkInfoView.swift in Sources */,
+				4082EFE52729BF1B008242FC /* NetworkDetailsList.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
 				40B30C382728499F001F7CEE /* SideMenuViewModel.swift in Sources */,
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,

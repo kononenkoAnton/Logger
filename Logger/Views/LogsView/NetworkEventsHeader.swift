@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NetworkEventsHeader: View {
     struct ColumnNames {
-        static let Level = "Code"
+        static let Level = "Method/ Code"
         static let URL = "URL"
         static let Time = "Time"
     }

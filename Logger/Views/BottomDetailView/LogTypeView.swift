@@ -14,7 +14,8 @@ struct LogTypeView: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 3).foregroundColor(color)
-            Text(logType).padding(5)
+            Text(logType)
+                .padding(5)
         }.fixedSize()
     }
 }
