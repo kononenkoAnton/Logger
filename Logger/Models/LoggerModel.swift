@@ -7,14 +7,10 @@
 
 import Foundation
 
-struct LoggerModel {
-    var eventsDidUpdate: (() -> Void)?
+struct LoggerModel: Identifiable {
+    let id: String
     var selectedModel: EventModel?
-    var events: [EventModel] = [] {
-        didSet {
-            eventsDidUpdate?()
-        }
-    }
+    var events: [EventModel] = []
 
     mutating func addNewItem(model: EventModel) {
         events.append(model)
@@ -23,7 +19,7 @@ struct LoggerModel {
     mutating func addNewItems(models: [EventModel]) {
         events.append(contentsOf: models)
     }
-    
+
     mutating func clearLoggerData() {
         events = []
     }

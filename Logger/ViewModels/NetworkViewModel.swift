@@ -16,11 +16,8 @@ class NetworkViewModel: ObservableObject {
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
 
-    var wasFiltered = false
-
     init() {
-        loggerModel = LoggerModel()
-        loggerModel.eventsDidUpdate = eventsDidUpdate
+        loggerModel = LoggerModel(id: "NetworkModel")
         prepareFilteredData()
 
         NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)),
@@ -66,6 +63,7 @@ class NetworkViewModel: ObservableObject {
             guard let self = self else { return }
             let newEvents = data.map { EventModel.create(from: $0) }
             self.loggerModel.addNewItems(models: newEvents)
+            self.prepareFilteredData()
         }
     }
 
@@ -94,23 +92,15 @@ class NetworkViewModel: ObservableObject {
         return nil
     }
 
-    func eventsDidUpdate() {
-        wasFiltered = false
-    }
-
     private func prepareFilteredData() {
         let manager = FilterManager()
         let result = manager.filterData(data: loggerModel.events,
                                         statusCode: statusCode,
                                         searchBarData: searchBarFilterData)
-        wasFiltered = true
         filteredEvents = result
     }
 
     func events() -> [EventModel] {
-        if wasFiltered == false {
-            prepareFilteredData()
-        }
         return filteredEvents
     }
 
