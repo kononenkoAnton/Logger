@@ -9,6 +9,11 @@ import AppKit
 import Foundation
 
 class ApplicationViewModel: ObservableObject {
+    struct EndPoints {
+        static let PostEvent = "postEvent"
+        static let PostBatchEvents = "postBatchEvents"
+    }
+
     @Published var loggerViewModel = LoggerViewModel()
     @Published var networkViewModel = NetworkViewModel()
 
@@ -19,6 +24,8 @@ class ApplicationViewModel: ObservableObject {
         let strIPAddress: String = getIPAddress()
         NotificationCenter.default.addObserver(self, selector: #selector(populateRemoteData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
         localServer.startLocalServer()
+        searchBarFilterData = UserDefaultManager.getSearchBarData()
+        updateLoggersFilterData()
         print("IPAddress : \(strIPAddress)")
     }
 
@@ -43,29 +50,24 @@ class ApplicationViewModel: ObservableObject {
         return nil
     }
 
+    func updateLoggersFilterData() {
+        loggerViewModel.searchBarFilterData = searchBarFilterData
+        networkViewModel.searchBarFilterData = searchBarFilterData
+    }
+
     // MARK: - Intents(s)
 
     var searchBarFilterData: String? {
-        get {
-            switch sideMenuViewModel.selectedData.screenType {
-            case .logger:
-                return loggerViewModel.searchBarFilterData
-            case .networkLogger:
-                return networkViewModel.searchBarFilterData
-            default:
-                break
+        didSet {
+            if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
+               trimmedString.count > 0 {
+                UserDefaultManager.saveSearchBar(data: trimmedString)
+            } else {
+                UserDefaultManager.saveSearchBar(data: nil)
+                searchBarFilterData = nil
             }
-            return nil
-        }
-        set {
-            switch sideMenuViewModel.selectedData.screenType {
-            case .logger:
-                return loggerViewModel.searchBarFilterData = newValue
-            case .networkLogger:
-                return networkViewModel.searchBarFilterData = newValue
-            default:
-                break
-            }
+
+            updateLoggersFilterData()
         }
     }
 

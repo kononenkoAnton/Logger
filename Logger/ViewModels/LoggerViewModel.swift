@@ -9,11 +9,6 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject {
-    struct EndPoints {
-        static let PostEvent = "postEvent"
-        static let PostBatchEvents = "postBatchEvents"
-    }
-
     @Published var loggerModel: LoggerModel = LoggerModel(id: "LoggerModel")
     @Published var filteredEvents: [EventModel] = []
 
@@ -26,15 +21,8 @@ class LoggerViewModel: ObservableObject {
         }
     }
 
-    var searchBarFilterData = UserDefaultManager.getSearchBarDataLogger() {
+    var searchBarFilterData: String? {
         didSet {
-            if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
-               trimmedString.count > 0 {
-                UserDefaultManager.saveSearchBarLogger(data: trimmedString)
-            } else {
-                UserDefaultManager.saveSearchBarLogger(data: nil)
-                searchBarFilterData = nil
-            }
             prepareFilteredData()
         }
     }
@@ -88,14 +76,6 @@ class LoggerViewModel: ObservableObject {
 
     func events() -> [EventModel] {
         return filteredEvents
-    }
-
-    func copyIpAdress() {
-        let result = "http://\(getIPAddress()):9080/\(EndPoints.PostBatchEvents)"
-        let pasteboard = NSPasteboard.general
-        pasteboard.declareTypes([NSPasteboard.PasteboardType.string],
-                                owner: nil)
-        pasteboard.setString(result, forType: NSPasteboard.PasteboardType.string)
     }
 
     func dataModels(from model: EventModel) -> [DataModel] {

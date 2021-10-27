@@ -47,7 +47,7 @@ struct UserDefaultManager {
 
     // MARK: SearchBarTypeLogger
 
-    static func saveSearchBarLogger(data: String?) {
+    static func saveSearchBar(data: String?) {
         if data == nil {
             UserDefaults.standard.removeObject(forKey: Keys.SearchBarTypeLogger)
             return
@@ -57,21 +57,7 @@ struct UserDefaultManager {
                                   forKey: Keys.SearchBarTypeLogger)
     }
 
-    static func getSearchBarDataLogger() -> String? {
+    static func getSearchBarData() -> String? {
         return UserDefaults.standard.string(forKey: Keys.SearchBarTypeLogger)
-    }
-    
-    static func saveSearchBarNetwork(data: String?) {
-        if data == nil {
-            UserDefaults.standard.removeObject(forKey: Keys.SearchBarTypeNetwork)
-            return
-        }
-
-        UserDefaults.standard.set(data,
-                                  forKey: Keys.SearchBarTypeNetwork)
-    }
-
-    static func getSearchBarDataNetwork() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.SearchBarTypeNetwork)
     }
 }

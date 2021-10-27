@@ -8,25 +8,8 @@
 import Foundation
 
 class NetworkViewModel: ObservableObject {
-    struct EndPoints {
-        static let PostEvent = "postEvent"
-        static let PostBatchEvents = "postBatchEvents"
-    }
-
     @Published var loggerModel: LoggerModel = LoggerModel(id: "NetworkModel")
     @Published var filteredEvents: [EventModel] = []
-
-    init() {
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)),
-                                               name: NSNotification.Name("PostEvent"), object: nil)
-    }
-
-    @objc func receiveTest(_ notification: NSNotification) {
-        guard let data = notification.object as? [[String: AnyObject]] else {
-            return
-        }
-        addNewEntries(data: data)
-    }
 
     // MARK: - Intents(s)
 
@@ -37,15 +20,8 @@ class NetworkViewModel: ObservableObject {
         }
     }
 
-    var searchBarFilterData = UserDefaultManager.getSearchBarDataNetwork() {
+    var searchBarFilterData:String? {
         didSet {
-            if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
-               trimmedString.count > 0 {
-                UserDefaultManager.saveSearchBarNetwork(data: trimmedString)
-            } else {
-                UserDefaultManager.saveSearchBarNetwork(data: nil)
-                searchBarFilterData = nil
-            }
             prepareFilteredData()
         }
     }
