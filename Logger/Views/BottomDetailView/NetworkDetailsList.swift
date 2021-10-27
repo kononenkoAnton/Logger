@@ -7,14 +7,6 @@
 
 import SwiftUI
 
-struct DetailSectionHeader: View {
-    var body: some View {
-        VStack {
-            Text("FOO")
-        }.frame(maxWidth: .infinity, maxHeight: 50, alignment: .leading).background(Color.gray)
-    }
-}
-
 struct NetworkDetailsList: View {
     let items: [DataModel]
 
@@ -28,7 +20,6 @@ struct NetworkDetailsList: View {
                 Text(createTitle(row: row))
                     .foregroundColor(Color(ColorKeys.BottomDetailedViewFont)).font(.headline)
             }
-            .setBackgroundColor(color: NSColor(named: ColorKeys.BackgroundDetailListColor)!)
             .padding()
         }.frame(maxWidth: .infinity)
     }

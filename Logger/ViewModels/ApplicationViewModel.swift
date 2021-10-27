@@ -34,10 +34,13 @@ class ApplicationViewModel: ObservableObject {
     }
 
     @objc func populateRemoteData(_ notification: NSNotification) {
-        guard let data = notification.object as? [[String: AnyObject]] else {
-            return
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let data = notification.object as? [[String: AnyObject]] else {
+                return
+            }
+            self.addNewEntries(data: data)
         }
-        addNewEntries(data: data)
     }
 
     func convertDataToArray(data: Data) -> [[String: AnyObject]]? {

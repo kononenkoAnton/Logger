@@ -20,7 +20,6 @@ struct DetailsList: View {
                 Text(createTitle(row: row))
                     .foregroundColor(Color(ColorKeys.BottomDetailedViewFont)).font(.headline)
             }
-            .setBackgroundColor(color: NSColor(named: ColorKeys.BackgroundDetailListColor)!)
             .padding()
         }.frame(maxWidth: .infinity)
     }
