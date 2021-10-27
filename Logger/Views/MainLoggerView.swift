@@ -44,9 +44,9 @@ struct MainLoggerView: View {
 
     var networkLogger: some View {
         VStack {
-            TopView(title: SideMenuDataModel.ScreenTypes.logger.toString, getFilterView: {
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel, networkViewModel: applicationViewModel.networkViewModel, title: applicationViewModel.sideMenuViewModel.selectedData.screenType.toString) {
                 NetworkLogTypeBar(networkViewModel: applicationViewModel.networkViewModel)
-            })
+            }
 
             NetworkLogsView(networkViewModel: applicationViewModel.networkViewModel,
                             selectedModel: applicationViewModel.networkViewModel.getModelSelected())
@@ -61,9 +61,9 @@ struct MainLoggerView: View {
 
     var mainLogger: some View {
         VStack {
-            TopView(title: SideMenuDataModel.ScreenTypes.logger.toString, getFilterView: {
+            TopView(loggerViewModel: applicationViewModel.loggerViewModel, networkViewModel: applicationViewModel.networkViewModel, title: applicationViewModel.sideMenuViewModel.selectedData.screenType.toString) {
                 LogTypeBar(loggerViewModel: applicationViewModel.loggerViewModel)
-            })
+            }
 
             LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
                      selectedModel: applicationViewModel.loggerViewModel.getModelSelected())

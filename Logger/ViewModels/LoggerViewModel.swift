@@ -17,19 +17,11 @@ class LoggerViewModel: ObservableObject {
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     var wasFiltered = false
-    var localServer = LocalSever()
 
     init() {
-        let strIPAddress: String = getIPAddress()
         loggerModel = LoggerModel()
         loggerModel.eventsDidUpdate = eventsDidUpdate
         prepareFilteredData()
-        localServer.startLocalServer()
-        print("IPAddress : \(strIPAddress)")
-    }
-
-    deinit {
-        localServer.stopLocalServer()
     }
 
     // MARK: - Intents(s)

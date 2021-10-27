@@ -9,6 +9,9 @@ import SwiftUI
 
 struct TopView<FilterView>: View where FilterView: View {
     @EnvironmentObject var applicationViewModel: ApplicationViewModel
+    
+    @ObservedObject var loggerViewModel: LoggerViewModel
+    @ObservedObject var networkViewModel: NetworkViewModel
     let title: String
     var getFilterView: () -> FilterView
     var body: some View {
@@ -17,7 +20,7 @@ struct TopView<FilterView>: View where FilterView: View {
                 VStack(alignment: .leading) {
                     Text(title).font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(applicationViewModel.events().count) Events")
+                    Text("\(applicationViewModel.filteredEvents().count) Events")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,

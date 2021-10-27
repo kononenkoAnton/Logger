@@ -13,9 +13,17 @@ class ApplicationViewModel: ObservableObject {
     @Published var networkViewModel = NetworkViewModel()
 
     @Published var sideMenuViewModel = SideMenuViewModel()
+    var localServer = LocalSever()
 
     init() {
+        let strIPAddress: String = getIPAddress()
         NotificationCenter.default.addObserver(self, selector: #selector(populateRemoteData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
+        localServer.startLocalServer()
+        print("IPAddress : \(strIPAddress)")
+    }
+
+    deinit {
+        localServer.stopLocalServer()
     }
 
     @objc func populateRemoteData(_ notification: NSNotification) {
@@ -61,12 +69,12 @@ class ApplicationViewModel: ObservableObject {
         }
     }
 
-    func events() -> [EventModel] {
+    func filteredEvents() -> [EventModel] {
         switch sideMenuViewModel.selectedData.screenType {
         case .logger:
-            return loggerViewModel.events()
+            return loggerViewModel.filteredEvents
         case .networkLogger:
-            return networkViewModel.events()
+            return networkViewModel.filteredEvents
         default:
             break
         }
@@ -82,14 +90,8 @@ class ApplicationViewModel: ObservableObject {
     }
 
     func clearLoggerData() {
-        switch sideMenuViewModel.selectedData.screenType {
-        case .logger:
-            loggerViewModel.clearLoggerData()
-        case .networkLogger:
-            networkViewModel.clearLoggerData()
-        default:
-            break
-        }
+        loggerViewModel.clearLoggerData()
+        networkViewModel.clearLoggerData()
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
