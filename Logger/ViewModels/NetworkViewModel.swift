@@ -43,13 +43,13 @@ class NetworkViewModel: ObservableObject {
         }
     }
 
-    var searchBarFilterData = UserDefaultManager.getSearchBarData() {
+    var searchBarFilterData = UserDefaultManager.getSearchBarDataNetwork() {
         didSet {
             if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
                trimmedString.count > 0 {
-                UserDefaultManager.saveSearchBar(data: trimmedString)
+                UserDefaultManager.saveSearchBarNetwork(data: trimmedString)
             } else {
-                UserDefaultManager.saveSearchBar(data: nil)
+                UserDefaultManager.saveSearchBarNetwork(data: nil)
                 searchBarFilterData = nil
             }
             prepareFilteredData()

@@ -11,7 +11,8 @@ struct UserDefaultManager {
     struct Keys {
         static let LogLevelType = "LogLevelType"
         static let NetworkRequestStatusCodeType = "NetworkRequestStatusCode"
-        static let SearchBarType = "SearchBar"
+        static let SearchBarTypeLogger = "SearchBarLogger"
+        static let SearchBarTypeNetwork = "SearchBarNetwork"
     }
 
     // MARK: NetworkRequestStatusCode
@@ -44,19 +45,33 @@ struct UserDefaultManager {
         return level
     }
 
-    // MARK: SearchBarType
+    // MARK: SearchBarTypeLogger
 
-    static func saveSearchBar(data: String?) {
+    static func saveSearchBarLogger(data: String?) {
         if data == nil {
-            UserDefaults.standard.removeObject(forKey: Keys.SearchBarType)
+            UserDefaults.standard.removeObject(forKey: Keys.SearchBarTypeLogger)
             return
         }
 
         UserDefaults.standard.set(data,
-                                  forKey: Keys.SearchBarType)
+                                  forKey: Keys.SearchBarTypeLogger)
     }
 
-    static func getSearchBarData() -> String? {
-        return UserDefaults.standard.string(forKey: Keys.SearchBarType)
+    static func getSearchBarDataLogger() -> String? {
+        return UserDefaults.standard.string(forKey: Keys.SearchBarTypeLogger)
+    }
+    
+    static func saveSearchBarNetwork(data: String?) {
+        if data == nil {
+            UserDefaults.standard.removeObject(forKey: Keys.SearchBarTypeNetwork)
+            return
+        }
+
+        UserDefaults.standard.set(data,
+                                  forKey: Keys.SearchBarTypeNetwork)
+    }
+
+    static func getSearchBarDataNetwork() -> String? {
+        return UserDefaults.standard.string(forKey: Keys.SearchBarTypeNetwork)
     }
 }

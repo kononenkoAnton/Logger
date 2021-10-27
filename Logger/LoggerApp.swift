@@ -11,7 +11,8 @@ import SwiftUI
 struct LoggerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainLoggerView(applicationViewModel: ApplicationViewModel())
+            let viewModel = ApplicationViewModel()
+            MainLoggerView().environmentObject(viewModel)
         }
     }
 }

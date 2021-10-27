@@ -15,13 +15,13 @@ extension EventModel {
     var networkStatusCode: NetworkRequestStatusCode {
         guard let statusCodeString = self.networkRequestStatusCode,
               let networkRequestStatusCode = NetworkRequestStatusCode(statusCode: statusCodeString) else {
-            return NetworkRequestStatusCode.x000
+            return NetworkRequestStatusCode.x200
         }
         return networkRequestStatusCode
     }
 
-    func httpStatusCode(from event: EventModel) -> HTTPStatusCode? {
-        guard let statusCodeString = event.networkRequestStatusCode,
+    var httpStatusCodeDescription: HTTPStatusCode? {
+        guard let statusCodeString = self.networkRequestStatusCode,
               let httpStatusCode = HTTPStatusCode(rawValue: Int(statusCodeString) ?? 0) else {
             return nil
         }

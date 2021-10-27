@@ -8,38 +8,32 @@
 import SwiftUI
 
 struct MainLoggerView: View {
-    @ObservedObject var applicationViewModel: ApplicationViewModel
-//    @ObservedObject var loggerViewModel: LoggerViewModel
-//    @ObservedObject var sideMenuViewModel: SideMenuViewModel
-//
-    @State var selectedData: SideMenuDataModel.Data = .init(screenType: .logger)
+    @EnvironmentObject var applicationViewModel: ApplicationViewModel
 
     var body: some View {
-        GeometryReader { _ in
-            HSplitView {
-                VStack {
-                    SideBar(sideMenuViewModel: applicationViewModel.sideMenuViewModel,
-                            selectedData: $selectedData)
-                        .padding(.top, 10)
-                    Spacer()
-                }.frame(maxWidth: 200,
-                        maxHeight: .infinity)
-                    .border(Color(ColorKeys.BackgroundColorEventsHeader),
-                            width: 2)
-                menuScreensSelector
-            }
+        HSplitView {
+            VStack {
+                SideBar(sideMenuViewModel: applicationViewModel.sideMenuViewModel,
+                        selectedData: $applicationViewModel.sideMenuViewModel.selectedData)
+                    .padding(.top, 10)
+                Spacer()
+            }.frame(maxWidth: 200,
+                    maxHeight: .infinity)
+                .border(Color(ColorKeys.BackgroundColorEventsHeader),
+                        width: 2)
+            menuScreensSelector
         }
     }
 
     var menuScreensSelector: some View {
         Group {
-            switch selectedData.screenType {
+            switch applicationViewModel.sideMenuViewModel.selectedData.screenType {
             case .logger:
                 mainLogger
-            case .crashLogger:
-                crashLogger
             case .networkLogger:
                 networkLogger
+            case .crashLogger:
+                crashLogger
             case .applicationData:
                 applicationData
             case .settings:
@@ -48,58 +42,15 @@ struct MainLoggerView: View {
         }
     }
 
-    var settings: some View {
-        VStack {
-            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
-                    title: SideMenuDataModel.ScreenTypes.settings.toString)
-
-            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
-                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
-                .frame(maxWidth: .infinity,
-                       maxHeight: .infinity)
-        }.frame(idealWidth: 100,
-                maxWidth: .infinity,
-                maxHeight: .infinity)
-            .background(Color(ColorKeys.BackgroundColor))
-    }
-
-    var applicationData: some View {
-        VStack {
-            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
-                    title: SideMenuDataModel.ScreenTypes.applicationData.toString)
-
-            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
-                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
-                .frame(maxWidth: .infinity,
-                       maxHeight: .infinity)
-        }.frame(idealWidth: 100,
-                maxWidth: .infinity,
-                maxHeight: .infinity)
-            .background(Color(ColorKeys.BackgroundColor))
-    }
-
     var networkLogger: some View {
         VStack {
-            TopView(loggerViewModel: applicationViewModel.networkViewModel,
-                    title: SideMenuDataModel.ScreenTypes.networkLogger.toString)
+            TopView(title: SideMenuDataModel.ScreenTypes.logger.toString, getFilterView: {
+                NetworkLogTypeBar(networkViewModel: applicationViewModel.networkViewModel)
+            })
 
-            LogsView(loggerViewModel: applicationViewModel.networkViewModel,
-                     selectedModel: applicationViewModel.networkViewModel.getModelSelected())
-                .frame(maxWidth: .infinity,
-                       maxHeight: .infinity)
-        }.frame(idealWidth: 100,
-                maxWidth: .infinity,
-                maxHeight: .infinity)
-            .background(Color(ColorKeys.BackgroundColor))
-    }
+            NetworkLogsView(networkViewModel: applicationViewModel.networkViewModel,
+                            selectedModel: applicationViewModel.networkViewModel.getModelSelected())
 
-    var crashLogger: some View {
-        VStack {
-            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
-                    title: SideMenuDataModel.ScreenTypes.crashLogger.toString)
-
-            LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
-                     selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
                 .frame(maxWidth: .infinity,
                        maxHeight: .infinity)
         }.frame(idealWidth: 100,
@@ -110,8 +61,9 @@ struct MainLoggerView: View {
 
     var mainLogger: some View {
         VStack {
-            TopView(loggerViewModel: applicationViewModel.loggerViewModel,
-                    title: SideMenuDataModel.ScreenTypes.logger.toString)
+            TopView(title: SideMenuDataModel.ScreenTypes.logger.toString, getFilterView: {
+                LogTypeBar(loggerViewModel: applicationViewModel.loggerViewModel)
+            })
 
             LogsView(loggerViewModel: applicationViewModel.loggerViewModel,
                      selectedModel: applicationViewModel.loggerViewModel.getModelSelected())
@@ -122,12 +74,24 @@ struct MainLoggerView: View {
                 maxHeight: .infinity)
             .background(Color(ColorKeys.BackgroundColor))
     }
+
+    var settings: some View {
+        EmptyView()
+    }
+
+    var applicationData: some View {
+        EmptyView()
+    }
+
+    var crashLogger: some View {
+        EmptyView()
+    }
 }
 
-//struct ContentView_Previews: PreviewProvider {
+// struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        MainLoggerView(loggerViewModel: LoggerViewModel(),
 //                       sideMenuViewModel: SideMenuViewModel(),
 //                       selectedData: .init(screenType: .logger))
 //    }
-//}
+// }

@@ -31,8 +31,8 @@ struct SideMenuDataModel {
 
     enum ScreenTypes: Int {
         case logger
-        case crashLogger
         case networkLogger
+        case crashLogger
         case applicationData
         case settings
 
@@ -73,16 +73,15 @@ struct SideMenuDataModel {
 
     init() {
         let logger: ScreenTypes = .logger
-        let errorlogger: ScreenTypes = .crashLogger
         let networkLogger: ScreenTypes = .networkLogger
-        let applicationData: ScreenTypes = .applicationData
-        let settings: ScreenTypes = .settings
+
         data = [
             Data(screenType: logger),
-            Data(screenType: errorlogger),
             Data(screenType: networkLogger),
-            Data(screenType: applicationData),
-            Data(screenType: settings),
+
+//            Data(screenType: errorlogger),
+//            Data(screenType: applicationData),
+//            Data(screenType: settings),
         ]
     }
 }

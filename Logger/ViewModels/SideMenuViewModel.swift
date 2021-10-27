@@ -10,6 +10,8 @@ import Foundation
 class SideMenuViewModel: ObservableObject {
     @Published var sideMenuModel: SideMenuDataModel = SideMenuDataModel()
 
+    var selectedData: SideMenuDataModel.Data = .init(screenType: .logger)
+
     // MARK: - Intents(s)
 
     func sideMenuModel(_ index: Int) -> SideMenuDataModel.Data? {

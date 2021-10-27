@@ -83,7 +83,6 @@ public enum LogLevel: Int, CodingKey {
     }
 }
 
-
 let CatalogName = "Assets"
 struct ColorKeys {
     static let BackgroundColor = "BackgroundColor"
@@ -103,4 +102,5 @@ struct ColorKeys {
     static let BackgroundDetailListColor = "BackgroundDetailListColor"
     static let BottomDetailedViewFont = "BottomDetailedViewFont"
     static let RowFontColorSelected = "RowFontColorSelected"
+    static let RowFontColorSelectedMethod = "RowFontColorSelectedMethod"
 }

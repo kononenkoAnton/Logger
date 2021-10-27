@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct TopView: View {
-    @ObservedObject var loggerViewModel: LoggerViewModel
-    let title:String
-    
+struct TopView<FilterView>: View where FilterView: View {
+    @EnvironmentObject var applicationViewModel: ApplicationViewModel
+    let title: String
+    var getFilterView: () -> FilterView
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
                     Text(title).font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(loggerViewModel.events().count) Events")
+                    Text("\(applicationViewModel.events().count) Events")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,
@@ -25,11 +25,12 @@ struct TopView: View {
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
-                TopButtonsBar(loggerViewModel: loggerViewModel).padding(EdgeInsets(top: 10,
-                                                                                   leading: 0,
-                                                                                   bottom: 0,
-                                                                                   trailing: 0))
-                SearchBar(loggerViewModel: loggerViewModel)
+                TopButtonsBar()
+                    .padding(EdgeInsets(top: 10,
+                                        leading: 0,
+                                        bottom: 0,
+                                        trailing: 0))
+                SearchBar()
                     .padding(EdgeInsets(top: 10,
                                         leading: 0,
                                         bottom: 0,
@@ -45,7 +46,7 @@ struct TopView: View {
                     maxHeight: 1).foregroundColor(Color(ColorKeys.BackgroundColorSeparatorLine)).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             HStack {
-                LogTypeBar(loggerViewModel: loggerViewModel)
+                getFilterView()
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 20,
@@ -63,9 +64,9 @@ struct TopView: View {
     }
 }
 
-struct TopBar_Previews: PreviewProvider {
-    static var previews: some View {
-        TopView(loggerViewModel: LoggerViewModel(), title: "Logger")
-        TopView(loggerViewModel: LoggerViewModel(), title: "Logger").preferredColorScheme(.light)
-    }
-}
+// struct TopBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TopView(loggerViewModel: LoggerViewModel(), title: "Logger")
+//        TopView(loggerViewModel: LoggerViewModel(), title: "Logger").preferredColorScheme(.light)
+//    }
+// }

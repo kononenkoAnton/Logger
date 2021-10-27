@@ -9,7 +9,6 @@
 import SwiftUI
 
 public enum NetworkRequestStatusCode: Int, Comparable {
-    case x000 = 0
     case x200 = 200
     case x300 = 300
     case x400 = 400
@@ -34,8 +33,6 @@ public enum NetworkRequestStatusCode: Int, Comparable {
             return "4xx"
         case .x500:
             return "5xx"
-        default:
-            return "0"
         }
     }
 
@@ -49,8 +46,6 @@ public enum NetworkRequestStatusCode: Int, Comparable {
             return Color(red: 232 / 255, green: 129 / 255, blue: 26 / 255)
         case .x500:
             return Color(red: 228 / 255, green: 35 / 255, blue: 40 / 255)
-        default:
-            return Color.white
         }
     }
 

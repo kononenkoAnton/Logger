@@ -35,8 +35,6 @@ struct FilterManager {
             return data.filter({ $0.networkStatusCode >= NetworkRequestStatusCode.x300 })
         case .x200:
             return data
-        case .x000:
-            return data
         }
     }
 

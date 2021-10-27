@@ -23,7 +23,7 @@ struct NetworkEventsHeader: View {
         HStack {
             Text(ColumnNames.Level)
                 .foregroundColor(Color(ColorKeys.BackgroundFontColorEventsHeader))
-                .frame(width: 100, alignment: .leading)
+                .frame(width: 150, alignment: .leading)
                 .padding(.horizontal, 10)
             devider
             Text(ColumnNames.URL)

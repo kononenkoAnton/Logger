@@ -26,15 +26,6 @@ class LoggerViewModel: ObservableObject {
         prepareFilteredData()
         localServer.startLocalServer()
         print("IPAddress : \(strIPAddress)")
-
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)), name: NSNotification.Name("PostEvent"), object: nil)
-    }
-
-    @objc func receiveTest(_ notification: NSNotification) {
-        guard let data = notification.object as? [[String: AnyObject]] else {
-            return
-        }
-        addNewEntries(data: data)
     }
 
     deinit {
@@ -50,13 +41,13 @@ class LoggerViewModel: ObservableObject {
         }
     }
 
-    var searchBarFilterData = UserDefaultManager.getSearchBarData() {
+    var searchBarFilterData = UserDefaultManager.getSearchBarDataLogger() {
         didSet {
             if let trimmedString = searchBarFilterData?.trimmingCharacters(in: .whitespacesAndNewlines),
                trimmedString.count > 0 {
-                UserDefaultManager.saveSearchBar(data: trimmedString)
+                UserDefaultManager.saveSearchBarLogger(data: trimmedString)
             } else {
-                UserDefaultManager.saveSearchBar(data: nil)
+                UserDefaultManager.saveSearchBarLogger(data: nil)
                 searchBarFilterData = nil
             }
             prepareFilteredData()
