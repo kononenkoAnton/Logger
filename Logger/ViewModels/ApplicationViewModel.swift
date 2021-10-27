@@ -47,6 +47,7 @@ class ApplicationViewModel: ObservableObject {
         } catch {
             print("Something went wrong")
         }
+
         return nil
     }
 
@@ -80,6 +81,7 @@ class ApplicationViewModel: ObservableObject {
         default:
             break
         }
+
         return []
     }
 
@@ -102,7 +104,6 @@ class ApplicationViewModel: ObservableObject {
 
             self.loggerViewModel.addNewEntries(data: data)
 
-            // TODO: Move to better place
             let filteredNetworkLogs = self.prepareNetworkLogs(data: data)
             self.networkViewModel.addNewEntries(data: filteredNetworkLogs)
         }
