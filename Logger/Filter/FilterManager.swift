@@ -12,7 +12,7 @@ struct FilterManager {
                     statusCode: NetworkRequestStatusCode,
                     searchBarData: String?) -> [EventModel] {
         let task = FilterTask(filterObject: statusCode,
-                              filterAction: filterByLogLevel)
+                              filterAction: filterByStatusCode)
         if let searchBarData = searchBarData {
             let secondTask = FilterTask(filterObject: searchBarData,
                                         filterAction: filterBySearchBarData)

@@ -50,7 +50,7 @@ struct NetworkEventRow: View {
         VStack {
             Text(method)
                 .bold()
-                .foregroundColor(Color(ColorKeys.RowFontColorSelectedMethod))
+                .foregroundColor(Color(isSelected ? ColorKeys.RowFontColorSelectedMethod : ColorKeys.RowFontColorMethod))
                 .padding(methodEdgeInsets)
             isSelected ?
                 Text(codeDescription)

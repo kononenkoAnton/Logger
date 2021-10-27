@@ -103,4 +103,5 @@ struct ColorKeys {
     static let BottomDetailedViewFont = "BottomDetailedViewFont"
     static let RowFontColorSelected = "RowFontColorSelected"
     static let RowFontColorSelectedMethod = "RowFontColorSelectedMethod"
+    static let RowFontColorMethod = "RowFontColorMethod"
 }
