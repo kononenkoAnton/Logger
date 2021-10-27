@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TopView<FilterView>: View where FilterView: View {
     @EnvironmentObject var applicationViewModel: ApplicationViewModel
-    
+
     @ObservedObject var loggerViewModel: LoggerViewModel
     @ObservedObject var networkViewModel: NetworkViewModel
     let title: String
@@ -33,7 +33,7 @@ struct TopView<FilterView>: View where FilterView: View {
                                         leading: 0,
                                         bottom: 0,
                                         trailing: 0))
-                SearchBar()
+                SearchBar(applicationViewModel: applicationViewModel)
                     .padding(EdgeInsets(top: 10,
                                         leading: 0,
                                         bottom: 0,

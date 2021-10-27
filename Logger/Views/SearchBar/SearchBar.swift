@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct SearchBar: View {
-    @EnvironmentObject var applicationViewModel: ApplicationViewModel
+    @ObservedObject var applicationViewModel: ApplicationViewModel
 
     @State var text: String = ""
     // the inputted search text
     @State private var isEditing = false
 
-    init() {
-//        if let newFilterText = applicationViewModel.searchBarFilterData {
-//            _text = State(initialValue: newFilterText)
-//        }
+    init(applicationViewModel: ApplicationViewModel) {
+        self.applicationViewModel = applicationViewModel
+        if let newFilterText = applicationViewModel.searchBarFilterData {
+            _text = State(initialValue: newFilterText)
+        }
     }
 
     var body: some View {
