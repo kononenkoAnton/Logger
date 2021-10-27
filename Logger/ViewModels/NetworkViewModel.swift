@@ -13,13 +13,10 @@ class NetworkViewModel: ObservableObject {
         static let PostBatchEvents = "postBatchEvents"
     }
 
-    @Published var loggerModel: LoggerModel
+    @Published var loggerModel: LoggerModel = LoggerModel(id: "NetworkModel")
     @Published var filteredEvents: [EventModel] = []
 
     init() {
-        loggerModel = LoggerModel(id: "NetworkModel")
-        prepareFilteredData()
-
         NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)),
                                                name: NSNotification.Name("PostEvent"), object: nil)
     }

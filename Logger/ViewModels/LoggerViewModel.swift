@@ -14,13 +14,8 @@ class LoggerViewModel: ObservableObject {
         static let PostBatchEvents = "postBatchEvents"
     }
 
-    @Published var loggerModel: LoggerModel
+    @Published var loggerModel: LoggerModel = LoggerModel(id: "LoggerModel")
     @Published var filteredEvents: [EventModel] = []
-
-    init() {
-        loggerModel = LoggerModel(id: "LoggerModel")
-        prepareFilteredData()
-    }
 
     // MARK: - Intents(s)
 
