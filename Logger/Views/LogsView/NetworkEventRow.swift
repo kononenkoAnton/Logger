@@ -23,22 +23,6 @@ struct NetworkEventRow: View {
         .background(isSelected ? Color(ColorKeys.RowBacgroundColorSelected) : backgroundColor)
     }
 
-    var method: String {
-        guard let request = model.data?["request"] as? [String: Any],
-              let method = request["method"] as? String else {
-            return ""
-        }
-        return method
-    }
-
-    var url: String {
-        guard let request = model.data?["request"] as? [String: Any],
-              let url = request["url"] as? String else {
-            return "Can not find url, please check logs data"
-        }
-        return url
-    }
-
     @ViewBuilder private var codeText: some View {
         let methodEdgeInsets = EdgeInsets(top: 5, leading: 12, bottom: 0, trailing: 10)
         let edgeInsets = EdgeInsets(top: 0, leading: 12, bottom: 5, trailing: 10)
@@ -48,7 +32,7 @@ struct NetworkEventRow: View {
         let width: CGFloat = 150
 
         VStack {
-            Text(method)
+            Text(model.method)
                 .bold()
                 .foregroundColor(Color(isSelected ? ColorKeys.RowFontColorSelectedMethod : ColorKeys.RowFontColorMethod))
                 .padding(methodEdgeInsets)
@@ -70,11 +54,11 @@ struct NetworkEventRow: View {
     @ViewBuilder private var urlText: some View {
         let edgeInsets = EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 10)
         isSelected ?
-            Text(url)
+            Text(model.url)
             .foregroundColor(Color(ColorKeys.RowFontColorSelected))
             .frame(alignment: .leading)
             .padding(edgeInsets) :
-            Text(url)
+            Text(model.url)
             .frame(alignment: .leading)
             .padding(edgeInsets)
     }
