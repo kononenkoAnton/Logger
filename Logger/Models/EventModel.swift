@@ -9,7 +9,7 @@ import Foundation
 struct EventModel {
     let dateFormatter = DateFormatter()
     public var format = "yyyy-MM-dd HH:mm:ssZ"
-    
+
     init(id: String,
          category: String,
          subsystem: String,
@@ -34,8 +34,8 @@ struct EventModel {
         let timestamp = object["timestamp"] as! UInt
         let level = LogLevel(rawValue: object["level"] as! Int)!
         let message = object["message"] as! String
-        let data = object["data"] as? [String:Any]
-        let context = object["context"] as? [String:Any]
+        let data = object["data"] as? [String: Any]
+        let context = object["context"] as? [String: Any]
         let id = "\(UUID())"
         return EventModel(id: id,
                           category: category,
@@ -46,7 +46,7 @@ struct EventModel {
                           data: data,
                           context: context)
     }
-    
+
     public let id: String
     public let category: String
     public let subsystem: String

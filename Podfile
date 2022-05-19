@@ -7,7 +7,6 @@ target 'Logger' do
   pod 'Introspect'
   pod 'Swifter'
 
-
   target 'LoggerTests' do
     inherit! :search_paths
     # Pods for testing

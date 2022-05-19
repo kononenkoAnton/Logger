@@ -9,26 +9,20 @@ import Foundation
 import Swifter
 //Example iPV6 "http://[2600:1006:b00e:1966:45de:b8b5:5f57:94e3]:9080/postEvent"
 class LocalSever {
-    var server: HttpServer!
+    var server: LocalWebSocket!
 
     func startLocalServer() {
-        do {
-            server = serverData(try String.File.currentWorkingDirectory())
-            server["/testAfterBaseRoute"] = { request in
-                print("Received request: \(request)")
-                return .ok(.htmlBody("ok !"))
+        let server = LocalWebSocket()
+        server.start()
+        // To check if the connection is established at port 8080, run
+        // sudo lsof -i :8080 from command line to verify connection on given port
+        server.completion = { value in
+            DispatchQueue.main.async {
+                print("Server output: \(value)")
             }
-
-            try server.start(9080,
-                             forceIPv4: false)
-
-            print("Server has started ( port = \(try server.port()) ). Try to connect now...")
-
-//            RunLoop.main.run()
-
-        } catch {
-            print("Server start error: \(error)")
         }
+
+        print("Server has started ( port = \(server.port ?? 0))")
     }
 
     func stopLocalServer() {

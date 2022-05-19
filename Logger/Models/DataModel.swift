@@ -12,6 +12,4 @@ struct DataModel: Identifiable, Hashable {
     let key: String
     var value: String?
     var items: [DataModel]?
-
 }
-
