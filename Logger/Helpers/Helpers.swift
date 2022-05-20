@@ -19,7 +19,7 @@ func getIPAddress() -> String {
             let addrFamily = interface.ifa_addr.pointee.sa_family
             if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
                 // wifi = ["en0"]
-                // wired = ["en2", "en3", "en4"]
+                // wired = ["en2", "en3", "en4", "en5", "en7"]
                 // cellular = ["pdp_ip0","pdp_ip1","pdp_ip2","pdp_ip3"]
 
                 let name: String = String(cString: interface.ifa_name)
