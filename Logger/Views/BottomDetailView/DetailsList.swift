@@ -19,6 +19,7 @@ struct DetailsList: View {
             List(items, children: \.items) { row in
                 Text(createTitle(row: row))
                     .foregroundColor(Color(ColorKeys.BottomDetailedViewFont)).font(.headline)
+                    .textSelection(.enabled)
             }
             .setBackgroundColor(color: NSColor(named: ColorKeys.BackgroundDetailListColor)!)
             .padding()

@@ -10,12 +10,11 @@ import SwiftUI
 struct InfoViewLabel: View {
     var title: String
     var description: String
-    
+
     var body: some View {
-        
         HStack {
-            Text(title).bold()
-            Text(description)
+            Text(title).bold().textSelection(.enabled)
+            Text(description).textSelection(.enabled)
             Spacer()
         }
     }
