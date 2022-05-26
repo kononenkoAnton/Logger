@@ -67,6 +67,8 @@
 /* Begin PBXFileReference section */
 		0537909BA982D709B7DB4528 /* Pods_Logger_LoggerUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logger_LoggerUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0904C1F82841F8B56EFCE38C /* Pods_Logger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D669FFC283F63A3007AFE51 /* Logger-debug.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Logger-debug.entitlements"; sourceTree = "<group>"; };
+		1D669FFD283F63A3007AFE51 /* Logger-release.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Logger-release.entitlements"; sourceTree = "<group>"; };
 		1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebSocket.swift; sourceTree = "<group>"; };
 		1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketData.swift; sourceTree = "<group>"; };
 		37D0A501D60C8F4AB4FEAC95 /* Pods-LoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggerTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggerTests/Pods-LoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,7 +99,6 @@
 		40A5BBDF26F61A9A00649521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40A5BBE226F61A9A00649521 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		40A5BBE426F61A9A00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40A5BBE526F61A9A00649521 /* Logger.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Logger.entitlements; sourceTree = "<group>"; };
 		40A5BBEA26F61A9A00649521 /* LoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40A5BBEE26F61A9B00649521 /* LoggerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerTests.swift; sourceTree = "<group>"; };
 		40A5BBF026F61A9B00649521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D669FFB283F63A3007AFE51 /* Entitlements */ = {
+			isa = PBXGroup;
+			children = (
+				1D669FFC283F63A3007AFE51 /* Logger-debug.entitlements */,
+				1D669FFD283F63A3007AFE51 /* Logger-release.entitlements */,
+			);
+			path = Entitlements;
+			sourceTree = "<group>";
+		};
 		1DA24FA028363FBA00D1AB58 /* WebSocketData */ = {
 			isa = PBXGroup;
 			children = (
@@ -258,6 +268,7 @@
 		40A5BBDA26F61A9800649521 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				1D669FFB283F63A3007AFE51 /* Entitlements */,
 				1DA24FA028363FBA00D1AB58 /* WebSocketData */,
 				40B38F7826FAB4C7000B96DE /* LocalServer */,
 				407C32CE26F955A10009E533 /* Filter */,
@@ -269,7 +280,6 @@
 				40A5BC0926F6361600649521 /* Styles.swift */,
 				40A5BBDF26F61A9A00649521 /* Assets.xcassets */,
 				40A5BBE426F61A9A00649521 /* Info.plist */,
-				40A5BBE526F61A9A00649521 /* Logger.entitlements */,
 				40A5BBE126F61A9A00649521 /* Preview Content */,
 				407C32CB26F921A60009E533 /* Helpers */,
 			);
@@ -779,13 +789,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Logger/Entitlements/Logger-debug.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Logger/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -806,7 +816,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Logger/Logger.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "Logger/Entitlements/Logger-release.entitlements";
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
