@@ -17,10 +17,9 @@ struct TopButtonsBar: View {
                 let panel = NSOpenPanel()
                 panel.allowsMultipleSelection = false
                 panel.canChooseDirectories = false
-                if panel.runModal() == .OK {
-                    if let url = panel.url {
-                        loggerViewModel.loadExistedJSON(url: url)
-                    }
+                if panel.runModal() == .OK,
+                   let url = panel.url {
+                    loggerViewModel.loadExistedJSON(url: url)
                 }
             }
             TopButton(imageName: "xmark.circle", text: "Clear", action: loggerViewModel.clearLoggerData)
