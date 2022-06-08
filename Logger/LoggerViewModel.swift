@@ -78,15 +78,13 @@ class LoggerViewModel: ObservableObject {
 
     func loadExistedJSON(url: URL) {
         URLSession.shared.dataTask(with: url) { data, _, error in
-            DispatchQueue.main.async {
-                if let error = error {
-                    print(error)
-                }
+            if let error = error {
+                print(error)
+            }
 
-                if let data = data,
-                   let result = self.convertDataToArray(data: data) {
-                    self.addNewEntries(data: result)
-                }
+            if let data = data,
+               let result = self.convertDataToArray(data: data) {
+                self.addNewEntries(data: result)
             }
         }.resume()
     }
