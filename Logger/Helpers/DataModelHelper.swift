@@ -84,4 +84,33 @@ struct DataModelHelper {
         }
         return newDataSource
     }
+
+    static func quickSort(_ array: [[String: AnyObject]], key: String) -> [[String: AnyObject]] {
+        if array.count < 2 {
+            // base case, arrays with 0 or 1 element are already "sorted"
+            return array
+        } else {
+            // recursive case
+            let pivot = array[array.count / 2][key] as! Int
+            // sub-array of all the elements less than the pivot
+            let less = array.filter {
+                let value = $0[key] as! Int
+                return value < pivot
+            }
+
+            // sub-array of all the elements equal to the pivot
+            let equal = array.filter {
+                let value = $0[key] as! Int
+
+                return value == pivot
+            }
+            // sub-array of all the elements greater than the pivot
+            let greater = array.filter {
+                let value = $0[key] as! Int
+
+                return value > pivot
+            }
+            return quickSort(less, key: key) + equal + quickSort(greater, key: key)
+        }
+    }
 }

@@ -27,13 +27,14 @@ class LoggerViewModel: ObservableObject {
         localServer.startLocalServer()
         print("IPAddress : \(strIPAddress)")
 
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)), name: NSNotification.Name("PostEvent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
     }
 
-    @objc func receiveTest(_ notification: NSNotification) {
+    @objc func receiveData(_ notification: NSNotification) {
         guard let data = notification.object as? [[String: AnyObject]] else {
             return
         }
+
         addNewEntries(data: data)
     }
 
@@ -77,14 +78,18 @@ class LoggerViewModel: ObservableObject {
     }
 
     func loadExistedJSON(url: URL) {
+        clearLoggerData()
+
         URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
                 print(error)
             }
 
             if let data = data,
-               let result = self.convertDataToArray(data: data) {
-                self.addNewEntries(data: result)
+               let convertedData = self.convertDataToArray(data: data) {
+                let sortedData = DataModelHelper.quickSort(convertedData,
+                                                           key: "timestamp")
+                self.addNewEntries(data: sortedData)
             }
         }.resume()
     }
