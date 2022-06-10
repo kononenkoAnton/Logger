@@ -34,7 +34,6 @@ struct LoggerModel {
     
     mutating func sortByTimeStamp() {
         events = DataModelHelper.quickSortByTimestamp(eventModelsArray: events)
-        print(events)
     }
 }
 
