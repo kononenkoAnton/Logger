@@ -84,4 +84,25 @@ struct DataModelHelper {
         }
         return newDataSource
     }
+
+    static func quickSortByTimestamp(eventModelsArray: [EventModel]) -> [EventModel] {
+        if eventModelsArray.count < 2 {
+            // base case, arrays with 0 or 1 element are already "sorted"
+            return eventModelsArray
+        } else {
+            // recursive case
+            let pivot = eventModelsArray[eventModelsArray.count / 2].timestamp
+
+            // sub-array of all the elements less than the pivot
+            let less = eventModelsArray.filter { $0.timestamp < pivot }
+
+            // sub-array of all the elements equal to the pivot
+            let equal = eventModelsArray.filter { $0.timestamp == pivot }
+
+            // sub-array of all the elements greater than the pivot
+            let greater = eventModelsArray.filter { $0.timestamp > pivot }
+
+            return quickSortByTimestamp(eventModelsArray: less) + equal + quickSortByTimestamp(eventModelsArray: greater)
+        }
+    }
 }

@@ -27,14 +27,17 @@ class LoggerViewModel: ObservableObject {
         localServer.startLocalServer()
         print("IPAddress : \(strIPAddress)")
 
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveTest(_:)), name: NSNotification.Name("PostEvent"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
     }
 
-    @objc func receiveTest(_ notification: NSNotification) {
+    @objc func receiveData(_ notification: NSNotification) {
         guard let data = notification.object as? [[String: AnyObject]] else {
             return
         }
-        addNewEntries(data: data)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.addNewEntries(data: data)
+        }
     }
 
     deinit {
@@ -69,22 +72,26 @@ class LoggerViewModel: ObservableObject {
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            let newEvents = data.map { EventModel.create(from: $0) }
-            self.loggerModel.addNewItems(models: newEvents)
-        }
+        let newEvents = data.map { EventModel.create(from: $0) }
+        loggerModel.addNewItems(models: newEvents)
     }
 
     func loadExistedJSON(url: URL) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                print(error)
-            }
+        clearLoggerData()
 
-            if let data = data,
-               let result = self.convertDataToArray(data: data) {
-                self.addNewEntries(data: result)
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
+                if let error = error {
+                    print(error)
+                }
+
+                if let data = data,
+                   let convertedData = self.convertDataToArray(data: data) {
+                    self.addNewEntries(data: convertedData)
+                    self.loggerModel.sortByTimeStamp()
+                }
             }
         }.resume()
     }
