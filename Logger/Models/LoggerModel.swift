@@ -31,6 +31,11 @@ struct LoggerModel {
     mutating func setSelectedModel(model: EventModel?) {
         selectedModel = model
     }
+    
+    mutating func sortByTimeStamp() {
+        events = DataModelHelper.quickSortByTimestamp(eventModelsArray: events)
+        print(events)
+    }
 }
 
 struct TestModels {

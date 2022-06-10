@@ -34,8 +34,10 @@ class LoggerViewModel: ObservableObject {
         guard let data = notification.object as? [[String: AnyObject]] else {
             return
         }
-
-        addNewEntries(data: data)
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.addNewEntries(data: data)
+        }
     }
 
     deinit {
@@ -70,26 +72,26 @@ class LoggerViewModel: ObservableObject {
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            let newEvents = data.map { EventModel.create(from: $0) }
-            self.loggerModel.addNewItems(models: newEvents)
-        }
+        let newEvents = data.map { EventModel.create(from: $0) }
+        loggerModel.addNewItems(models: newEvents)
     }
 
     func loadExistedJSON(url: URL) {
         clearLoggerData()
 
         URLSession.shared.dataTask(with: url) { data, _, error in
-            if let error = error {
-                print(error)
-            }
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
 
-            if let data = data,
-               let convertedData = self.convertDataToArray(data: data) {
-                let sortedData = DataModelHelper.quickSort(convertedData,
-                                                           key: "timestamp")
-                self.addNewEntries(data: sortedData)
+                if let error = error {
+                    print(error)
+                }
+
+                if let data = data,
+                   let convertedData = self.convertDataToArray(data: data) {
+                    self.addNewEntries(data: convertedData)
+                    self.loggerModel.sortByTimeStamp()
+                }
             }
         }.resume()
     }
