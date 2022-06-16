@@ -16,8 +16,8 @@ class LoggerViewModel: ObservableObject {
 
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
-    var wasFiltered = false
-    var localServer = LocalSever()
+    private var wasFiltered = false
+    private var localServer = LocalSever()
 
     init() {
         let strIPAddress: String = getIPAddress()
@@ -40,10 +40,6 @@ class LoggerViewModel: ObservableObject {
         }
     }
 
-    deinit {
-        localServer.stopLocalServer()
-    }
-
     // MARK: - Intents(s)
 
     var logLevel = UserDefaultManager.getLogLevel() {
@@ -64,6 +60,10 @@ class LoggerViewModel: ObservableObject {
             }
             prepareFilteredData()
         }
+    }
+
+    func stopLocalServer() {
+        localServer.stopLocalServer()
     }
 
     func clearLoggerData() {
