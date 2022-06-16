@@ -131,7 +131,7 @@ class LoggerViewModel: ObservableObject {
     }
 
     func copyIpAdress() {
-        let result = "\(getIPAddress()):9080"
+        let result = "ws://\(getIPAddress()):9080"
         let pasteboard = NSPasteboard.general
         pasteboard.declareTypes([NSPasteboard.PasteboardType.string],
                                 owner: nil)
