@@ -54,6 +54,8 @@ class LocalWebSocket {
 
             newConnection.stateUpdateHandler = { state in
                 switch state {
+                case .preparing: print("\n..... Connection Incoming - Preparing .....\n")
+                case .setup: print("Connection Incoming -Setup")
                 case .ready:
                     do {
                         print("Client ready")
@@ -66,6 +68,8 @@ class LocalWebSocket {
                     print("Client connection failed \(error.localizedDescription)")
                 case let .waiting(error):
                     print("Waiting for long time \(error.localizedDescription)")
+                case .cancelled: print("you need to remove the connection from the array")
+
                 default:
                     break
                 }

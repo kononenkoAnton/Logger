@@ -11,7 +11,7 @@ class LocalSever {
     var server: LocalWebSocket!
 
     func startLocalServer() {
-        let server = LocalWebSocket()
+        server = LocalWebSocket()
         server.start()
         // To check if the connection is established at port 8080, run
         // sudo lsof -i :8080 from command line to verify connection on given port
