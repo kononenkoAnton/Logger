@@ -8,7 +8,18 @@
 import Foundation
 import Network
 
+protocol LocalWebSocketDelegate {
+    func socketStatusDidUpdate(status: LocalWebSocket.Status)
+}
+
 class LocalWebSocket {
+    enum Status {
+        case notConnected
+        case connected
+        case error
+    }
+
+    var delegate: LocalWebSocketDelegate?
     var listener: NWListener
     var connectedClients: [NWConnection] = []
     var completion: ((String) -> Void)?
@@ -52,7 +63,9 @@ class LocalWebSocket {
             }
             receive()
 
-            newConnection.stateUpdateHandler = { state in
+            newConnection.stateUpdateHandler = { [weak self] state in
+                guard let self = self else { return }
+                
                 switch state {
                 case .preparing: print("\n..... Connection Incoming - Preparing .....\n")
                 case .setup: print("Connection Incoming -Setup")
@@ -62,9 +75,11 @@ class LocalWebSocket {
                         let encoder = JSONEncoder()
                         let data = try encoder.encode(WSHandshake(id: UUID()))
                         try? self.sendMessageToClient(data: data, client: newConnection)
+                        self.delegate?.socketStatusDidUpdate(status: .connected)
                     } catch {
                     }
                 case let .failed(error):
+                    self.delegate?.socketStatusDidUpdate(status: .notConnected)
                     print("Client connection failed \(error.localizedDescription)")
                 case let .waiting(error):
                     print("Waiting for long time \(error.localizedDescription)")

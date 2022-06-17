@@ -16,6 +16,8 @@ class LoggerViewModel: ObservableObject {
 
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
+    @Published var socketConnectionIndicator: LocalWebSocket.Status = .notConnected
+    
     private var wasFiltered = false
     private var localServer = LocalSever()
 
@@ -24,7 +26,9 @@ class LoggerViewModel: ObservableObject {
         loggerModel = LoggerModel()
         loggerModel.eventsDidUpdate = eventsDidUpdate
         prepareFilteredData()
+        localServer.delegate = self
         localServer.startLocalServer()
+        
         print("IPAddress : \(strIPAddress)")
 
         NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
@@ -151,4 +155,13 @@ class LoggerViewModel: ObservableObject {
     func getModelSelected() -> EventModel? {
         loggerModel.selectedModel
     }
+}
+
+extension LoggerViewModel: LocalWebSocketDelegate {
+    func socketStatusDidUpdate(status: LocalWebSocket.Status) {
+        DispatchQueue.main.async { [weak self] in
+            self?.socketConnectionIndicator = status
+        }
+    }
+    
 }

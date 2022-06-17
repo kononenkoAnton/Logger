@@ -19,7 +19,7 @@ struct InfoView: View {
             VStack {
                 HStack {
                     Spacer()
-                    Text("Violate:")
+                    Text("Level:")
                     LogTypeView(logType: model.level.toString(),
                                 color: model.level.toColor())
                 }
