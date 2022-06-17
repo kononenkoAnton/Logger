@@ -41,6 +41,7 @@
 		40A5BC0A26F6361600649521 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0926F6361600649521 /* Styles.swift */; };
 		40A5BC0E26F639D800649521 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopView.swift */; };
 		40A5BC1526F6465600649521 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC1426F6465600649521 /* SearchBar.swift */; };
+		40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE0865285CE2F50059532E /* ConnectionIndicator.swift */; };
 		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
 		62292CE9B94754B23CF1E76B /* Pods_LoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D59C3B65AA10F81B99E077 /* Pods_LoggerTests.framework */; };
@@ -109,6 +110,7 @@
 		40A5BC0926F6361600649521 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		40A5BC0D26F639D800649521 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		40A5BC1426F6465600649521 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		40AE0865285CE2F50059532E /* ConnectionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionIndicator.swift; sourceTree = "<group>"; };
 		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		4CCE6CF47BD1C261884DB4F0 /* Pods-Logger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.release.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.release.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				40A5BC0D26F639D800649521 /* TopView.swift */,
 				40D5E17B26F65A1D00CB5A17 /* TopButton.swift */,
 				407C329F26F68AB00009E533 /* TopButtonsBar.swift */,
+				40AE0865285CE2F50059532E /* ConnectionIndicator.swift */,
 			);
 			path = TopBar;
 			sourceTree = "<group>";
@@ -603,6 +606,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
+				40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
 				407C32C626F904B20009E533 /* DetailsList.swift in Sources */,
 				407C32D026F955D90009E533 /* FiterTask.swift in Sources */,

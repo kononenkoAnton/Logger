@@ -45,6 +45,7 @@ struct TopView: View {
 
             HStack {
                 LogTypeBar(loggerViewModel: loggerViewModel)
+                ConnectionIndicator(connectionStatus: loggerViewModel.socketConnectionIndicator)
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 20,
