@@ -17,7 +17,7 @@ class LoggerViewModel: ObservableObject {
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     @Published var socketConnectionIndicator: LocalWebSocket.Status = .notConnected
-    
+
     private var wasFiltered = false
     private var localServer = LocalSever()
 
@@ -28,7 +28,7 @@ class LoggerViewModel: ObservableObject {
         prepareFilteredData()
         localServer.delegate = self
         localServer.startLocalServer()
-        
+
         print("IPAddress : \(strIPAddress)")
 
         NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
@@ -78,6 +78,10 @@ class LoggerViewModel: ObservableObject {
     func addNewEntries(data: [[String: AnyObject]]) {
         let newEvents = data.map { EventModel.create(from: $0) }
         loggerModel.addNewItems(models: newEvents)
+    }
+
+    func parseCurrentVisibleDataToJSONFileDocument() -> JSONFileDocument? {
+        return DataModelHelper.parseEventsToJSONFileDocument(events: filteredEvents)
     }
 
     func loadExistedJSON(url: URL) {
@@ -163,5 +167,4 @@ extension LoggerViewModel: LocalWebSocketDelegate {
             self?.socketConnectionIndicator = status
         }
     }
-    
 }

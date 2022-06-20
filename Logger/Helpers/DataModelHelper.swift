@@ -105,4 +105,27 @@ struct DataModelHelper {
             return quickSortByTimestamp(eventModelsArray: less) + equal + quickSortByTimestamp(eventModelsArray: greater)
         }
     }
+
+    private static func arrayOfEventsToObjects(_ events: [EventModel]) -> [[String: Any]] {
+        events.map { $0.toOject() }
+    }
+
+    private static func objectsToData(_ eventOfObjects: [[String: Any]]) -> Data? {
+        do {
+            let jsonData: Data = try JSONSerialization.data(withJSONObject: eventOfObjects, options: [])
+            return jsonData
+        } catch let error as NSError {
+            print("Array convertIntoJSON - \(error.description)")
+        }
+
+        return nil
+    }
+
+    static func parseEventsToJSONFileDocument(events: [EventModel]) -> JSONFileDocument? {
+        let eventOfObjects = arrayOfEventsToObjects(events)
+        guard let jsonData = objectsToData(eventOfObjects) else {
+            return nil
+        }
+        return JSONFileDocument(jsonData: jsonData)
+    }
 }

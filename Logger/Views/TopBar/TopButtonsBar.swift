@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct TopButtonsBar: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
+    
     @State var showFileChooser = false
-
+    @State private var isExporting: Bool = false
+    @State private var document: JSONFileDocument?
+    
     var body: some View {
         HStack {
             TopButton(imageName: "square.grid.3x1.folder.badge.plus", text: "Add existing Logs") {
@@ -22,8 +26,25 @@ struct TopButtonsBar: View {
                     loggerViewModel.loadExistedJSON(url: url)
                 }
             }
+            TopButton(imageName: "square.and.arrow.up", text: "ExportLogs") {
+                isExporting.toggle()
+                document = loggerViewModel.parseCurrentVisibleDataToJSONFileDocument()
+            }
+
             TopButton(imageName: "xmark.circle", text: "Clear", action: loggerViewModel.clearLoggerData)
             TopButton(imageName: "rectangle.and.pencil.and.ellipsis", text: "Copy IP address", action: loggerViewModel.copyIpAdress)
+        }
+        .fileExporter(
+            isPresented: $isExporting,
+            document: document,
+            contentType: UTType.json,
+            defaultFilename: "AppName_Date"
+        ) { result in
+            if case .success = result {
+                Swift.print("Success!")
+            } else {
+                Swift.print("Something went wrong…")
+            }
         }
     }
 }
@@ -33,3 +54,5 @@ struct TopButtonsBar_Previews: PreviewProvider {
         TopButtonsBar(loggerViewModel: LoggerViewModel())
     }
 }
+
+
