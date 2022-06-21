@@ -83,6 +83,14 @@ class LoggerViewModel: ObservableObject {
     func parseCurrentVisibleDataToJSONFileDocument() -> JSONFileDocument? {
         return DataModelHelper.parseEventsToJSONFileDocument(events: filteredEvents)
     }
+    
+    func getExportDefaultName() -> String {
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY.MM.dd"
+        let stringDate = dateFormatter.string(from: date)
+        return "your_app_name_\(stringDate)"
+    }
 
     func loadExistedJSON(url: URL) {
         clearLoggerData()

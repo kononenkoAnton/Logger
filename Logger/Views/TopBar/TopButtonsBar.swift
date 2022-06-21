@@ -14,7 +14,8 @@ struct TopButtonsBar: View {
     @State var showFileChooser = false
     @State private var isExporting: Bool = false
     @State private var document: JSONFileDocument?
-    
+    @State private var documentName: String = "your_app_name"
+
     var body: some View {
         HStack {
             TopButton(imageName: "square.grid.3x1.folder.badge.plus", text: "Add existing Logs") {
@@ -29,6 +30,7 @@ struct TopButtonsBar: View {
             TopButton(imageName: "square.and.arrow.up", text: "ExportLogs") {
                 isExporting.toggle()
                 document = loggerViewModel.parseCurrentVisibleDataToJSONFileDocument()
+                documentName = loggerViewModel.getExportDefaultName()
             }
 
             TopButton(imageName: "xmark.circle", text: "Clear", action: loggerViewModel.clearLoggerData)
@@ -38,7 +40,7 @@ struct TopButtonsBar: View {
             isPresented: $isExporting,
             document: document,
             contentType: UTType.json,
-            defaultFilename: "AppName_Date"
+            defaultFilename: documentName
         ) { result in
             if case .success = result {
                 Swift.print("Success!")
