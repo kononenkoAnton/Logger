@@ -42,7 +42,9 @@ struct TopButtonsBar: View {
             contentType: UTType.json,
             defaultFilename: documentName
         ) { result in
-            if case .success = result {
+            
+            if case let .success(url) = result {
+                NSWorkspace.shared.activateFileViewerSelecting([url])
                 Swift.print("Success!")
             } else {
                 Swift.print("Something went wrong…")
