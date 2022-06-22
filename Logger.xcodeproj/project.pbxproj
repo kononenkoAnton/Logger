@@ -10,6 +10,8 @@
 		1DA24F9F2836358200D1AB58 /* LocalWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */; };
 		1DA24FA228363FEC00D1AB58 /* WebSocketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */; };
 		2DA2C77D112F2C8946509096 /* Pods_Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0904C1F82841F8B56EFCE38C /* Pods_Logger.framework */; };
+		402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B02863695800C6C586 /* ConsoleEventView.swift */; };
+		402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B2286376E100C6C586 /* SendEventButton.swift */; };
 		407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C329F26F68AB00009E533 /* TopButtonsBar.swift */; };
 		407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A126F6920B0009E533 /* LoggerModel.swift */; };
 		407C32A426F693550009E533 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A326F693550009E533 /* Helpers.swift */; };
@@ -74,6 +76,8 @@
 		1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebSocket.swift; sourceTree = "<group>"; };
 		1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketData.swift; sourceTree = "<group>"; };
 		37D0A501D60C8F4AB4FEAC95 /* Pods-LoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggerTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggerTests/Pods-LoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		402CA6B02863695800C6C586 /* ConsoleEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleEventView.swift; sourceTree = "<group>"; };
+		402CA6B2286376E100C6C586 /* SendEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEventButton.swift; sourceTree = "<group>"; };
 		407C329F26F68AB00009E533 /* TopButtonsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsBar.swift; sourceTree = "<group>"; };
 		407C32A126F6920B0009E533 /* LoggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerModel.swift; sourceTree = "<group>"; };
 		407C32A326F693550009E533 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -166,6 +170,15 @@
 				1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */,
 			);
 			path = WebSocketData;
+			sourceTree = "<group>";
+		};
+		402CA6AF2863693A00C6C586 /* ConsoleView */ = {
+			isa = PBXGroup;
+			children = (
+				402CA6B02863695800C6C586 /* ConsoleEventView.swift */,
+				402CA6B2286376E100C6C586 /* SendEventButton.swift */,
+			);
+			path = ConsoleView;
 			sourceTree = "<group>";
 		};
 		407C32A526F693FA0009E533 /* LogTypeView */ = {
@@ -321,6 +334,7 @@
 		40A5BC0B26F639A700649521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				402CA6AF2863693A00C6C586 /* ConsoleView */,
 				407C32BC26F8EC290009E533 /* BottomDetailView */,
 				407C32AB26F7BC7A0009E533 /* LogsView */,
 				407C32A826F694410009E533 /* TopBar */,
@@ -632,6 +646,7 @@
 				407C32C226F8F38A0009E533 /* LogTypeView.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
+				402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */,
 				1DA24FA228363FEC00D1AB58 /* WebSocketData.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
@@ -639,6 +654,7 @@
 				407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */,
 				407C32C426F8F7A30009E533 /* InfoViewLabel.swift in Sources */,
 				1DA24F9F2836358200D1AB58 /* LocalWebSocket.swift in Sources */,
+				402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */,
 				407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */,
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				407C32B726F80B640009E533 /* AnyCodable.swift in Sources */,

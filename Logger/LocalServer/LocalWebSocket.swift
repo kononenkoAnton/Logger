@@ -65,7 +65,7 @@ class LocalWebSocket {
 
             newConnection.stateUpdateHandler = { [weak self] state in
                 guard let self = self else { return }
-                
+
                 switch state {
                 case .preparing: print("\n..... Connection Incoming - Preparing .....\n")
                 case .setup: print("Connection Incoming -Setup")
@@ -75,6 +75,7 @@ class LocalWebSocket {
                         let encoder = JSONEncoder()
                         let data = try encoder.encode(WSHandshake(id: UUID()))
                         try? self.sendMessageToClient(data: data, client: newConnection)
+                        self.connectedClients.append(newConnection)
                         self.delegate?.socketStatusDidUpdate(status: .connected)
                     } catch {
                     }
@@ -113,8 +114,16 @@ class LocalWebSocket {
         listener.cancel()
     }
 
+    func sendCommandToClient(command: String) throws {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(WSCommand(command: command))
+        connectedClients.forEach {
+            try? self.sendMessageToClient(data: data, client: $0)
+        }
+    }
+
     func sendMessageToClient(data: Data, client: NWConnection) throws {
-        let metadata = NWProtocolWebSocket.Metadata(opcode: .binary)
+        let metadata = NWProtocolWebSocket.Metadata(opcode: .text)
         let context = NWConnection.ContentContext(identifier: "context", metadata: [metadata])
 
         client.send(content: data, contentContext: context, isComplete: true, completion: .contentProcessed({ error in
