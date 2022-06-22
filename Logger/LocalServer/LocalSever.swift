@@ -34,4 +34,8 @@ class LocalSever {
         server.stop()
         server = nil
     }
+    
+    func sendCommandToClient(command: String) throws {
+        try server.sendCommandToClient(command: command)
+    }
 }

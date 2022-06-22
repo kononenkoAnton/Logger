@@ -167,12 +167,19 @@ class LoggerViewModel: ObservableObject {
     func getModelSelected() -> EventModel? {
         loggerModel.selectedModel
     }
+    
+    func sendConsoleCommand(_ command: String) {
+        try? localServer.sendCommandToClient(command: command)
+    }
 }
 
 extension LoggerViewModel: LocalWebSocketDelegate {
+
     func socketStatusDidUpdate(status: LocalWebSocket.Status) {
         DispatchQueue.main.async { [weak self] in
             self?.socketConnectionIndicator = status
         }
     }
 }
+
+

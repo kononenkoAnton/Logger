@@ -20,6 +20,8 @@ struct MainLoggerView: View {
                          selectedModel: loggerViewModel.getModelSelected())
                     .frame(maxWidth: .infinity,
                            maxHeight: .infinity)
+                ConsoleEventView(loggerViewModel: loggerViewModel)
+
             }.frame(idealWidth: 100,
                     maxWidth: .infinity,
                     maxHeight: .infinity)
