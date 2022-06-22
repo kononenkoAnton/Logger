@@ -16,10 +16,12 @@ struct MainLoggerView: View {
             VStack {
                 TopView(loggerViewModel: loggerViewModel)
 
-                LogsView(loggerViewModel: loggerViewModel,
-                         selectedModel: loggerViewModel.getModelSelected())
-                    .frame(maxWidth: .infinity,
-                           maxHeight: .infinity)
+                LogsTableView(loggerViewModel: loggerViewModel)
+//                LogsView(loggerViewModel: loggerViewModel,
+//                         selectedModel: loggerViewModel.getModelSelected())
+//                    .frame(maxWidth: .infinity,
+//                           maxHeight: .infinity)
+//                BottomDetailView(loggerViewModel: loggerViewModel)
                 ConsoleEventView(loggerViewModel: loggerViewModel)
 
             }.frame(idealWidth: 100,

@@ -12,6 +12,7 @@
 		2DA2C77D112F2C8946509096 /* Pods_Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0904C1F82841F8B56EFCE38C /* Pods_Logger.framework */; };
 		402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B02863695800C6C586 /* ConsoleEventView.swift */; };
 		402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B2286376E100C6C586 /* SendEventButton.swift */; };
+		402CA6B62863B60700C6C586 /* LogsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B52863B60700C6C586 /* LogsTableView.swift */; };
 		407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C329F26F68AB00009E533 /* TopButtonsBar.swift */; };
 		407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A126F6920B0009E533 /* LoggerModel.swift */; };
 		407C32A426F693550009E533 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407C32A326F693550009E533 /* Helpers.swift */; };
@@ -78,6 +79,7 @@
 		37D0A501D60C8F4AB4FEAC95 /* Pods-LoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggerTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggerTests/Pods-LoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		402CA6B02863695800C6C586 /* ConsoleEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleEventView.swift; sourceTree = "<group>"; };
 		402CA6B2286376E100C6C586 /* SendEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEventButton.swift; sourceTree = "<group>"; };
+		402CA6B52863B60700C6C586 /* LogsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsTableView.swift; sourceTree = "<group>"; };
 		407C329F26F68AB00009E533 /* TopButtonsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButtonsBar.swift; sourceTree = "<group>"; };
 		407C32A126F6920B0009E533 /* LoggerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerModel.swift; sourceTree = "<group>"; };
 		407C32A326F693550009E533 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
@@ -179,6 +181,14 @@
 				402CA6B2286376E100C6C586 /* SendEventButton.swift */,
 			);
 			path = ConsoleView;
+			sourceTree = "<group>";
+		};
+		402CA6B42863B5F500C6C586 /* LogsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				402CA6B52863B60700C6C586 /* LogsTableView.swift */,
+			);
+			path = LogsTableView;
 			sourceTree = "<group>";
 		};
 		407C32A526F693FA0009E533 /* LogTypeView */ = {
@@ -334,6 +344,7 @@
 		40A5BC0B26F639A700649521 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				402CA6B42863B5F500C6C586 /* LogsTableView */,
 				402CA6AF2863693A00C6C586 /* ConsoleView */,
 				407C32BC26F8EC290009E533 /* BottomDetailView */,
 				407C32AB26F7BC7A0009E533 /* LogsView */,
@@ -664,6 +675,7 @@
 				407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */,
 				407C32B426F7C1620009E533 /* EventsHeader.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
+				402CA6B62863B60700C6C586 /* LogsTableView.swift in Sources */,
 				407C32CA26F908290009E533 /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,8 @@ struct LogsView: View {
                                     let currentModel = eventModels[index]
                                     LogEventRow(isSelected: currentModel.id == selectedModel?.id,
                                                 model: currentModel,
-                                                backgroundColor: index % 2 == 0 ? Color(ColorKeys.RowBackgroundColor1) : Color(ColorKeys.RowBackgroundColor2)).onTapGesture {
+                                                backgroundColor: index % 2 == 0 ? Color(ColorKeys.RowBackgroundColor1) : Color(ColorKeys.RowBackgroundColor2))
+                                    .onTapGesture {
                                         loggerViewModel.setModelSelected(model: eventModels[index])
                                         selectedModel = eventModels[index]
                                     }
