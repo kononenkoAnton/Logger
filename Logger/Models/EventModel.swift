@@ -6,7 +6,19 @@
 //
 
 import Foundation
+
+
 struct EventModel {
+    struct ParsingKeys {
+        static let category = "category"
+        static let subsystem = "subsystem"
+        static let timestamp = "timestamp"
+        static let level = "level"
+        static let message = "message"
+        static let data = "data"
+        static let context = "context"
+    }
+    
     let dateFormatter = DateFormatter()
     public var format = "yyyy-MM-dd HH:mm:ssZ"
 
@@ -27,15 +39,27 @@ struct EventModel {
         self.data = data
         self.context = context
     }
+    
+    func toOject() -> [String: Any] {
+        return [
+            ParsingKeys.category : category as Any,
+            ParsingKeys.subsystem : subsystem as Any,
+            ParsingKeys.timestamp : timestamp as Any,
+            ParsingKeys.level : level.rawValue as Any,
+            ParsingKeys.message : message as Any,
+            ParsingKeys.data : data as Any,
+            ParsingKeys.context : context as Any,
+        ]
+    }
 
     static func create(from object: [String: Any]) -> EventModel {
-        let category = object["category"] as! String
-        let subsystem = object["subsystem"] as! String
-        let timestamp = object["timestamp"] as! UInt
-        let level = LogLevel(rawValue: object["level"] as! Int)!
-        let message = object["message"] as! String
-        let data = object["data"] as? [String: Any]
-        let context = object["context"] as? [String: Any]
+        let category = object[ParsingKeys.category] as! String
+        let subsystem = object[ParsingKeys.subsystem] as! String
+        let timestamp = object[ParsingKeys.timestamp] as! UInt
+        let level = LogLevel(rawValue: object[ParsingKeys.level] as! Int)!
+        let message = object[ParsingKeys.message] as! String
+        let data = object[ParsingKeys.data] as? [String: Any]
+        let context = object[ParsingKeys.context] as? [String: Any]
         let id = "\(UUID())"
         return EventModel(id: id,
                           category: category,

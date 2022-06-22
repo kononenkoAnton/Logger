@@ -42,6 +42,7 @@
 		40A5BC0E26F639D800649521 /* TopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC0D26F639D800649521 /* TopView.swift */; };
 		40A5BC1526F6465600649521 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A5BC1426F6465600649521 /* SearchBar.swift */; };
 		40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE0865285CE2F50059532E /* ConnectionIndicator.swift */; };
+		40AE086928611D7B0059532E /* JSONFileDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE086828611D7B0059532E /* JSONFileDocument.swift */; };
 		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
 		62292CE9B94754B23CF1E76B /* Pods_LoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D59C3B65AA10F81B99E077 /* Pods_LoggerTests.framework */; };
@@ -111,6 +112,7 @@
 		40A5BC0D26F639D800649521 /* TopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopView.swift; sourceTree = "<group>"; };
 		40A5BC1426F6465600649521 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		40AE0865285CE2F50059532E /* ConnectionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionIndicator.swift; sourceTree = "<group>"; };
+		40AE086828611D7B0059532E /* JSONFileDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileDocument.swift; sourceTree = "<group>"; };
 		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		4CCE6CF47BD1C261884DB4F0 /* Pods-Logger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.release.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.release.xcconfig"; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 		40A5BBDA26F61A9800649521 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				40AE0867286101D60059532E /* FileDocuments */,
 				1D669FFB283F63A3007AFE51 /* Entitlements */,
 				1DA24FA028363FBA00D1AB58 /* WebSocketData */,
 				40B38F7826FAB4C7000B96DE /* LocalServer */,
@@ -334,6 +337,14 @@
 				40A5BC1426F6465600649521 /* SearchBar.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		40AE0867286101D60059532E /* FileDocuments */ = {
+			isa = PBXGroup;
+			children = (
+				40AE086828611D7B0059532E /* JSONFileDocument.swift */,
+			);
+			path = FileDocuments;
 			sourceTree = "<group>";
 		};
 		40B38F7826FAB4C7000B96DE /* LocalServer */ = {
@@ -609,6 +620,7 @@
 				40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
 				407C32C626F904B20009E533 /* DetailsList.swift in Sources */,
+				40AE086928611D7B0059532E /* JSONFileDocument.swift in Sources */,
 				407C32D026F955D90009E533 /* FiterTask.swift in Sources */,
 				40A5BC0E26F639D800649521 /* TopView.swift in Sources */,
 				407C32A426F693550009E533 /* Helpers.swift in Sources */,
