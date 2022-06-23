@@ -25,7 +25,7 @@ struct SendEventButton: View {
                     .foregroundColor(Color(ColorKeys.FontColor2))
             }.frame(height: 45, alignment: .center)
                 .background(isHover ? Color.red.opacity(0.3) : Color(ColorKeys.RowBackgroundColor1).opacity(1)).cornerRadius(5.0)
-        }.onHover(perform: { hovering in
+        }.keyboardShortcut(.return, modifiers: [.command]).onHover(perform: { hovering in
             isHover = hovering
         })
             .buttonStyle(PlainButtonStyle())
