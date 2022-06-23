@@ -10,13 +10,11 @@ import SwiftUI
 struct LogsTableView: View {
     @ObservedObject var loggerViewModel: LoggerViewModel
     @State private var selection: EventModel.ID?
-    @State var sortOrder: [KeyPathComparator<EventModel>] = [
-        .init(\.dateInString, order: SortOrder.forward)
-    ]
-    
+
     var body: some View {
         let eventModels = loggerViewModel.events()
-        Table(eventModels, selection: $selection, sortOrder: $sortOrder) {
+
+        Table(eventModels, selection: $selection) {
             TableColumn(" 🐞") { model in
                 Circle().frame(width: 10).padding(EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 55)).foregroundColor(model.level.toColor())
             }.width(25)
@@ -27,10 +25,6 @@ struct LogsTableView: View {
         }.onChange(of: selection) { id in
             loggerViewModel.selectModelById(id: id)
         }
-//        .onChange(of: sortOrder) { sortOrder in
-//            print("SORT ORDER \(sortOrder)")
-//        }
-//
     }
 }
 
