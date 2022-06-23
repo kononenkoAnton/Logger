@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct EventModel {
+struct EventModel: Identifiable {
     struct ParsingKeys {
         static let category = "category"
         static let subsystem = "subsystem"

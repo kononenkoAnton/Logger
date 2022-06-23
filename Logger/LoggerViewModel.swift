@@ -83,7 +83,7 @@ class LoggerViewModel: ObservableObject {
     func parseCurrentVisibleDataToJSONFileDocument() -> JSONFileDocument? {
         return DataModelHelper.parseEventsToJSONFileDocument(events: filteredEvents)
     }
-    
+
     func getExportDefaultName() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -160,6 +160,14 @@ class LoggerViewModel: ObservableObject {
         return DataModelHelper.prepareDataSource(from: model)
     }
 
+    func selectModelById(id: EventModel.ID?) {
+        guard let id = id else { return }
+        let model = filteredEvents.first { $0.id == id }
+        if let model = model {
+            setModelSelected(model: model)
+        }
+    }
+
     func setModelSelected(model: EventModel) {
         loggerModel.setSelectedModel(model: model)
     }
@@ -167,19 +175,16 @@ class LoggerViewModel: ObservableObject {
     func getModelSelected() -> EventModel? {
         loggerModel.selectedModel
     }
-    
+
     func sendConsoleCommand(_ command: String) {
         try? localServer.sendCommandToClient(command: command)
     }
 }
 
 extension LoggerViewModel: LocalWebSocketDelegate {
-
     func socketStatusDidUpdate(status: LocalWebSocket.Status) {
         DispatchQueue.main.async { [weak self] in
             self?.socketConnectionIndicator = status
         }
     }
 }
-
-

@@ -17,7 +17,6 @@ struct BottomDetailView: View {
                 DetailsList(items: loggerViewModel.dataModels(from: model))
             }
         }.frame(maxWidth: .infinity,
-                minHeight: 100,
                 maxHeight: .infinity)
             .background(Color(ColorKeys.BottomDetailViewColor))
     }
