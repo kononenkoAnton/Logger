@@ -12,8 +12,6 @@ struct BottomDetailView: View {
     var body: some View {
         VStack {
             if let model = loggerViewModel.getModelSelected() {
-                InfoView(model: model).frame(maxWidth: .infinity)
-                Divider().padding(.horizontal, 20)
                 DetailsList(items: loggerViewModel.dataModels(from: model))
             }
         }.frame(maxWidth: .infinity,

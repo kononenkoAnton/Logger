@@ -13,6 +13,18 @@ struct DataModelHelper {
         let context = model.context
         var retVal: [DataModel] = []
 
+        let message = model.message
+        let messageDataModel = DataModel(key: "Message:", value: message)
+        retVal.append(messageDataModel)
+        
+        let subsystem = model.subsystem
+        let subsystemDataModel = DataModel(key: "Subsystem: ", value: subsystem)
+        retVal.append(subsystemDataModel)
+        
+        let category = model.category
+        let categoryDataModel = DataModel(key: "Category", value: category)
+        retVal.append(categoryDataModel)
+        
         if let data = data {
             let dataObjectArray = prepareDataSourceDictionary(dataDicionary: data)
             let dataObject = DataModel(key: "Data", items: dataObjectArray)
