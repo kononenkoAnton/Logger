@@ -179,6 +179,10 @@ class LoggerViewModel: ObservableObject {
     func sendConsoleCommand(_ command: String) {
         try? localServer.sendCommandToClient(command: command)
     }
+    
+    func sendConsoleCommandShareCommandsLikst() {
+        try? localServer.sendCommandToClient(command: "cmdlist")
+    }
 }
 
 extension LoggerViewModel: LocalWebSocketDelegate {
