@@ -16,6 +16,9 @@ struct ConsoleEventView: View {
             TextEditor(
                 text: $consoleCommand
             ).font(.headline).cornerRadius(5).padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 0))
+            SendEventButton(text: "Print CMD") { _ in
+                loggerViewModel.sendConsoleCommandShareCommandsLikst()
+            }.padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 5))
             SendEventButton(text: "Send Command") { _ in
                 loggerViewModel.sendConsoleCommand(consoleCommand)
             }.padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 20))

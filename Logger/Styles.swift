@@ -8,6 +8,7 @@
 import SwiftUI
 
 public enum LogLevel: Int, CodingKey {
+    case undefined = 0
     case verbose
     case debug
     case info
@@ -26,6 +27,8 @@ public enum LogLevel: Int, CodingKey {
             return "WARNING"
         case .error:
             return "ERROR"
+        case .undefined:
+            return "Undefined"
         }
     }
 
@@ -41,6 +44,8 @@ public enum LogLevel: Int, CodingKey {
             return Color(red: 232 / 255, green: 129 / 255, blue: 26 / 255)
         case .error:
             return Color(red: 228 / 255, green: 35 / 255, blue: 40 / 255)
+        case .undefined:
+            return Color.black
         }
     }
 }
