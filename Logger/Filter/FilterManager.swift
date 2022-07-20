@@ -35,7 +35,7 @@ struct FilterManager {
             return data.filter({$0.level.rawValue >= LogLevel.info.rawValue})
         case .debug:
             return data.filter({$0.level.rawValue >= LogLevel.debug.rawValue})
-        case .verbose, .undefined:
+        case .verbose:
             return data
         }
     }
