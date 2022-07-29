@@ -22,7 +22,10 @@ struct LoggerApp: App, ApplicationDelegateProtocol {
 
     var body: some Scene {
         WindowGroup {
-            MainLoggerView(loggerViewModel: loggerViewModel)
+            NavigationView {
+                NavigationDataView()
+                MainLoggerView()
+            }
         }
     }
 }

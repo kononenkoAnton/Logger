@@ -8,7 +8,7 @@
 import AppKit
 import Foundation
 
-class LoggerViewModel: ObservableObject {
+class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     struct EndPoints {
         static let PostEvent = "postEvent"
         static let PostBatchEvents = "postBatchEvents"
@@ -177,7 +177,7 @@ class LoggerViewModel: ObservableObject {
     func sendConsoleCommand(_ command: String) {
         try? localServer.sendCommandToClient(command: command)
     }
-    
+
     func sendConsoleCommandShareCommandsLikst() {
         try? localServer.sendCommandToClient(command: "cmdlist")
     }

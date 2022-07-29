@@ -41,6 +41,14 @@
 		40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE0865285CE2F50059532E /* ConnectionIndicator.swift */; };
 		40AE086928611D7B0059532E /* JSONFileDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE086828611D7B0059532E /* JSONFileDocument.swift */; };
 		40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B38F7926FAB51E000B96DE /* LocalSever.swift */; };
+		40D39C5B28944C5F00477422 /* StoragesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C5A28944C5F00477422 /* StoragesViewModel.swift */; };
+		40D39C5E28944E7500477422 /* StoragesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C5D28944E7500477422 /* StoragesView.swift */; };
+		40D39C612894504300477422 /* NavigationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C602894504300477422 /* NavigationModel.swift */; };
+		40D39C652894515100477422 /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C642894515100477422 /* NavigationViewModel.swift */; };
+		40D39C692894534A00477422 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C682894534A00477422 /* Constants.swift */; };
+		40D39C6F2894540E00477422 /* NavigationDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C6E2894540E00477422 /* NavigationDataView.swift */; };
+		40D39C7228946FD400477422 /* StoragesTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C7128946FD400477422 /* StoragesTopView.swift */; };
+		40D39C7A2894745300477422 /* FilteredDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D39C792894745300477422 /* FilteredDataProtocol.swift */; };
 		40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D5E17B26F65A1D00CB5A17 /* TopButton.swift */; };
 		62292CE9B94754B23CF1E76B /* Pods_LoggerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D59C3B65AA10F81B99E077 /* Pods_LoggerTests.framework */; };
 		DF990B2CF92D8C6CEFDBB89F /* Pods_Logger_LoggerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0537909BA982D709B7DB4528 /* Pods_Logger_LoggerUITests.framework */; };
@@ -108,6 +116,14 @@
 		40AE0865285CE2F50059532E /* ConnectionIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionIndicator.swift; sourceTree = "<group>"; };
 		40AE086828611D7B0059532E /* JSONFileDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileDocument.swift; sourceTree = "<group>"; };
 		40B38F7926FAB51E000B96DE /* LocalSever.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSever.swift; sourceTree = "<group>"; };
+		40D39C5A28944C5F00477422 /* StoragesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragesViewModel.swift; sourceTree = "<group>"; };
+		40D39C5D28944E7500477422 /* StoragesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragesView.swift; sourceTree = "<group>"; };
+		40D39C602894504300477422 /* NavigationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationModel.swift; sourceTree = "<group>"; };
+		40D39C642894515100477422 /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
+		40D39C682894534A00477422 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		40D39C6E2894540E00477422 /* NavigationDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDataView.swift; sourceTree = "<group>"; };
+		40D39C7128946FD400477422 /* StoragesTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoragesTopView.swift; sourceTree = "<group>"; };
+		40D39C792894745300477422 /* FilteredDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredDataProtocol.swift; sourceTree = "<group>"; };
 		40D5E17B26F65A1D00CB5A17 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		4CCE6CF47BD1C261884DB4F0 /* Pods-Logger.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.release.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.release.xcconfig"; sourceTree = "<group>"; };
 		51A48ABCCF7D2683436C5851 /* Pods-Logger.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logger.debug.xcconfig"; path = "Target Support Files/Pods-Logger/Pods-Logger.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,7 +208,6 @@
 			isa = PBXGroup;
 			children = (
 				40A5BC0D26F639D800649521 /* TopView.swift */,
-				40D5E17B26F65A1D00CB5A17 /* TopButton.swift */,
 				407C329F26F68AB00009E533 /* TopButtonsBar.swift */,
 				40AE0865285CE2F50059532E /* ConnectionIndicator.swift */,
 			);
@@ -271,21 +286,17 @@
 		40A5BBDA26F61A9800649521 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				40AE0867286101D60059532E /* FileDocuments */,
+				40D39C782894738600477422 /* Protocol */,
+				40D39C562894458700477422 /* Networking */,
+				40D39C552894455700477422 /* Utils */,
+				40D39C53289444F400477422 /* Screens */,
 				1D669FFB283F63A3007AFE51 /* Entitlements */,
-				1DA24FA028363FBA00D1AB58 /* WebSocketData */,
-				40B38F7826FAB4C7000B96DE /* LocalServer */,
-				407C32CE26F955A10009E533 /* Filter */,
 				407C32B526F80B490009E533 /* Extensions */,
+				407C32CB26F921A60009E533 /* Helpers */,
 				407C32AE26F7BFF70009E533 /* Models */,
-				40A5BC0B26F639A700649521 /* Views */,
-				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
-				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
-				40A5BC0926F6361600649521 /* Styles.swift */,
 				40A5BBDF26F61A9A00649521 /* Assets.xcassets */,
 				40A5BBE426F61A9A00649521 /* Info.plist */,
 				40A5BBE126F61A9A00649521 /* Preview Content */,
-				407C32CB26F921A60009E533 /* Helpers */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -324,7 +335,6 @@
 				407C32BC26F8EC290009E533 /* BottomDetailView */,
 				407C32A826F694410009E533 /* TopBar */,
 				407C32A526F693FA0009E533 /* LogTypeView */,
-				40A5BC1626F64C6900649521 /* SearchBar */,
 				40A5BBDD26F61A9800649521 /* MainLoggerView.swift */,
 			);
 			path = Views;
@@ -353,6 +363,164 @@
 				1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */,
 			);
 			path = LocalServer;
+			sourceTree = "<group>";
+		};
+		40D39C53289444F400477422 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C73289471A900477422 /* DefaultViews */,
+				40D39C622894513100477422 /* Main */,
+				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
+				40D39C5828944BE000477422 /* Storages */,
+				40D39C54289444FE00477422 /* Logger */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		40D39C54289444FE00477422 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C5728944B7C00477422 /* ViewModels */,
+				40A5BC0B26F639A700649521 /* Views */,
+				40A5BC0926F6361600649521 /* Styles.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		40D39C552894455700477422 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				40AE0867286101D60059532E /* FileDocuments */,
+				407C32CE26F955A10009E533 /* Filter */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		40D39C562894458700477422 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				1DA24FA028363FBA00D1AB58 /* WebSocketData */,
+				40B38F7826FAB4C7000B96DE /* LocalServer */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		40D39C5728944B7C00477422 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BC0726F61B6F00649521 /* LoggerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40D39C5828944BE000477422 /* Storages */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C5F2894501900477422 /* Models */,
+				40D39C5C28944E6200477422 /* Views */,
+				40D39C5928944C3500477422 /* ViewModels */,
+			);
+			path = Storages;
+			sourceTree = "<group>";
+		};
+		40D39C5928944C3500477422 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C5A28944C5F00477422 /* StoragesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40D39C5C28944E6200477422 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C7028946F9400477422 /* TopBar */,
+				40D39C5D28944E7500477422 /* StoragesView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40D39C5F2894501900477422 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40D39C622894513100477422 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C6A289453EF00477422 /* Views */,
+				40D39C672894533E00477422 /* Enums */,
+				40D39C662894516900477422 /* Models */,
+				40D39C632894513E00477422 /* ViewModels */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		40D39C632894513E00477422 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C642894515100477422 /* NavigationViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40D39C662894516900477422 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C602894504300477422 /* NavigationModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		40D39C672894533E00477422 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C682894534A00477422 /* Constants.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		40D39C6A289453EF00477422 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C6E2894540E00477422 /* NavigationDataView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		40D39C7028946F9400477422 /* TopBar */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C7128946FD400477422 /* StoragesTopView.swift */,
+			);
+			path = TopBar;
+			sourceTree = "<group>";
+		};
+		40D39C73289471A900477422 /* DefaultViews */ = {
+			isa = PBXGroup;
+			children = (
+				40A5BC1626F64C6900649521 /* SearchBar */,
+				40D39C74289471B700477422 /* Buttons */,
+			);
+			path = DefaultViews;
+			sourceTree = "<group>";
+		};
+		40D39C74289471B700477422 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				40D5E17B26F65A1D00CB5A17 /* TopButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		40D39C782894738600477422 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				40D39C792894745300477422 /* FilteredDataProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		60DFEC01EC633B35CC36EA03 /* Frameworks */ = {
@@ -615,6 +783,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40D39C652894515100477422 /* NavigationViewModel.swift in Sources */,
 				40A5BBDE26F61A9800649521 /* MainLoggerView.swift in Sources */,
 				40AE0866285CE2F50059532E /* ConnectionIndicator.swift in Sources */,
 				40A5BC0826F61B6F00649521 /* LoggerViewModel.swift in Sources */,
@@ -624,6 +793,7 @@
 				40A5BC0E26F639D800649521 /* TopView.swift in Sources */,
 				407C32A426F693550009E533 /* Helpers.swift in Sources */,
 				407C32B026F7C0120009E533 /* EventModel.swift in Sources */,
+				40D39C6F2894540E00477422 /* NavigationDataView.swift in Sources */,
 				407C32D626FA23990009E533 /* List+Extensions.swift in Sources */,
 				40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
@@ -631,14 +801,20 @@
 				402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */,
 				1DA24FA228363FEC00D1AB58 /* WebSocketData.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
+				40D39C5E28944E7500477422 /* StoragesView.swift in Sources */,
+				40D39C612894504300477422 /* NavigationModel.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
 				407C32D426F974160009E533 /* FilterManager.swift in Sources */,
 				407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */,
 				1DA24F9F2836358200D1AB58 /* LocalWebSocket.swift in Sources */,
 				402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */,
+				40D39C7A2894745300477422 /* FilteredDataProtocol.swift in Sources */,
 				407C32A226F6920B0009E533 /* LoggerModel.swift in Sources */,
+				40D39C692894534A00477422 /* Constants.swift in Sources */,
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				407C32B726F80B640009E533 /* AnyCodable.swift in Sources */,
+				40D39C7228946FD400477422 /* StoragesTopView.swift in Sources */,
+				40D39C5B28944C5F00477422 /* StoragesViewModel.swift in Sources */,
 				407C32BE26F8EC420009E533 /* BottomDetailView.swift in Sources */,
 				407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */,
 				407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */,
@@ -802,12 +978,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Logger/Entitlements/Logger-debug.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WZZ4E5L8EL;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Logger/Info.plist;
@@ -830,12 +1006,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "Logger/Entitlements/Logger-release.entitlements";
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Logger/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WZZ4E5L8EL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Logger/Info.plist;
