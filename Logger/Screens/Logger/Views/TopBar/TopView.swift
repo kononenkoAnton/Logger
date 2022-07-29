@@ -16,7 +16,7 @@ struct TopView: View {
                 VStack(alignment: .leading) {
                     Text("Logger").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(loggerViewModel.events().count) Events")
+                    Text("\(loggerViewModel.getEventsCount()) Events")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,

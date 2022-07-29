@@ -7,6 +7,27 @@
 
 import SwiftUI
 
+public enum StoragesType: Int, CodingKey {
+    case session
+    case local
+    case keychain
+    
+    public func toString() -> String {
+        switch self {
+        case .session:
+            return "SESSION STORAGE"
+        case .local:
+            return "LOCAL STORAGE"
+        case .keychain:
+            return "KEYCHAIN STORAGE"
+        }
+    }
+
+    public func toColor() -> Color {
+        return Color(red: 42 / 255, green: 85 / 255, blue: 180 / 255)
+    }
+}
+
 public enum LogLevel: Int, CodingKey {
     case verbose
     case debug

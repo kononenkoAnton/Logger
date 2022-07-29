@@ -11,8 +11,7 @@ struct StoragesView: View {
     let storagesViewModel: StoragesViewModel = StoragesViewModel()
     var body: some View {
         VStack {
-            StoragesTopView()
-            
+            StoragesTopView(storagesViewModel: storagesViewModel)
         }
     }
 }

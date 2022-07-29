@@ -190,3 +190,11 @@ extension LoggerViewModel: LocalWebSocketDelegate {
         }
     }
 }
+
+extension LoggerViewModel: DataSourceCountableProtocol {
+    func getEventsCount() -> Int {
+        return events().count
+    }
+    
+    
+}

@@ -11,7 +11,25 @@ struct UserDefaultManager {
     struct Keys {
         static let LogLevelType = "LogLevelType"
         static let SearchBar = "SearchBar"
+        static let StorageType = "StorageType"
     }
+
+    // MARK: - Storage Type
+
+    static func saveStorageType(type: StoragesType) {
+        UserDefaults.standard.set(type.rawValue,
+                                  forKey: Keys.StorageType)
+    }
+
+    static func getStorageType() -> StoragesType {
+        let storageTypeInt = UserDefaults.standard.integer(forKey: Keys.StorageType)
+        guard let type = StoragesType(rawValue: storageTypeInt) else {
+            return .local
+        }
+        return type
+    }
+
+    // MARK: - Log type
 
     static func saveLog(level: LogLevel) {
         UserDefaults.standard.set(level.rawValue,
@@ -25,6 +43,8 @@ struct UserDefaultManager {
         }
         return level
     }
+
+    // MARK: - Logger Search Bar
 
     static func saveSearchBar(data: String?) {
         if data == nil {
