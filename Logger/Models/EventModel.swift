@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct EventModel: Identifiable {
+struct EventModel: Identifiable, Equatable {
     struct ParsingKeys {
         static let category = "category"
         static let subsystem = "subsystem"
@@ -87,6 +87,7 @@ struct EventModel: Identifiable {
 
     static func == (lhs: EventModel,
                     rhs: EventModel) -> Bool {
+        
         return lhs.id == rhs.id &&
             lhs.category == rhs.category &&
             lhs.subsystem == rhs.subsystem &&
