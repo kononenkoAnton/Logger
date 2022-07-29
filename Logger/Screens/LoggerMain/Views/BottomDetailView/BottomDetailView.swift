@@ -20,7 +20,6 @@ struct BottomDetailView: View {
             .background(Color(ColorKeys.BottomDetailViewColor))
     }
 
-    
     /// It returns new or cached details list component. It needed to prevent collapsing in case rerender same event model
     func getDetailListComponent() -> DetailsList? {
         if let model = loggerViewModel.getModelSelected() {

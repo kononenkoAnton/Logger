@@ -155,8 +155,6 @@ class LoggerViewModel: ObservableObject {
     }
 
     func dataModels(from model: EventModel) -> [DataModel] {
-        print("model", model)
-
         return DataModelHelper.prepareDataSource(from: model)
     }
 
