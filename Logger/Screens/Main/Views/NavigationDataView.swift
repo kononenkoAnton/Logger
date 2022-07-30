@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct NavigationDataView: View {
-    let navigationViewModel = NavigationViewModel()
-    @State private var selection: NavigationModel.ID?
+    let navigationViewModel: NavigationViewModel = NavigationViewModel()
+    @State private var selection: UUID?
 
+    init() {
+        _selection = State(initialValue: self.navigationViewModel.getLoggerScreenNavigationModel().id)
+    }
+    
     var body: some View {
-        VStack {
+        return  VStack {
             Text("Content")
                 .font(.title2)
-            List(navigationViewModel.models, id: \.self, selection: $selection) { navigationModel in
+            List(navigationViewModel.models, id: \.id, selection: $selection) { navigationModel in
                 let screen = navigationViewModel.getScreen(from: navigationModel)
                 NavigationLink(destination: screen) {
                     Label(navigationModel.title, systemImage: navigationModel.iconImageName)

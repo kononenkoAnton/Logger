@@ -24,7 +24,6 @@ struct LoggerApp: App, ApplicationDelegateProtocol {
         WindowGroup {
             NavigationView {
                 NavigationDataView()
-                MainLoggerView()
             }
         }
     }

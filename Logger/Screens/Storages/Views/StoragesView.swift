@@ -12,6 +12,7 @@ struct StoragesView: View {
     var body: some View {
         VStack {
             StoragesTopView(storagesViewModel: storagesViewModel)
+            StoragestTableView(storagesViewModel: storagesViewModel)
         }
     }
 }

@@ -11,6 +11,7 @@ struct UserDefaultManager {
     struct Keys {
         static let LogLevelType = "LogLevelType"
         static let SearchBar = "SearchBar"
+        static let StorageSearchBar = "StorageSearchBar"
         static let StorageType = "StorageType"
     }
 
@@ -42,6 +43,22 @@ struct UserDefaultManager {
             return .verbose
         }
         return level
+    }
+
+    // MARK: - Storage Search Bar
+
+    static func saveStorageSearchBar(data: String?) {
+        if data == nil {
+            UserDefaults.standard.removeObject(forKey: Keys.StorageSearchBar)
+            return
+        }
+
+        UserDefaults.standard.set(data,
+                                  forKey: Keys.StorageSearchBar)
+    }
+
+    static func getStorageSearchBarData() -> String? {
+        return UserDefaults.standard.string(forKey: Keys.StorageSearchBar)
     }
 
     // MARK: - Logger Search Bar

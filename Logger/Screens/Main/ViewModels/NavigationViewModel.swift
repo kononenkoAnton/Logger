@@ -25,6 +25,10 @@ class NavigationViewModel{
         return [loggerScreen, storagesScreen]
     }
 
+    func getLoggerScreenNavigationModel() -> NavigationModel {
+        return models[0]
+    }
+    
     func getScreen(from navigationModel: NavigationModel) -> AnyView {
         switch navigationModel.screenType {
         case .Logger:
