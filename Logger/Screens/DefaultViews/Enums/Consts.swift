@@ -12,4 +12,6 @@ enum TopViewIcons {
     static let exportItem = "square.and.arrow.up"
     static let clearItem = "xmark.circle"
     static let copyIpAdress = "rectangle.and.pencil.and.ellipsis"
+    static let reloadData = "arrow.clockwise"
+
 }

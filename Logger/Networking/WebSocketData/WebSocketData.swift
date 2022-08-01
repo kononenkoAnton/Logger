@@ -14,6 +14,8 @@ enum WSMessageType: String, Codable {
     case handshake
     // Command event to client
     case command
+    // Storage event to client
+    case storage
 }
 
 struct WSMessageTypeData: Codable {
@@ -34,4 +36,10 @@ struct WSMessageEvent: Codable {
     var type: WSMessageType = .event
     let id: UUID
     let event: String
+}
+
+struct WSStorage: Codable {
+    let id: UUID
+    var type: WSMessageType = .storage
+    let data: [String: [String: [String: String]]]
 }

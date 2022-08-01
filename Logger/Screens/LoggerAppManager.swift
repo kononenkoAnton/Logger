@@ -7,18 +7,17 @@
 
 import Foundation
 
-
-
 class LoggerAppManager: LocalWebSocketDelegate {
     static let shared = LoggerAppManager()
-    
+
     private var localServer = LocalSever()
 
     func socketStatusDidUpdate(status: LocalWebSocket.Status) {
-        NotificationManager.shared.postEvnet(eventName: Notification.Name.SocketStatusDidUpdate, object: status)
+        NotificationManager.shared.postEvent(eventName: Notification.Name.SocketStatusDidUpdate, data: status)
     }
 
-    private init() {
+    func startLocalServer() {
+        localServer.delegate = self
         localServer.startLocalServer()
     }
 
@@ -26,7 +25,7 @@ class LoggerAppManager: LocalWebSocketDelegate {
         localServer.stopLocalServer()
     }
 
-    func sendCommandToClient(_ command: String) throws{
+    func sendCommandToClient(_ command: String) throws {
         try? localServer.sendCommandToClient(command: command)
     }
 }

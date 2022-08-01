@@ -17,21 +17,24 @@ struct StoragesTopButtonBar: View {
 
     var body: some View {
         HStack {
-            TopButton(imageName: TopViewIcons.addItem, text: "Add New Key") {
-
-             //TODO: Add new key for namespace
+            TopButton(imageName: TopViewIcons.reloadData, text: "Reload Storages") {
+                storagesViewModel.reloadStorages()
             }
-            TopButton(imageName: TopViewIcons.exportItem, text: "Export All") {
-                isExporting.toggle()
-                //TODO: Add export all
-//                document = storagesViewModel.parseCurrentVisibleDataToJSONFileDocument()
-//                documentName = storagesViewModel.getExportDefaultName()
-            }
-
-            TopButton(imageName: TopViewIcons.clearItem, text: "Delete allData") {
-//                storagesViewModel.deleteAllData
-                //TODO: Delete all data for storage type
-            }
+//            TopButton(imageName: TopViewIcons.addItem, text: "Add New Key") {
+//
+//             //TODO: Add new key for namespace
+//            }
+//            TopButton(imageName: TopViewIcons.exportItem, text: "Export All") {
+//                isExporting.toggle()
+//                //TODO: Add export all
+////                document = storagesViewModel.parseCurrentVisibleDataToJSONFileDocument()
+////                documentName = storagesViewModel.getExportDefaultName()
+//            }
+//
+//            TopButton(imageName: TopViewIcons.clearItem, text: "Delete allData") {
+////                storagesViewModel.deleteAllData
+//                //TODO: Delete all data for storage type
+//            }
         }
         .fileExporter(
             isPresented: $isExporting,

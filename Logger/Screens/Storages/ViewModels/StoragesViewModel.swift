@@ -8,21 +8,29 @@
 import Foundation
 
 class StoragesViewModel: ObservableObject, FilteredDataProtocol {
-    var storageEventModel: EventModel?
+    var storagesDataModel: StoragesDataModel?
 
-    @Published var filteredRecords: [StoragesRecordModel] = []
+    @Published var filteredRecords: [DataModel] = []
     private var wasFiltered = false
 
     init() {
-        prepareFilteredData()
         NotificationManager.shared.addObserver(observer: self,
                                                to: Notification.Name.PostStorageEvents)
     }
 
     // MARK: - Intents(s)
 
-    func storageData() -> [StoragesRecordModel] {
-        return []
+    func reloadStorages() {
+        do {
+            try LoggerAppManager.shared.sendCommandToClient("storages.all")
+        } catch {
+            print("reloadStorages: \(error)")
+        }
+        
+    }
+    
+    func storageData() -> [DataModel] {
+        return filteredRecords
     }
 
     var storageType = UserDefaultManager.getStorageType() {
@@ -67,8 +75,23 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
 //        let result = manager.filterData(data: loggerModel.events,
 //                                        logLevel: logLevel,
 //                                        searchBarData: searchBarFilterData)
-//        wasFiltered = true
-//        filteredEvents = result
+        switch storageType {
+        case .local:
+            if let local = storagesDataModel?.local {
+                filteredRecords = local
+            }
+
+        case .session:
+            if let session = storagesDataModel?.session {
+                filteredRecords = session
+            }
+        case .keychain:
+            if let keychain = storagesDataModel?.secure {
+                filteredRecords = keychain
+            }
+        }
+
+        wasFiltered = true
     }
 }
 
@@ -83,7 +106,7 @@ extension StoragesViewModel: NotificationObserver {
         guard let data = data as? [String: AnyObject] else {
             return
         }
-
-        storageEventModel = EventModel.create(from: data)
+        storagesDataModel = StoragesDataModel.create(from: data)
+        prepareFilteredData()
     }
 }

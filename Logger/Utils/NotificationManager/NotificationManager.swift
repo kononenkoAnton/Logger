@@ -27,8 +27,12 @@ class NotificationManager {
 
     private init() { }
 
-    func postEvnet(eventName: NotificationEvenName, object: Any?) {
-        NotificationCenter.default.post(name: eventName, object: object)
+    func postEvent(eventName: NotificationEvenName, data: Any?) {
+        let observersForEvent = getObservers(for: eventName)
+
+        DispatchQueue.main.async {
+            observersForEvent.forEach { $0.notificationDidReceived(key: eventName, data: data) }
+        }
     }
 
     func addObserver(observer: NotificationObserver,
@@ -37,11 +41,6 @@ class NotificationManager {
         if observersForEvent.first(where: { $0 === observer }) == nil {
             observersForEvent.append(observer)
         }
-
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(receiveData(_:)),
-                                               name: eventName,
-                                               object: nil)
 
         observers[eventName] = observersForEvent
     }
@@ -59,15 +58,5 @@ class NotificationManager {
         }
 
         return observersForEvent
-    }
-
-    @objc func receiveData(_ notification: NSNotification) {
-        let data = notification.object
-
-        let observersForEvent = getObservers(for: notification.name)
-
-        DispatchQueue.main.async {
-            observersForEvent.forEach { $0.notificationDidReceived(key: notification.name, data: data) }
-        }
     }
 }

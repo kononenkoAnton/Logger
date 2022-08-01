@@ -15,7 +15,7 @@ struct StoragesTopView: View {
                 VStack(alignment: .leading) {
                     Text("Storages").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(storagesViewModel.getEventsCount()) Events")
+                    Text("\(storagesViewModel.getEventsCount()) Namespaces")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,
@@ -27,11 +27,11 @@ struct StoragesTopView: View {
                                                                                               leading: 0,
                                                                                               bottom: 0,
                                                                                               trailing: 0))
-                SearchBar(filteredData: storagesViewModel)
-                    .padding(EdgeInsets(top: 10,
-                                        leading: 0,
-                                        bottom: 0,
-                                        trailing: 0))
+//                SearchBar(filteredData: storagesViewModel)
+//                    .padding(EdgeInsets(top: 10,
+//                                        leading: 0,
+//                                        bottom: 0,
+//                                        trailing: 0))
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 45,

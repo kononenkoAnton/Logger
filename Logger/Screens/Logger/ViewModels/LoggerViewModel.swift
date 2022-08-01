@@ -9,10 +9,6 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject, FilteredDataProtocol {
-    struct EndPoints {
-        static let PostEvent = "postEvent"
-        static let PostBatchEvents = "postBatchEvents"
-    }
 
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
@@ -29,6 +25,8 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
         print("IPAddress : \(strIPAddress)")
         NotificationManager.shared.addObserver(observer: self,
                                                to: Notification.Name.PostLogEvent)
+        NotificationManager.shared.addObserver(observer: self,
+                                               to: Notification.Name.SocketStatusDidUpdate)
     }
 
     // MARK: - Intents(s)

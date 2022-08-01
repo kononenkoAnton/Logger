@@ -16,8 +16,8 @@ struct LoggerApp: App, ApplicationDelegateProtocol {
     }
 
     init() {
-
         appDelegate.delegate = self
+        LoggerAppManager.shared.startLocalServer()
     }
 
     var body: some Scene {
