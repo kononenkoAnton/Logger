@@ -15,18 +15,8 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
 
     init() {
         prepareFilteredData()
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostStorageEvent"), object: nil)
-    }
-
-    @objc func receiveData(_ notification: NSNotification) {
-        guard let data = notification.object as? [String: AnyObject] else {
-            return
-        }
-
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.storageEventModel = EventModel.create(from: data)
-        }
+        NotificationManager.shared.addObserver(observer: self,
+                                               to: Notification.Name.PostStorageEvents)
     }
 
     // MARK: - Intents(s)
@@ -54,11 +44,11 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
             prepareFilteredData()
         }
     }
-    
+
     func addNewRecord() {
-        //TODO: Pass command
+        // TODO: Pass command
     }
-    
+
     func getExportDefaultName() -> String {
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -70,7 +60,7 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
     func eventsDidUpdate() {
         wasFiltered = false
     }
-    
+
     private func prepareFilteredData() {
         // TODO: Implement
 //        let manager = FilterManager()
@@ -80,11 +70,20 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
 //        wasFiltered = true
 //        filteredEvents = result
     }
-
 }
 
 extension StoragesViewModel: DataSourceCountableProtocol {
     func getEventsCount() -> Int {
         filteredRecords.count
+    }
+}
+
+extension StoragesViewModel: NotificationObserver {
+    func notificationDidReceived(key: NotificationManager.NotificationEvenName, data: Any?) {
+        guard let data = data as? [String: AnyObject] else {
+            return
+        }
+
+        storageEventModel = EventModel.create(from: data)
     }
 }

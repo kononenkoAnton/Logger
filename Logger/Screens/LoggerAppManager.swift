@@ -7,33 +7,26 @@
 
 import Foundation
 
-protocol LoggerAppManagerDelegate {
-    func sendConsoleCommand(_ command: String)
-    func sendConsoleCommandShareCommandsList()
-}
 
-class LoggerAppManager: LocalWebSocketDelegate, LoggerAppManagerDelegate {
-    
-    func socketStatusDidUpdate(status: LocalWebSocket.Status) {
-        
-    }
+
+class LoggerAppManager: LocalWebSocketDelegate {
+    static let shared = LoggerAppManager()
     
     private var localServer = LocalSever()
-    
-    init() {
+
+    func socketStatusDidUpdate(status: LocalWebSocket.Status) {
+        NotificationManager.shared.postEvnet(eventName: Notification.Name.SocketStatusDidUpdate, object: status)
+    }
+
+    private init() {
         localServer.startLocalServer()
     }
-    
+
     func stopLocalServer() {
         localServer.stopLocalServer()
     }
-    
-    func sendConsoleCommand(_ command: String) {
+
+    func sendCommandToClient(_ command: String) throws{
         try? localServer.sendCommandToClient(command: command)
     }
-
-    func sendConsoleCommandShareCommandsList() {
-        try? localServer.sendCommandToClient(command: "cmdlist")
-    }
-
 }

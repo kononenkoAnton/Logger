@@ -10,13 +10,13 @@ import SwiftUI
 @main
 struct LoggerApp: App, ApplicationDelegateProtocol {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    let loggerViewModel: LoggerViewModel
+
     func applicationShouldTerminate() {
-        loggerViewModel.stopLocalServer()
+        LoggerAppManager.shared.stopLocalServer()
     }
 
     init() {
-        loggerViewModel = LoggerViewModel()
+
         appDelegate.delegate = self
     }
 

@@ -19,29 +19,16 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     @Published var socketConnectionIndicator: LocalWebSocket.Status = .notConnected
 
     private var wasFiltered = false
-    private var localServer = LocalSever()
 
     init() {
         let strIPAddress: String = getIPAddress()
         loggerModel = LoggerModel()
         loggerModel.eventsDidUpdate = eventsDidUpdate
         prepareFilteredData()
-        localServer.delegate = self
-        localServer.startLocalServer()
 
         print("IPAddress : \(strIPAddress)")
-
-        NotificationCenter.default.addObserver(self, selector: #selector(receiveData(_:)), name: NSNotification.Name("PostEvent"), object: nil)
-    }
-
-    @objc func receiveData(_ notification: NSNotification) {
-        guard let data = notification.object as? [[String: AnyObject]] else {
-            return
-        }
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            self.addNewEntries(data: data)
-        }
+        NotificationManager.shared.addObserver(observer: self,
+                                               to: Notification.Name.PostLogEvent)
     }
 
     // MARK: - Intents(s)
@@ -64,10 +51,6 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
             }
             prepareFilteredData()
         }
-    }
-
-    func stopLocalServer() {
-        localServer.stopLocalServer()
     }
 
     func clearLoggerData() {
@@ -175,19 +158,11 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func sendConsoleCommand(_ command: String) {
-        try? localServer.sendCommandToClient(command: command)
+        try? LoggerAppManager.shared.sendCommandToClient(command)
     }
 
     func sendConsoleCommandShareCommandsLikst() {
-        try? localServer.sendCommandToClient(command: "cmdlist")
-    }
-}
-
-extension LoggerViewModel: LocalWebSocketDelegate {
-    func socketStatusDidUpdate(status: LocalWebSocket.Status) {
-        DispatchQueue.main.async { [weak self] in
-            self?.socketConnectionIndicator = status
-        }
+        try? LoggerAppManager.shared.sendCommandToClient("cmdlist")
     }
 }
 
@@ -195,6 +170,36 @@ extension LoggerViewModel: DataSourceCountableProtocol {
     func getEventsCount() -> Int {
         return events().count
     }
-    
-    
+}
+
+extension LoggerViewModel: NotificationObserver {
+    func notificationDidReceived(key: NotificationManager.NotificationEvenName, data: Any?) {
+        switch key {
+        case NotificationManager.NotificationEvenName.PostLogEvent:
+            addNewEntries(data: data)
+        case NotificationManager.NotificationEvenName.SocketStatusDidUpdate:
+            socketStatusDidUpdate(data: data)
+        default:
+            break
+        }
+    }
+
+    func addNewEntries(data: Any?) {
+        guard let data = data as? [[String: AnyObject]] else {
+            return
+        }
+
+        addNewEntries(data: data)
+    }
+
+    func socketStatusDidUpdate(data: Any?) {
+        guard let status = data as? LocalWebSocket.Status else {
+            print("socketStatusDidUpdate: Something went wrong")
+            return
+        }
+
+        DispatchQueue.main.async { [weak self] in
+            self?.socketConnectionIndicator = status
+        }
+    }
 }
