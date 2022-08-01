@@ -115,6 +115,10 @@ class LocalWebSocket {
     }
 
     func sendCommandToClient(command: String) throws {
+        guard command.isEmpty == false else {
+            return
+        }
+
         let encoder = JSONEncoder()
         let data = try encoder.encode(WSCommand(command: command))
         connectedClients.forEach {
@@ -143,8 +147,11 @@ class LocalWebSocket {
             case .event:
                 let newEventData = try decoder.decode(WSMessageEvent.self, from: data)
                 let jsonEventObject = convertStringToDictionary(text: newEventData.event)
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PostEvent"),
-                                                object: [jsonEventObject])
+                NotificationManager.shared.postEvent(eventName: Notification.Name.PostLogEvent, data: [jsonEventObject])
+
+            case .storage:
+                let storageData = try decoder.decode(WSStorage.self, from: data)
+                NotificationManager.shared.postEvent(eventName: Notification.Name.PostStorageEvents, data: storageData.data)
             default:
                 break
             }

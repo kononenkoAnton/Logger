@@ -18,7 +18,7 @@ struct DataModelHelper {
         retVal.append(messageDataModel)
         
         let subsystem = model.subsystem
-        let subsystemDataModel = DataModel(key: "Subsystem: ", value: subsystem)
+        let subsystemDataModel = DataModel(key: "Subsystem:", value: subsystem)
         retVal.append(subsystemDataModel)
         
         let category = model.category

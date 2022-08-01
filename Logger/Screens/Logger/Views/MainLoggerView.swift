@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainLoggerView: View {
-    @ObservedObject var loggerViewModel: LoggerViewModel
+    @ObservedObject var loggerViewModel: LoggerViewModel = LoggerViewModel()
 
     var body: some View {
         VStack {

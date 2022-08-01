@@ -1,22 +1,21 @@
 //
-//  TopBar.swift
+//  StoragesTopView.swift
 //  Logger
 //
-//  Created by Anton Kononenko on 9/18/21.
+//  Created by Anton Kononenko on 7/29/22.
 //
 
 import SwiftUI
 
-struct TopView: View {
-    @ObservedObject var loggerViewModel: LoggerViewModel
-
+struct StoragesTopView: View {
+    @ObservedObject var storagesViewModel: StoragesViewModel
     var body: some View {
         VStack {
             HStack {
                 VStack(alignment: .leading) {
-                    Text("Logger").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
+                    Text("Storages").font(.headline).foregroundColor(Color(ColorKeys.TopTitleFontColor))
                     Spacer(minLength: 1)
-                    Text("\(loggerViewModel.events().count) Events")
+                    Text("\(storagesViewModel.getEventsCount()) Namespaces")
                         .font(.subheadline).foregroundColor(Color(ColorKeys.FontColor2))
 
                 }.padding(EdgeInsets(top: 10,
@@ -24,15 +23,15 @@ struct TopView: View {
                                      bottom: 0,
                                      trailing: 0))
                 Spacer()
-                TopButtonsBar(loggerViewModel: loggerViewModel).padding(EdgeInsets(top: 10,
-                                                                                   leading: 0,
-                                                                                   bottom: 0,
-                                                                                   trailing: 0))
-                SearchBar(loggerViewModel: loggerViewModel)
-                    .padding(EdgeInsets(top: 10,
-                                        leading: 0,
-                                        bottom: 0,
-                                        trailing: 0))
+                StoragesTopButtonBar(storagesViewModel: storagesViewModel).padding(EdgeInsets(top: 10,
+                                                                                              leading: 0,
+                                                                                              bottom: 0,
+                                                                                              trailing: 0))
+//                SearchBar(filteredData: storagesViewModel)
+//                    .padding(EdgeInsets(top: 10,
+//                                        leading: 0,
+//                                        bottom: 0,
+//                                        trailing: 0))
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 45,
@@ -44,8 +43,7 @@ struct TopView: View {
                     maxHeight: 1).foregroundColor(Color(ColorKeys.BackgroundColorSeparatorLine)).padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
 
             HStack {
-                LogTypeBar(loggerViewModel: loggerViewModel)
-                ConnectionIndicator(connectionStatus: loggerViewModel.socketConnectionIndicator)
+                StoragesTypeSelectorView(storagesViewModel: storagesViewModel)
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 20,
@@ -63,9 +61,8 @@ struct TopView: View {
     }
 }
 
-struct TopBar_Previews: PreviewProvider {
-    static var previews: some View {
-        TopView(loggerViewModel: LoggerViewModel())
-        TopView(loggerViewModel: LoggerViewModel()).preferredColorScheme(.light)
-    }
-}
+// struct StoragesTopView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StoragesTopView()
+//    }
+// }
