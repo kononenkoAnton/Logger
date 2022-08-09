@@ -10,6 +10,16 @@
 		1DA24F9F2836358200D1AB58 /* LocalWebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */; };
 		1DA24FA228363FEC00D1AB58 /* WebSocketData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */; };
 		2DA2C77D112F2C8946509096 /* Pods_Logger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0904C1F82841F8B56EFCE38C /* Pods_Logger.framework */; };
+		402B5F7028A2D4D10020C7A3 /* StorageRecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F6E28A2D4D10020C7A3 /* StorageRecordModel.swift */; };
+		402B5F7128A2D4D10020C7A3 /* StorageDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F6F28A2D4D10020C7A3 /* StorageDataModel.swift */; };
+		402B5F7628A2D5370020C7A3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7528A2D5370020C7A3 /* NotificationManager.swift */; };
+		402B5F7828A2D5630020C7A3 /* LoggerAppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7728A2D5630020C7A3 /* LoggerAppManager.swift */; };
+		402B5F7A28A2D5D10020C7A3 /* DataSourceCountableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7928A2D5D10020C7A3 /* DataSourceCountableProtocol.swift */; };
+		402B5F7E28A2D60E0020C7A3 /* StoragesTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7B28A2D60E0020C7A3 /* StoragesTypeButton.swift */; };
+		402B5F7F28A2D60E0020C7A3 /* StoragesTypeSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7C28A2D60E0020C7A3 /* StoragesTypeSelectorView.swift */; };
+		402B5F8028A2D60E0020C7A3 /* StoragesTopButtonBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F7D28A2D60E0020C7A3 /* StoragesTopButtonBar.swift */; };
+		402B5F8328A2D6950020C7A3 /* Consts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F8228A2D6950020C7A3 /* Consts.swift */; };
+		402B5F8528A2D6C20020C7A3 /* StoragestTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402B5F8428A2D6C20020C7A3 /* StoragestTableView.swift */; };
 		402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B02863695800C6C586 /* ConsoleEventView.swift */; };
 		402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B2286376E100C6C586 /* SendEventButton.swift */; };
 		402CA6B62863B60700C6C586 /* LogsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 402CA6B52863B60700C6C586 /* LogsTableView.swift */; };
@@ -79,6 +89,16 @@
 		1DA24F9E2836358200D1AB58 /* LocalWebSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWebSocket.swift; sourceTree = "<group>"; };
 		1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketData.swift; sourceTree = "<group>"; };
 		37D0A501D60C8F4AB4FEAC95 /* Pods-LoggerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggerTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggerTests/Pods-LoggerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		402B5F6E28A2D4D10020C7A3 /* StorageRecordModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageRecordModel.swift; sourceTree = "<group>"; };
+		402B5F6F28A2D4D10020C7A3 /* StorageDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageDataModel.swift; sourceTree = "<group>"; };
+		402B5F7528A2D5370020C7A3 /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		402B5F7728A2D5630020C7A3 /* LoggerAppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerAppManager.swift; sourceTree = "<group>"; };
+		402B5F7928A2D5D10020C7A3 /* DataSourceCountableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSourceCountableProtocol.swift; sourceTree = "<group>"; };
+		402B5F7B28A2D60E0020C7A3 /* StoragesTypeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragesTypeButton.swift; sourceTree = "<group>"; };
+		402B5F7C28A2D60E0020C7A3 /* StoragesTypeSelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragesTypeSelectorView.swift; sourceTree = "<group>"; };
+		402B5F7D28A2D60E0020C7A3 /* StoragesTopButtonBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragesTopButtonBar.swift; sourceTree = "<group>"; };
+		402B5F8228A2D6950020C7A3 /* Consts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Consts.swift; sourceTree = "<group>"; };
+		402B5F8428A2D6C20020C7A3 /* StoragestTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoragestTableView.swift; sourceTree = "<group>"; };
 		402CA6B02863695800C6C586 /* ConsoleEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleEventView.swift; sourceTree = "<group>"; };
 		402CA6B2286376E100C6C586 /* SendEventButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEventButton.swift; sourceTree = "<group>"; };
 		402CA6B52863B60700C6C586 /* LogsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsTableView.swift; sourceTree = "<group>"; };
@@ -176,6 +196,22 @@
 				1DA24FA128363FEC00D1AB58 /* WebSocketData.swift */,
 			);
 			path = WebSocketData;
+			sourceTree = "<group>";
+		};
+		402B5F7428A2D5370020C7A3 /* NotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				402B5F7528A2D5370020C7A3 /* NotificationManager.swift */,
+			);
+			path = NotificationManager;
+			sourceTree = "<group>";
+		};
+		402B5F8128A2D6950020C7A3 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				402B5F8228A2D6950020C7A3 /* Consts.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		402CA6AF2863693A00C6C586 /* ConsoleView */ = {
@@ -368,6 +404,7 @@
 		40D39C53289444F400477422 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				402B5F7728A2D5630020C7A3 /* LoggerAppManager.swift */,
 				40D39C73289471A900477422 /* DefaultViews */,
 				40D39C622894513100477422 /* Main */,
 				40A5BBDB26F61A9800649521 /* LoggerApp.swift */,
@@ -390,6 +427,7 @@
 		40D39C552894455700477422 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				402B5F7428A2D5370020C7A3 /* NotificationManager */,
 				40AE0867286101D60059532E /* FileDocuments */,
 				407C32CE26F955A10009E533 /* Filter */,
 			);
@@ -436,6 +474,7 @@
 			children = (
 				40D39C7028946F9400477422 /* TopBar */,
 				40D39C5D28944E7500477422 /* StoragesView.swift */,
+				402B5F8428A2D6C20020C7A3 /* StoragestTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -443,6 +482,8 @@
 		40D39C5F2894501900477422 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				402B5F6F28A2D4D10020C7A3 /* StorageDataModel.swift */,
+				402B5F6E28A2D4D10020C7A3 /* StorageRecordModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -493,6 +534,9 @@
 		40D39C7028946F9400477422 /* TopBar */ = {
 			isa = PBXGroup;
 			children = (
+				402B5F7D28A2D60E0020C7A3 /* StoragesTopButtonBar.swift */,
+				402B5F7B28A2D60E0020C7A3 /* StoragesTypeButton.swift */,
+				402B5F7C28A2D60E0020C7A3 /* StoragesTypeSelectorView.swift */,
 				40D39C7128946FD400477422 /* StoragesTopView.swift */,
 			);
 			path = TopBar;
@@ -501,6 +545,7 @@
 		40D39C73289471A900477422 /* DefaultViews */ = {
 			isa = PBXGroup;
 			children = (
+				402B5F8128A2D6950020C7A3 /* Enums */,
 				40A5BC1626F64C6900649521 /* SearchBar */,
 				40D39C74289471B700477422 /* Buttons */,
 			);
@@ -519,6 +564,7 @@
 			isa = PBXGroup;
 			children = (
 				40D39C792894745300477422 /* FilteredDataProtocol.swift */,
+				402B5F7928A2D5D10020C7A3 /* DataSourceCountableProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -790,22 +836,29 @@
 				407C32C626F904B20009E533 /* DetailsList.swift in Sources */,
 				40AE086928611D7B0059532E /* JSONFileDocument.swift in Sources */,
 				407C32D026F955D90009E533 /* FiterTask.swift in Sources */,
+				402B5F7A28A2D5D10020C7A3 /* DataSourceCountableProtocol.swift in Sources */,
 				40A5BC0E26F639D800649521 /* TopView.swift in Sources */,
+				402B5F7E28A2D60E0020C7A3 /* StoragesTypeButton.swift in Sources */,
 				407C32A426F693550009E533 /* Helpers.swift in Sources */,
+				402B5F7128A2D4D10020C7A3 /* StorageDataModel.swift in Sources */,
 				407C32B026F7C0120009E533 /* EventModel.swift in Sources */,
 				40D39C6F2894540E00477422 /* NavigationDataView.swift in Sources */,
 				407C32D626FA23990009E533 /* List+Extensions.swift in Sources */,
 				40B38F7A26FAB51E000B96DE /* LocalSever.swift in Sources */,
 				40A5BBDC26F61A9800649521 /* LoggerApp.swift in Sources */,
+				402B5F8028A2D60E0020C7A3 /* StoragesTopButtonBar.swift in Sources */,
+				402B5F8528A2D6C20020C7A3 /* StoragestTableView.swift in Sources */,
 				407C32A726F694340009E533 /* LogTypeButton.swift in Sources */,
 				402CA6B12863695800C6C586 /* ConsoleEventView.swift in Sources */,
 				1DA24FA228363FEC00D1AB58 /* WebSocketData.swift in Sources */,
 				40A5BC0A26F6361600649521 /* Styles.swift in Sources */,
 				40D39C5E28944E7500477422 /* StoragesView.swift in Sources */,
+				402B5F7628A2D5370020C7A3 /* NotificationManager.swift in Sources */,
 				40D39C612894504300477422 /* NavigationModel.swift in Sources */,
 				407C32A026F68AB00009E533 /* TopButtonsBar.swift in Sources */,
 				407C32D426F974160009E533 /* FilterManager.swift in Sources */,
 				407C32AA26F696830009E533 /* LogTypeBar.swift in Sources */,
+				402B5F7028A2D4D10020C7A3 /* StorageRecordModel.swift in Sources */,
 				1DA24F9F2836358200D1AB58 /* LocalWebSocket.swift in Sources */,
 				402CA6B3286376E100C6C586 /* SendEventButton.swift in Sources */,
 				40D39C7A2894745300477422 /* FilteredDataProtocol.swift in Sources */,
@@ -814,9 +867,12 @@
 				40A5BC1526F6465600649521 /* SearchBar.swift in Sources */,
 				407C32B726F80B640009E533 /* AnyCodable.swift in Sources */,
 				40D39C7228946FD400477422 /* StoragesTopView.swift in Sources */,
+				402B5F8328A2D6950020C7A3 /* Consts.swift in Sources */,
 				40D39C5B28944C5F00477422 /* StoragesViewModel.swift in Sources */,
+				402B5F7F28A2D60E0020C7A3 /* StoragesTypeSelectorView.swift in Sources */,
 				407C32BE26F8EC420009E533 /* BottomDetailView.swift in Sources */,
 				407C32CD26F921CE0009E533 /* DataModelHelper.swift in Sources */,
+				402B5F7828A2D5630020C7A3 /* LoggerAppManager.swift in Sources */,
 				407C32D226F969950009E533 /* UserDefaultManager.swift in Sources */,
 				40D5E17C26F65A1D00CB5A17 /* TopButton.swift in Sources */,
 				402CA6B62863B60700C6C586 /* LogsTableView.swift in Sources */,

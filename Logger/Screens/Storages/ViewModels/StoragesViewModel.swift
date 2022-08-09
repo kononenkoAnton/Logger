@@ -22,7 +22,7 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
 
     func reloadStorages() {
         do {
-            try LoggerAppManager.shared.sendCommandToClient("storages.all")
+            try LoggerAppManager.shared.sendCommandToClient("storage.list")
         } catch {
             print("reloadStorages: \(error)")
         }
