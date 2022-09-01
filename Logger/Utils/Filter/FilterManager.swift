@@ -45,11 +45,11 @@ struct FilterManager {
         guard let filterText = filterText as? String else {
             return data
         }
-        
+        let lowercasedFilteredText = filterText.lowercased()
         return data.filter { (event) -> Bool in
-            event.subsystem.lowercased().contains(filterText) ||
-                event.category.lowercased().contains(filterText) ||
-                event.message.lowercased().contains(filterText)
+            event.subsystem.lowercased().contains(lowercasedFilteredText) ||
+                event.category.lowercased().contains(lowercasedFilteredText) ||
+                event.message.lowercased().contains(lowercasedFilteredText)
         }
     }
 }
