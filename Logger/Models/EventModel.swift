@@ -20,7 +20,7 @@ struct EventModel: Identifiable, Equatable {
     }
     
     let dateFormatter = DateFormatter()
-    public var format = "yyyy-MM-dd HH:mm:ssZ"
+    public var format = "yyyy-MM-dd HH:mm:ss.SSS"
 
     init(id: String,
          category: String,
@@ -80,8 +80,10 @@ struct EventModel: Identifiable, Equatable {
     public let data: [String: Any]?
     public let context: [String: Any]?
     public var dateInString: String {
-        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
+        dateFormatter.locale = Locale.current
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)/1000))
         dateFormatter.dateFormat = format
+        
         return dateFormatter.string(from: date)
     }
 
