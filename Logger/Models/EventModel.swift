@@ -81,6 +81,7 @@ struct EventModel: Identifiable, Equatable {
     public let context: [String: Any]?
     public var dateInString: String {
         dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
         let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)/1000))
         dateFormatter.dateFormat = format
         
