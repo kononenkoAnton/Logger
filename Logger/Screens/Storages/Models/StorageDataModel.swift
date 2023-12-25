@@ -11,6 +11,13 @@ struct StoragesDataModel {
         static let session = "session"
         static let local = "local"
         static let secure = "secure"
+        
+        struct Xstr {
+            static let session = "session"
+            static let local = "local"
+            static let keychain = "keychain"
+            static let storages = "storages"
+        }
     }
 
     let session: [DataModel]
@@ -18,15 +25,15 @@ struct StoragesDataModel {
     let secure: [DataModel]
 
     static func create(from object: [String: Any]) -> StoragesDataModel {
-        let sessionDict = object[ParsingKeys.session] as! [String: Any]
+        guard let sessionDict = object[ParsingKeys.session] as? [String: Any],
+              let localDict = object[ParsingKeys.local] as? [String: Any],
+              let secureDict = object[ParsingKeys.secure] as? [String: Any] else {
+            return StoragesDataModel(session: [], local: [], secure: [])
+        }
+        
         let session = createModel(sessionDict)
-
-        let localDict = object[ParsingKeys.local] as! [String: Any]
         let local = createModel(localDict)
-
-        let secureDict = object[ParsingKeys.secure] as! [String: Any]
         let secure = createModel(secureDict)
-
         return StoragesDataModel(session: session, local: local, secure: secure)
     }
 

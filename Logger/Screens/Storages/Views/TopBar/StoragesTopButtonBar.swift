@@ -17,9 +17,19 @@ struct StoragesTopButtonBar: View {
 
     var body: some View {
         HStack {
+            TopButton(imageName: TopViewIcons.addItem, text: "Add existing Logs") {
+                let panel = NSOpenPanel()
+                panel.allowsMultipleSelection = false
+                panel.canChooseDirectories = false
+                if panel.runModal() == .OK,
+                   let url = panel.url {
+                    storagesViewModel.loadExistedJSON(url: url)
+                }
+            }
             TopButton(imageName: TopViewIcons.reloadData, text: "Reload Storages") {
                 storagesViewModel.reloadStorages()
             }
+            
 //            TopButton(imageName: TopViewIcons.addItem, text: "Add New Key") {
 //
 //             //TODO: Add new key for namespace

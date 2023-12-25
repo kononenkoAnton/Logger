@@ -9,12 +9,17 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject, FilteredDataProtocol {
-
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     @Published var socketConnectionIndicator: LocalWebSocket.Status = .notConnected
 
     private var wasFiltered = false
+
+    struct ParsingKeys {
+        struct Xstr {
+            static let events = "events"
+        }
+    }
 
     init() {
         let strIPAddress: String = getIPAddress()
@@ -86,11 +91,32 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
 
                 if let data = data,
                    let convertedData = self.convertDataToArray(data: data) {
-                    self.addNewEntries(data: convertedData)
+                    var dataToAdd = convertedData
+                    if convertedData.count == 1,
+                       let array = getContent(from: convertedData, withSingleObject: ParsingKeys.Xstr.events) {
+                        dataToAdd = array
+                    }
+
+                    self.addNewEntries(data: dataToAdd)
+
                     self.loggerModel.sortByTimeStamp()
                 }
             }
         }.resume()
+    }
+
+    func getContent(from data: [[String: AnyObject]]?, withSingleObject key: String) -> [[String: AnyObject]]? {
+        guard let singleObject = data?.first,
+              let stringsArray = singleObject[key] as? [String] else {
+            return nil
+        }
+
+        return stringsArray.compactMap { string -> [String: AnyObject]? in
+            if let data = string.data(using: .utf8) {
+                return self.convertDataToArray(data: data)?.first
+            }
+            return nil
+        }
     }
 
     func convertDataToArray(data: Data) -> [[String: AnyObject]]? {

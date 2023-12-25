@@ -12,15 +12,20 @@ struct TopButton: View {
     var imageName: String
     var text: String
     var action: () -> Void
+    @ScaledMetric(relativeTo:.body) var height = 14 // default height of body
 
     var body: some View {
         Button(action: action) {
             VStack {
                 VStack {
-                    Image(systemName: imageName).padding(4)
-                }.background(isHover ? Color(ColorKeys.TopButtonBackgroundHower) : Color.clear).cornerRadius(5.0)
-                Spacer(minLength: 0)
-                Text(text).font(.subheadline)
+                    Image(systemName: imageName)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(height:height)
+
+                    Text(text).font(.subheadline)
+                }
+                    .background(isHover ? Color(ColorKeys.TopButtonBackgroundHower) : Color.clear).cornerRadius(5.0)
             }
 
         }.buttonStyle(PlainButtonStyle())
