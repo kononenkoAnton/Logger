@@ -103,14 +103,19 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
                 if let error = error {
                     print(error)
                 }
-
-                if let data = data,
-                   let convertedData = self.convertDataToArray(data: data),
-                   let data = getContent(from: convertedData, withSingleObject: StoragesDataModel.ParsingKeys.Xstr.storages) {
-                    parseEvents(fromData: data)
-                }
+                
+                parseLoadedData(data)
             }
         }.resume()
+    }
+
+    func parseLoadedData(_ data: Data?) {
+        guard let data,
+              let convertedData = convertDataToArray(data: data),
+              let content = getContent(from: convertedData, withSingleObject: StoragesDataModel.ParsingKeys.Xstr.storages) else {
+            return
+        }
+        parseEvents(from: content)
     }
 
     func clearStoragesData() {
@@ -118,8 +123,8 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
         prepareFilteredData()
     }
 
-    func parseEvents(fromData data: [String: AnyObject]) {
-        storagesDataModel = StoragesDataModel.create(from: data)
+    func parseEvents(from content: [String: AnyObject]) {
+        storagesDataModel = StoragesDataModel.create(from: content)
         prepareFilteredData()
     }
 
@@ -145,7 +150,6 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
         return [StoragesDataModel.ParsingKeys.local: local as AnyObject,
                 StoragesDataModel.ParsingKeys.session: session as AnyObject,
                 StoragesDataModel.ParsingKeys.secure: keychain as AnyObject]
-    
     }
 }
 
@@ -160,6 +164,6 @@ extension StoragesViewModel: NotificationObserver {
         guard let data = data as? [String: AnyObject] else {
             return
         }
-        parseEvents(fromData: data)
+        parseEvents(from: data)
     }
 }

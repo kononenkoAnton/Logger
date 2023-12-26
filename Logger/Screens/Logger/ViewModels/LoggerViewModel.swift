@@ -62,7 +62,7 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
-        let newEvents = data.map { EventModel.create(from: $0) }
+        let newEvents = data.compactMap { EventModel.create(from: $0) }
         loggerModel.addNewItems(models: newEvents)
     }
 
@@ -79,7 +79,6 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func loadExistedJSON(url: URL) {
-        clearLoggerData()
 
         URLSession.shared.dataTask(with: url) { data, _, error in
             DispatchQueue.main.async { [weak self] in
@@ -89,20 +88,26 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
                     print(error)
                 }
 
-                if let data = data,
-                   let convertedData = self.convertDataToArray(data: data) {
-                    var dataToAdd = convertedData
-                    if convertedData.count == 1,
-                       let array = getContent(from: convertedData, withSingleObject: ParsingKeys.Xstr.events) {
-                        dataToAdd = array
-                    }
-
-                    self.addNewEntries(data: dataToAdd)
-
-                    self.loggerModel.sortByTimeStamp()
-                }
+                parseLoadedData(data)
             }
         }.resume()
+    }
+
+    func parseLoadedData(_ data: Data?) {
+        clearLoggerData()
+
+        guard let data,
+              let convertedData = convertDataToArray(data: data) else {
+            return
+        }
+
+        var dataToAdd = convertedData
+        if let array = getContent(from: convertedData, withSingleObject: ParsingKeys.Xstr.events) {
+            dataToAdd = array
+        }
+
+        addNewEntries(data: dataToAdd)
+        loggerModel.sortByTimeStamp()
     }
 
     func getContent(from data: [[String: AnyObject]]?, withSingleObject key: String) -> [[String: AnyObject]]? {
