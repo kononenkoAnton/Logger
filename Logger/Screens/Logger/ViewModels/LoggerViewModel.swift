@@ -9,12 +9,17 @@ import AppKit
 import Foundation
 
 class LoggerViewModel: ObservableObject, FilteredDataProtocol {
-
     @Published var loggerModel: LoggerModel
     @Published var filteredEvents: [EventModel] = []
     @Published var socketConnectionIndicator: LocalWebSocket.Status = .notConnected
 
     private var wasFiltered = false
+
+    struct ParsingKeys {
+        struct Xstr {
+            static let events = "events"
+        }
+    }
 
     init() {
         let strIPAddress: String = getIPAddress()
@@ -57,7 +62,7 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func addNewEntries(data: [[String: AnyObject]]) {
-        let newEvents = data.map { EventModel.create(from: $0) }
+        let newEvents = data.compactMap { EventModel.create(from: $0) }
         loggerModel.addNewItems(models: newEvents)
     }
 
@@ -74,7 +79,6 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func loadExistedJSON(url: URL) {
-        clearLoggerData()
 
         URLSession.shared.dataTask(with: url) { data, _, error in
             DispatchQueue.main.async { [weak self] in
@@ -84,13 +88,40 @@ class LoggerViewModel: ObservableObject, FilteredDataProtocol {
                     print(error)
                 }
 
-                if let data = data,
-                   let convertedData = self.convertDataToArray(data: data) {
-                    self.addNewEntries(data: convertedData)
-                    self.loggerModel.sortByTimeStamp()
-                }
+                parseLoadedData(data)
             }
         }.resume()
+    }
+
+    func parseLoadedData(_ data: Data?) {
+        clearLoggerData()
+
+        guard let data,
+              let convertedData = convertDataToArray(data: data) else {
+            return
+        }
+
+        var dataToAdd = convertedData
+        if let array = getContent(from: convertedData, withSingleObject: ParsingKeys.Xstr.events) {
+            dataToAdd = array
+        }
+
+        addNewEntries(data: dataToAdd)
+        loggerModel.sortByTimeStamp()
+    }
+
+    func getContent(from data: [[String: AnyObject]]?, withSingleObject key: String) -> [[String: AnyObject]]? {
+        guard let singleObject = data?.first,
+              let stringsArray = singleObject[key] as? [String] else {
+            return nil
+        }
+
+        return stringsArray.compactMap { string -> [String: AnyObject]? in
+            if let data = string.data(using: .utf8) {
+                return self.convertDataToArray(data: data)?.first
+            }
+            return nil
+        }
     }
 
     func convertDataToArray(data: Data) -> [[String: AnyObject]]? {

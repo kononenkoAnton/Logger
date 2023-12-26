@@ -26,12 +26,7 @@ struct StoragesTopView: View {
                 StoragesTopButtonBar(storagesViewModel: storagesViewModel).padding(EdgeInsets(top: 10,
                                                                                               leading: 0,
                                                                                               bottom: 0,
-                                                                                              trailing: 0))
-//                SearchBar(filteredData: storagesViewModel)
-//                    .padding(EdgeInsets(top: 10,
-//                                        leading: 0,
-//                                        bottom: 0,
-//                                        trailing: 0))
+                                                                                              trailing: 10))
             }.frame(
                 maxWidth: .infinity,
                 minHeight: 45,

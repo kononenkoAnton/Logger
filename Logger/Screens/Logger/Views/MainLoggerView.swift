@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainLoggerView: View {
     @ObservedObject var loggerViewModel: LoggerViewModel = LoggerViewModel()
+    @State private var isTargeted: Bool = false
 
     var body: some View {
         VStack {
@@ -23,6 +24,17 @@ struct MainLoggerView: View {
                 maxWidth: .infinity,
                 maxHeight: .infinity)
             .background(Color(ColorKeys.BackgroundColor))
+            .onDrop(of: [.json], isTargeted: $isTargeted, perform: { providers in
+                guard let provider = providers.first else { return false }
+                _ = provider.loadDataRepresentation(for: .json) { data, error in
+                                    if error == nil, let data {
+                                        DispatchQueue.main.async {
+                                            loggerViewModel.parseLoadedData(data)
+                                        }
+                                    }
+                                }
+                return true
+            })
     }
 }
 

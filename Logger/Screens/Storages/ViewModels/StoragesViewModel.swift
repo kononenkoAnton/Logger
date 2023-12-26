@@ -26,9 +26,8 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
         } catch {
             print("reloadStorages: \(error)")
         }
-        
     }
-    
+
     func storageData() -> [DataModel] {
         return filteredRecords
     }
@@ -93,6 +92,65 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
 
         wasFiltered = true
     }
+
+    func loadExistedJSON(url: URL) {
+        clearStoragesData()
+
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+
+                if let error = error {
+                    print(error)
+                }
+                
+                parseLoadedData(data)
+            }
+        }.resume()
+    }
+
+    func parseLoadedData(_ data: Data?) {
+        guard let data,
+              let convertedData = convertDataToArray(data: data),
+              let content = getContent(from: convertedData, withSingleObject: StoragesDataModel.ParsingKeys.Xstr.storages) else {
+            return
+        }
+        parseEvents(from: content)
+    }
+
+    func clearStoragesData() {
+        storagesDataModel = StoragesDataModel.create(from: [:])
+        prepareFilteredData()
+    }
+
+    func parseEvents(from content: [String: AnyObject]) {
+        storagesDataModel = StoragesDataModel.create(from: content)
+        prepareFilteredData()
+    }
+
+    func convertDataToArray(data: Data) -> [String: AnyObject]? {
+        do {
+            let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+            if let object = json as? [String: AnyObject] {
+                return object
+            }
+        } catch {
+            print("Something went wrong")
+        }
+        return nil
+    }
+
+    func getContent(from data: [String: AnyObject]?, withSingleObject key: String) -> [String: AnyObject]? {
+        guard let storages = data?[key] as? [String: Any],
+              let local = storages[StoragesDataModel.ParsingKeys.Xstr.local] as? [String: Any],
+              let session = storages[StoragesDataModel.ParsingKeys.Xstr.session] as? [String: Any],
+              let keychain = storages[StoragesDataModel.ParsingKeys.Xstr.keychain] as? [String: Any] else {
+            return nil
+        }
+        return [StoragesDataModel.ParsingKeys.local: local as AnyObject,
+                StoragesDataModel.ParsingKeys.session: session as AnyObject,
+                StoragesDataModel.ParsingKeys.secure: keychain as AnyObject]
+    }
 }
 
 extension StoragesViewModel: DataSourceCountableProtocol {
@@ -106,7 +164,6 @@ extension StoragesViewModel: NotificationObserver {
         guard let data = data as? [String: AnyObject] else {
             return
         }
-        storagesDataModel = StoragesDataModel.create(from: data)
-        prepareFilteredData()
+        parseEvents(from: data)
     }
 }

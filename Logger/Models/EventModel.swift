@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct EventModel: Identifiable, Equatable {
     struct ParsingKeys {
         static let category = "category"
@@ -18,7 +17,7 @@ struct EventModel: Identifiable, Equatable {
         static let data = "data"
         static let context = "context"
     }
-    
+
     let dateFormatter = DateFormatter()
     public var format = "yyyy-MM-dd HH:mm:ss.SSS"
 
@@ -39,25 +38,29 @@ struct EventModel: Identifiable, Equatable {
         self.data = data
         self.context = context
     }
-    
+
     func toOject() -> [String: Any] {
         return [
-            ParsingKeys.category : category as Any,
-            ParsingKeys.subsystem : subsystem as Any,
-            ParsingKeys.timestamp : timestamp as Any,
-            ParsingKeys.level : level.rawValue as Any,
-            ParsingKeys.message : message as Any,
-            ParsingKeys.data : data as Any,
-            ParsingKeys.context : context as Any,
+            ParsingKeys.category: category as Any,
+            ParsingKeys.subsystem: subsystem as Any,
+            ParsingKeys.timestamp: timestamp as Any,
+            ParsingKeys.level: level.rawValue as Any,
+            ParsingKeys.message: message as Any,
+            ParsingKeys.data: data as Any,
+            ParsingKeys.context: context as Any,
         ]
     }
 
-    static func create(from object: [String: Any]) -> EventModel {
-        let category = object[ParsingKeys.category] as! String
-        let subsystem = object[ParsingKeys.subsystem] as! String
-        let timestamp = object[ParsingKeys.timestamp] as! UInt
-        let level = LogLevel(rawValue: object[ParsingKeys.level] as! Int)!
-        let message = object[ParsingKeys.message] as! String
+    static func create(from object: [String: Any]) -> EventModel? {
+        guard let category = object[ParsingKeys.category] as? String,
+              let subsystem = object[ParsingKeys.subsystem] as? String,
+              let timestamp = object[ParsingKeys.timestamp] as? UInt,
+              let logLevel = object[ParsingKeys.level] as? Int,
+              let level = LogLevel(rawValue: logLevel),
+              let message = object[ParsingKeys.message] as? String else {
+            return nil
+        }
+        
         let data = object[ParsingKeys.data] as? [String: Any]
         let context = object[ParsingKeys.context] as? [String: Any]
         let id = "\(UUID())"
@@ -82,15 +85,14 @@ struct EventModel: Identifiable, Equatable {
     public var dateInString: String {
         dateFormatter.locale = Locale.current
         dateFormatter.timeZone = TimeZone.current
-        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp)/1000))
+        let date = Date(timeIntervalSince1970: TimeInterval(Double(timestamp) / 1000))
         dateFormatter.dateFormat = format
-        
+
         return dateFormatter.string(from: date)
     }
 
     static func == (lhs: EventModel,
                     rhs: EventModel) -> Bool {
-        
         return lhs.id == rhs.id &&
             lhs.category == rhs.category &&
             lhs.subsystem == rhs.subsystem &&
