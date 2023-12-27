@@ -1,10 +1,10 @@
 # Uncomment the next line to define a global platform for your project
-platform :macos, '11.0'
+platform :macos, '13.0'
 
 target 'Logger' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'Introspect'
+  pod 'SwiftUIIntrospect', '~> 1.1.1'
 
   target 'LoggerTests' do
     inherit! :search_paths
