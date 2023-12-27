@@ -103,7 +103,7 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
                 if let error = error {
                     print(error)
                 }
-                
+
                 parseLoadedData(data)
             }
         }.resume()
@@ -141,12 +141,14 @@ class StoragesViewModel: ObservableObject, FilteredDataProtocol {
     }
 
     func getContent(from data: [String: AnyObject]?, withSingleObject key: String) -> [String: AnyObject]? {
-        guard let storages = data?[key] as? [String: Any],
-              let local = storages[StoragesDataModel.ParsingKeys.Xstr.local] as? [String: Any],
-              let session = storages[StoragesDataModel.ParsingKeys.Xstr.session] as? [String: Any],
-              let keychain = storages[StoragesDataModel.ParsingKeys.Xstr.keychain] as? [String: Any] else {
+        guard let storages = data?[key] as? [String: Any] else {
             return nil
         }
+
+        let local = storages[StoragesDataModel.ParsingKeys.Xstr.local] as? [String: Any] ?? [:]
+        let session = storages[StoragesDataModel.ParsingKeys.Xstr.session] as? [String: Any] ?? [:]
+        let keychain = storages[StoragesDataModel.ParsingKeys.Xstr.keychain] as? [String: Any] ?? [:]
+
         return [StoragesDataModel.ParsingKeys.local: local as AnyObject,
                 StoragesDataModel.ParsingKeys.session: session as AnyObject,
                 StoragesDataModel.ParsingKeys.secure: keychain as AnyObject]
